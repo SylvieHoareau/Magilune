@@ -1,0 +1,1567 @@
+fileFormatVersion: 2
+guid: 294c7a9badd5c2d43b81da2329468364
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7590277137651099692
+    second: space man_0
+  - first:
+      213: -8477400783344273609
+    second: space man_1
+  - first:
+      213: 6285554231994175471
+    second: space man_2
+  - first:
+      213: -7880335035632112422
+    second: space man_3
+  - first:
+      213: 4241836788380728472
+    second: space man_4
+  - first:
+      213: 3832520674669513245
+    second: space man_5
+  - first:
+      213: 8991003310032608078
+    second: space man_6
+  - first:
+      213: 5373766974620071482
+    second: space man_7
+  - first:
+      213: 1137791466662185839
+    second: space man_8
+  - first:
+      213: 5801250647404611004
+    second: space man_9
+  - first:
+      213: -1524209632453952863
+    second: space man_10
+  - first:
+      213: -3797768510568887728
+    second: space man_11
+  - first:
+      213: 2089934975262002451
+    second: space man_12
+  - first:
+      213: 2110388841448788028
+    second: space man_13
+  - first:
+      213: -2173598217521082048
+    second: space man_14
+  - first:
+      213: 4229080042904139730
+    second: space man_15
+  - first:
+      213: 2724944966888735157
+    second: space man_16
+  - first:
+      213: -585052380652014035
+    second: space man_17
+  - first:
+      213: -7539290990766993069
+    second: space man_18
+  - first:
+      213: 404897131240417401
+    second: space man_19
+  - first:
+      213: 4137689324355681472
+    second: space man_20
+  - first:
+      213: 4738754602916679968
+    second: space man_21
+  - first:
+      213: 3362205122773738329
+    second: space man_22
+  - first:
+      213: -7719374419903632856
+    second: space man_23
+  - first:
+      213: -2972837958101309034
+    second: space man_24
+  - first:
+      213: -1794668892558572110
+    second: space man_25
+  - first:
+      213: 5384821074984981666
+    second: space man_26
+  - first:
+      213: -6711428426665974626
+    second: space man_27
+  - first:
+      213: -5589522946649157603
+    second: space man_28
+  - first:
+      213: 8973421125409829253
+    second: space man_29
+  - first:
+      213: 1114998639223432988
+    second: space man_30
+  - first:
+      213: -9064741169280752095
+    second: space man_31
+  - first:
+      213: 7528767583161546789
+    second: space man_32
+  - first:
+      213: 62036487280854298
+    second: space man_33
+  - first:
+      213: 7324112658707524015
+    second: space man_34
+  - first:
+      213: 5788237582407392935
+    second: space man_35
+  - first:
+      213: 8879842548008920075
+    second: space man_36
+  - first:
+      213: -1638006918537169982
+    second: space man_37
+  - first:
+      213: 757296154317390191
+    second: space man_38
+  - first:
+      213: 2985207363720721099
+    second: space man_39
+  - first:
+      213: 971918347715316268
+    second: space man_40
+  - first:
+      213: -6065755455363317501
+    second: space man_41
+  - first:
+      213: -5611001166014295332
+    second: space man_42
+  - first:
+      213: -1581033192264529742
+    second: space man_43
+  - first:
+      213: -6484748931488522626
+    second: space man_44
+  - first:
+      213: 4002501265332313988
+    second: space man_45
+  - first:
+      213: 7010285821689790538
+    second: space man_46
+  - first:
+      213: 3436685791737348416
+    second: space man_47
+  - first:
+      213: -3149482407605804708
+    second: space man_48
+  - first:
+      213: 9069957310984423672
+    second: space man_49
+  - first:
+      213: -8541358742822296934
+    second: space man_50
+  - first:
+      213: -90063372509283308
+    second: space man_51
+  - first:
+      213: 2759097532222216113
+    second: space man_52
+  - first:
+      213: 3451496466190514681
+    second: space man_53
+  - first:
+      213: 4605344950694340069
+    second: space man_54
+  - first:
+      213: 5743869168717350383
+    second: space man_55
+  - first:
+      213: 6593969584630604813
+    second: space man_56
+  - first:
+      213: 325457081653853173
+    second: space man_57
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: space man_0
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 1163
+        width: 118
+        height: 198
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c28667877d4165960800000000000000
+      internalID: 7590277137651099692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space man_1
+      rect:
+        serializedVersion: 2
+        x: 459
+        y: 1175
+        width: 118
+        height: 186
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 737752a17e83a5a80800000000000000
+      internalID: -8477400783344273609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space man_2
+      rect:
+        serializedVersion: 2
+        x: 799
+        y: 1171
+        width: 118
+        height: 186
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fef477e8546ca3750800000000000000
+      internalID: 6285554231994175471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space man_3
+      rect:
+        serializedVersion: 2
+        x: 1139
+        y: 1167
+        width: 118
+        height: 186
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: adc2512790d63a290800000000000000
+      internalID: -7880335035632112422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space man_4
+      rect:
+        serializedVersion: 2
+        x: 1479
+        y: 1163
+        width: 118
+        height: 194
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89cfd96b5180eda30800000000000000
+      internalID: 4241836788380728472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space man_5
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 1147
+        width: 54
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1a44008f39df2530800000000000000
+      internalID: 3832520674669513245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space man_6
+      rect:
+        serializedVersion: 2
+        x: 483
+        y: 1159
+        width: 62
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4bdad4cfd576cc70800000000000000
+      internalID: 8991003310032608078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space man_7
+      rect:
+        serializedVersion: 2
+        x: 827
+        y: 1155
+        width: 54
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3674fb8794739a40800000000000000
+      internalID: 5373766974620071482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space man_8
+      rect:
+        serializedVersion: 2
+        x: 1175
+        y: 1151
+        width: 46
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6bced68f4f3acf00800000000000000
+      internalID: 1137791466662185839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space man_9
+      rect:
+        serializedVersion: 2
+        x: 1511
+        y: 1147
+        width: 54
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb58e8b3abe228050800000000000000
+      internalID: 5801250647404611004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space man_10
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 1135
+        width: 18
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1aa7a563a6be8dae0800000000000000
+      internalID: -1524209632453952863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space man_11
+      rect:
+        serializedVersion: 2
+        x: 495
+        y: 1143
+        width: 46
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05a806c39ad9b4bc0800000000000000
+      internalID: -3797768510568887728
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space man_12
+      rect:
+        serializedVersion: 2
+        x: 839
+        y: 1139
+        width: 38
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31d082c79c0f00d10800000000000000
+      internalID: 2089934975262002451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space man_13
+      rect:
+        serializedVersion: 2
+        x: 1183
+        y: 1135
+        width: 30
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c30d080587b994d10800000000000000
+      internalID: 2110388841448788028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space man_14
+      rect:
+        serializedVersion: 2
+        x: 1531
+        y: 1135
+        width: 18
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 041db38ffe3d5d1e0800000000000000
+      internalID: -2173598217521082048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space man_15
+      rect:
+        serializedVersion: 2
+        x: 515
+        y: 1135
+        width: 10
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d7bef374e5b0ba30800000000000000
+      internalID: 4229080042904139730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space man_16
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 663
+        width: 118
+        height: 194
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b144ef8203f0d520800000000000000
+      internalID: 2724944966888735157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space man_17
+      rect:
+        serializedVersion: 2
+        x: 459
+        y: 659
+        width: 118
+        height: 198
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d267d34a5f971e7f0800000000000000
+      internalID: -585052380652014035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space man_18
+      rect:
+        serializedVersion: 2
+        x: 799
+        y: 655
+        width: 118
+        height: 198
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 351d70de9ce0f5790800000000000000
+      internalID: -7539290990766993069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space man_19
+      rect:
+        serializedVersion: 2
+        x: 1139
+        y: 651
+        width: 118
+        height: 198
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 978e82eabcb7e9500800000000000000
+      internalID: 404897131240417401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space man_20
+      rect:
+        serializedVersion: 2
+        x: 1479
+        y: 663
+        width: 118
+        height: 190
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0cc7521a4860c6930800000000000000
+      internalID: 4137689324355681472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space man_21
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 647
+        width: 54
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0219890543073c140800000000000000
+      internalID: 4738754602916679968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space man_22
+      rect:
+        serializedVersion: 2
+        x: 495
+        y: 643
+        width: 46
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9536de4deb3f8ae20800000000000000
+      internalID: 3362205122773738329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space man_23
+      rect:
+        serializedVersion: 2
+        x: 839
+        y: 639
+        width: 38
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82a28653dd54fd490800000000000000
+      internalID: -7719374419903632856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space man_24
+      rect:
+        serializedVersion: 2
+        x: 1183
+        y: 635
+        width: 30
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 699e29cb0ab5eb6d0800000000000000
+      internalID: -2972837958101309034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space man_25
+      rect:
+        serializedVersion: 2
+        x: 1511
+        y: 647
+        width: 54
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b54a99962e0817e0800000000000000
+      internalID: -1794668892558572110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space man_26
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 635
+        width: 18
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a45489dc3ababa40800000000000000
+      internalID: 5384821074984981666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space man_27
+      rect:
+        serializedVersion: 2
+        x: 515
+        y: 635
+        width: 10
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e94ad1597673cd2a0800000000000000
+      internalID: -6711428426665974626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space man_28
+      rect:
+        serializedVersion: 2
+        x: 1531
+        y: 635
+        width: 18
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d10151d9e760e62b0800000000000000
+      internalID: -5589522946649157603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space man_29
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 167
+        width: 114
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 581f90868fef78c70800000000000000
+      internalID: 8973421125409829253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space man_30
+      rect:
+        serializedVersion: 2
+        x: 247
+        y: 239
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c17e4f7da55497f00800000000000000
+      internalID: 1114998639223432988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space man_31
+      rect:
+        serializedVersion: 2
+        x: 467
+        y: 167
+        width: 114
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12669200fe1933280800000000000000
+      internalID: -9064741169280752095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space man_32
+      rect:
+        serializedVersion: 2
+        x: 587
+        y: 239
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 528f1de4a3e8b7860800000000000000
+      internalID: 7528767583161546789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space man_33
+      rect:
+        serializedVersion: 2
+        x: 807
+        y: 163
+        width: 114
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a150d734bd56cd000800000000000000
+      internalID: 62036487280854298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space man_34
+      rect:
+        serializedVersion: 2
+        x: 927
+        y: 239
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa9243588a974a560800000000000000
+      internalID: 7324112658707524015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space man_35
+      rect:
+        serializedVersion: 2
+        x: 1147
+        y: 159
+        width: 114
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ae55fee963f35050800000000000000
+      internalID: 5788237582407392935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space man_36
+      rect:
+        serializedVersion: 2
+        x: 1267
+        y: 239
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b04a87fffb98b3b70800000000000000
+      internalID: 8879842548008920075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space man_37
+      rect:
+        serializedVersion: 2
+        x: 1487
+        y: 163
+        width: 114
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c3b5f8d261a449e0800000000000000
+      internalID: -1638006918537169982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space man_38
+      rect:
+        serializedVersion: 2
+        x: 1607
+        y: 239
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f618bdb07d4728a00800000000000000
+      internalID: 757296154317390191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space man_39
+      rect:
+        serializedVersion: 2
+        x: 219
+        y: 159
+        width: 34
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc2347fe7469d6920800000000000000
+      internalID: 2985207363720721099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space man_40
+      rect:
+        serializedVersion: 2
+        x: 251
+        y: 159
+        width: 14
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2a814a7692fc7d00800000000000000
+      internalID: 971918347715316268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space man_41
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 163
+        width: 10
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3018ea41d8b12dba0800000000000000
+      internalID: -6065755455363317501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space man_42
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 167
+        width: 10
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd25a69fa28b122b0800000000000000
+      internalID: -5611001166014295332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space man_43
+      rect:
+        serializedVersion: 2
+        x: 567
+        y: 159
+        width: 30
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b888f430ba0f0ae0800000000000000
+      internalID: -1581033192264529742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space man_44
+      rect:
+        serializedVersion: 2
+        x: 599
+        y: 163
+        width: 10
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7e5809543b8106a0800000000000000
+      internalID: -6484748931488522626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space man_45
+      rect:
+        serializedVersion: 2
+        x: 611
+        y: 167
+        width: 10
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48f1f25d1bdbb8730800000000000000
+      internalID: 4002501265332313988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space man_46
+      rect:
+        serializedVersion: 2
+        x: 623
+        y: 167
+        width: 6
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4007cf00d9894160800000000000000
+      internalID: 7010285821689790538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space man_47
+      rect:
+        serializedVersion: 2
+        x: 899
+        y: 159
+        width: 30
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 041032de48f81bf20800000000000000
+      internalID: 3436685791737348416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space man_48
+      rect:
+        serializedVersion: 2
+        x: 919
+        y: 155
+        width: 22
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c51605cdf6aca44d0800000000000000
+      internalID: -3149482407605804708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space man_49
+      rect:
+        serializedVersion: 2
+        x: 943
+        y: 163
+        width: 10
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f80f21ae16fedd70800000000000000
+      internalID: 9069957310984423672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space man_50
+      rect:
+        serializedVersion: 2
+        x: 955
+        y: 163
+        width: 10
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9266ea3a7ff67980800000000000000
+      internalID: -8541358742822296934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space man_51
+      rect:
+        serializedVersion: 2
+        x: 1251
+        y: 163
+        width: 22
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41c7f4207d700cef0800000000000000
+      internalID: -90063372509283308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space man_52
+      rect:
+        serializedVersion: 2
+        x: 1267
+        y: 159
+        width: 18
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b713c456984a4620800000000000000
+      internalID: 2759097532222216113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space man_53
+      rect:
+        serializedVersion: 2
+        x: 1287
+        y: 163
+        width: 10
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f93dcacfbd26ef20800000000000000
+      internalID: 3451496466190514681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space man_54
+      rect:
+        serializedVersion: 2
+        x: 1299
+        y: 167
+        width: 6
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e5664e15d879ef30800000000000000
+      internalID: 4605344950694340069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space man_55
+      rect:
+        serializedVersion: 2
+        x: 1595
+        y: 159
+        width: 22
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe547bd939256bf40800000000000000
+      internalID: 5743869168717350383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space man_56
+      rect:
+        serializedVersion: 2
+        x: 1611
+        y: 155
+        width: 18
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0423af966c728b50800000000000000
+      internalID: 6593969584630604813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: space man_57
+      rect:
+        serializedVersion: 2
+        x: 1631
+        y: 159
+        width: 10
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5fbfc9dcd71448400800000000000000
+      internalID: 325457081653853173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable: {}
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
