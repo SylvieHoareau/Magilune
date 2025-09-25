@@ -1,0 +1,4 @@
+repository "Magitek/Magitek@11270600213828@cloud"
+  path "/"
+    br "/main"
+    co "/main"
