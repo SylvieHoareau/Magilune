@@ -14,6 +14,8 @@ public class AttackEventHandler : MonoBehaviour
 
     private void Awake()
     {
+        // Si le SpriteRenderer est sur l'objet parent du GameObject qui a l'Animator, 
+        // GetComponentInParent est correct. Sinon, utilisez GetComponent<SpriteRenderer>() si tout est au même niveau.
         _spriteRenderer = GetComponentInParent<SpriteRenderer>();
         if (_spriteRenderer == null)
         {
@@ -48,50 +50,36 @@ public class AttackEventHandler : MonoBehaviour
                 Debug.LogWarning($"L'objet {enemy.name} n'implémente pas IDamageable.");
             }
         }
-
-        // Optionnel : Dessiner la boîte pour le debugging dans l'Editor
-        DrawBox(position, _attackSize); 
-
     }
 
     // Fonction d'aide pour le debug (sera visible dans la vue Scene)
     private void OnDrawGizmosSelected()
     {
-        // Vérification de sécurité pour éviter les erreurs si l'objet n'est pas configuré
-        if (!Application.isEditor || transform == null)
+        // Assurer que le SpriteRenderer est disponible pour le calcul de direction.
+        if (!Application.isEditor || transform == null || _spriteRenderer == null)
         {
-            return;
-        }
-           
-
-        // Si le SpriteRenderer n'est pas encore initialisé (ex: lors du premier chargement)
-        // on tente de le récupérer, sinon on assume qu'il est là si on est déjà en mode Play/Edit
-        if (_spriteRenderer == null)
-        {
-            _spriteRenderer = GetComponent<SpriteRenderer>();
+            // Tentative de récupération au cas où (pour l'éditeur)
+            _spriteRenderer = GetComponentInParent<SpriteRenderer>();
             if (_spriteRenderer == null) return;
         }
 
-        // Visualisation de la Hitbox en temps réel dans l'éditeur
-        Gizmos.color = new Color(1f, 0.5f, 0f, 0.5f); // Orange semi-transparent
-        
         // 1. Déterminer la direction actuelle de l'attaque
         // La Hitbox doit se retourner quand le sprite est flipX
         float direction = _spriteRenderer.flipX ? -1f : 1f;
 
-        // 2. Calculer la position centrale de la boîte
-        Vector3 position = (Vector2)transform.position + new Vector2(_attackOffset.x * direction, _attackOffset.y);
-        
+        // 2. Calculer la position centrale de la boîte (uniformiser le nom de variable à 'center')
+        Vector3 center = (Vector2)transform.position + new Vector2(_attackOffset.x * direction, _attackOffset.y);
 
         // 3. Dessiner la boîte de Gizmo
-        // Choisir une couleur pour la visualisation
+        // Visualisation de la Hitbox en temps réel dans l'éditeur
         Gizmos.color = new Color(1f, 0.5f, 0f, 0.7f); // Orange semi-transparent
-        
+
         // Dessine uniquement le contour de la boîte (WireCube)
         Gizmos.DrawWireCube(center, _attackSize);
-        
-        // Alternative : Dessiner une boîte pleine (DrawCube) pour une meilleure visibilité, mais attention à ne pas cacher le joueur
-        // Gizmos.DrawCube(center, _attackSize);
+
+        // Optionnel : Dessine un cube plein avec une transparence plus faible
+        Gizmos.color = new Color(1f, 0.5f, 0f, 0.2f); // Orange très transparent
+        Gizmos.DrawCube(center, _attackSize);
     }
 
     // Interface pour les objets pouvant recevoir des dégâts

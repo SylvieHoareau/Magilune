@@ -5,7 +5,7 @@ public class PlayerController : MonoBehaviour
 {
     private Rigidbody2D rb;
     // Changement de PlayerActions à GameInput (ou le nouveau nom que vous avez choisi)
-    private @GameInput inputActions; // Utiliser @GameInput si vous avez coché "Generate C# Class"
+    private PlayerControls inputActions; // Utiliser @GameInput si vous avez coché "Generate C# Class"
     private Animator animator;
 
     private Vector2 moveInput;
@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour
         rb.gravityScale = 0;
 
         // Création de l'instance avec le nouveau nom de classe
-        inputActions = new @GameInput(); 
+        inputActions = new PlayerControls(); 
         inputActions.Enable();
 
         LinkActions();
