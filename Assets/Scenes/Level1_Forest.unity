@@ -3197,6 +3197,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2808846520819444858, guid: 79403999a2c67c444b520db41712f0c5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4606818493983942072, guid: 79403999a2c67c444b520db41712f0c5, type: 3}
       propertyPath: m_SortingLayer
       value: 1
@@ -3217,6 +3221,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -16.3
       objectReference: {fileID: 0}
+    - target: {fileID: 4829136715491459822, guid: 79403999a2c67c444b520db41712f0c5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 20.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4829136715491459822, guid: 79403999a2c67c444b520db41712f0c5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.9
+      objectReference: {fileID: 0}
     - target: {fileID: 5607655341657620400, guid: 79403999a2c67c444b520db41712f0c5, type: 3}
       propertyPath: cameraTransform
       value: 
@@ -3229,6 +3241,14 @@ PrefabInstance:
       propertyPath: cameraTransform
       value: 
       objectReference: {fileID: 306825425}
+    - target: {fileID: 7685882857833684398, guid: 79403999a2c67c444b520db41712f0c5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7993489981918638159, guid: 79403999a2c67c444b520db41712f0c5, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -3282145457511034884, guid: ef294d290e4c06b8ba0d8f70a41fdc7d, type: 3}
     - target: {fileID: 7993489981918638159, guid: 79403999a2c67c444b520db41712f0c5, type: 3}
       propertyPath: m_SortingLayer
       value: 1

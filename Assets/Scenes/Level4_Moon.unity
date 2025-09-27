@@ -206,7 +206,7 @@ Transform:
   m_GameObject: {fileID: 546568526}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.1, y: -7.3, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -278,11 +278,11 @@ PrefabInstance:
       objectReference: {fileID: -4651963772368346983, guid: f76925dc7b7c74e4090047714d39db5e, type: 3}
     - target: {fileID: 1590065742328858130, guid: 79403999a2c67c444b520db41712f0c5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.6443076
+      value: 22.6
       objectReference: {fileID: 0}
     - target: {fileID: 1590065742328858130, guid: 79403999a2c67c444b520db41712f0c5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 11.164834
+      value: 30.2
       objectReference: {fileID: 0}
     - target: {fileID: 1590065742328858130, guid: 79403999a2c67c444b520db41712f0c5, type: 3}
       propertyPath: m_LocalPosition.z
@@ -316,6 +316,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2808846520819444858, guid: 79403999a2c67c444b520db41712f0c5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4606818493983942072, guid: 79403999a2c67c444b520db41712f0c5, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -328,10 +332,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -17.7
       objectReference: {fileID: 0}
+    - target: {fileID: 7685882857833684398, guid: 79403999a2c67c444b520db41712f0c5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7993489981918638159, guid: 79403999a2c67c444b520db41712f0c5, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -4651963772368346983, guid: f76925dc7b7c74e4090047714d39db5e, type: 3}
+      objectReference: {fileID: 6546280766584946958, guid: ca31973c03bdc21c4b1945a811300fca, type: 3}
     - target: {fileID: 8173260730769425494, guid: 79403999a2c67c444b520db41712f0c5, type: 3}
       propertyPath: m_Name
       value: BackgroundContainer
