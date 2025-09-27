@@ -108,6 +108,20 @@ public class PlayerController : MonoBehaviour, PlayerControls.IPlayerActions
     }
     public void OnLook(InputAction.CallbackContext context) { }
 
+    /// <summary>
+    /// Gère l'action d'Interaction/Locomotion (Grappin/Jetpack/Grimpe)
+    /// </summary>
+    public void OnInteract(InputAction.CallbackContext context) 
+    {
+        // La spécification demande "Interact (Locomotion system in/out)"
+        if (context.performed)
+        {
+            // PROCHAINES ÉTAPES : Appeler un AbilityManager ou un LocomotionSystem ici.
+            // Ex: abilityManager.ToggleLocomotion();
+            Debug.Log("Interact Input Reçu : Préparation du système de Locomotion.");
+        }
+    }
+
     // ----------------------------------------
     // LOGIQUE DE JEU
     // -------------------------------------------
