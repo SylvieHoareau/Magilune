@@ -129,6 +129,32 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -409,7 +435,19 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      4_FLY ATTACK_007_0: -6449295275086715836
+      4_FLY ATTACK_007_1: 1942444572497872530
+      4_FLY ATTACK_007_10: 8641633141125885873
+      4_FLY ATTACK_007_11: -3420416664807842540
+      4_FLY ATTACK_007_2: -6580322951356464606
+      4_FLY ATTACK_007_3: -7177931469560499518
+      4_FLY ATTACK_007_4: -8268274131958512802
+      4_FLY ATTACK_007_5: 3397897831607867066
+      4_FLY ATTACK_007_6: 2582528606072750304
+      4_FLY ATTACK_007_7: 7811096767356872130
+      4_FLY ATTACK_007_8: 5776695007732087031
+      4_FLY ATTACK_007_9: 6957927495921019282
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

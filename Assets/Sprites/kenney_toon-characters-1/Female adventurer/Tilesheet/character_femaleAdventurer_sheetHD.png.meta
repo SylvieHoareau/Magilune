@@ -228,6 +228,32 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -1234,7 +1260,52 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      character_femaleAdventurer_sheetHD_0: -7405886002107424525
+      character_femaleAdventurer_sheetHD_1: 560555305622191365
+      character_femaleAdventurer_sheetHD_10: 1172712635081636410
+      character_femaleAdventurer_sheetHD_11: 4515779641086379032
+      character_femaleAdventurer_sheetHD_12: -2787259345253702502
+      character_femaleAdventurer_sheetHD_13: 4254533146338948497
+      character_femaleAdventurer_sheetHD_14: 569587270715359263
+      character_femaleAdventurer_sheetHD_15: 5032511392113920289
+      character_femaleAdventurer_sheetHD_16: 4565686597691627845
+      character_femaleAdventurer_sheetHD_17: -6453551707401244648
+      character_femaleAdventurer_sheetHD_18: 867092885296774558
+      character_femaleAdventurer_sheetHD_19: -724742899271111328
+      character_femaleAdventurer_sheetHD_2: 7112516567512933375
+      character_femaleAdventurer_sheetHD_20: -1692466271481375480
+      character_femaleAdventurer_sheetHD_21: -2776961758853625723
+      character_femaleAdventurer_sheetHD_22: 2736504099594836918
+      character_femaleAdventurer_sheetHD_23: 7893596680002964116
+      character_femaleAdventurer_sheetHD_24: -9035857224039796745
+      character_femaleAdventurer_sheetHD_25: -2485564600548068776
+      character_femaleAdventurer_sheetHD_26: -3557681102752658669
+      character_femaleAdventurer_sheetHD_27: -5762472517902203248
+      character_femaleAdventurer_sheetHD_28: -4487472856513147908
+      character_femaleAdventurer_sheetHD_29: -5339206522288657298
+      character_femaleAdventurer_sheetHD_3: -982949784761766085
+      character_femaleAdventurer_sheetHD_30: 7858451121295645573
+      character_femaleAdventurer_sheetHD_31: 7288851871789481686
+      character_femaleAdventurer_sheetHD_32: -3171628708671677352
+      character_femaleAdventurer_sheetHD_33: -1033728378137828245
+      character_femaleAdventurer_sheetHD_34: 6864239573768326748
+      character_femaleAdventurer_sheetHD_35: -2715308185682847191
+      character_femaleAdventurer_sheetHD_36: 3731794811396115777
+      character_femaleAdventurer_sheetHD_37: -3658037634189589219
+      character_femaleAdventurer_sheetHD_38: -4393002696878943360
+      character_femaleAdventurer_sheetHD_39: 3107974142985075408
+      character_femaleAdventurer_sheetHD_4: 7013699863875283212
+      character_femaleAdventurer_sheetHD_40: 4716226281571999898
+      character_femaleAdventurer_sheetHD_41: -7951789499327711663
+      character_femaleAdventurer_sheetHD_42: -4960437790447857771
+      character_femaleAdventurer_sheetHD_43: 8258336229043048735
+      character_femaleAdventurer_sheetHD_44: 552127769533575382
+      character_femaleAdventurer_sheetHD_5: -7648625850888941620
+      character_femaleAdventurer_sheetHD_6: 2083419359623034521
+      character_femaleAdventurer_sheetHD_7: 237822858204773232
+      character_femaleAdventurer_sheetHD_8: -5141590463388072209
+      character_femaleAdventurer_sheetHD_9: -856177508060353875
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

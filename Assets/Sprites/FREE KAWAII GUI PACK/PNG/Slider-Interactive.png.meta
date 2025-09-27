@@ -228,6 +228,32 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -1234,7 +1260,52 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Slider-Interactive_0: -4593789628552055553
+      Slider-Interactive_1: 3397998108022193121
+      Slider-Interactive_10: -6530644342033443176
+      Slider-Interactive_11: -4956640945155965833
+      Slider-Interactive_12: -1093088593445948859
+      Slider-Interactive_13: 6888487981597973744
+      Slider-Interactive_14: 3768693541034761770
+      Slider-Interactive_15: 4913002023282205289
+      Slider-Interactive_16: 906956892800611533
+      Slider-Interactive_17: -6045737146898750352
+      Slider-Interactive_18: -4886750286383351774
+      Slider-Interactive_19: 7679264301397620692
+      Slider-Interactive_2: -4918949516163947016
+      Slider-Interactive_20: -6915007448502590308
+      Slider-Interactive_21: -536312851573286291
+      Slider-Interactive_22: -488981848856950759
+      Slider-Interactive_23: 3221286030713308779
+      Slider-Interactive_24: 4578075237440320566
+      Slider-Interactive_25: 4131016957752359661
+      Slider-Interactive_26: 3861169385918907654
+      Slider-Interactive_27: -7475181014642763664
+      Slider-Interactive_28: 4891454229971832334
+      Slider-Interactive_29: -7747992939888474680
+      Slider-Interactive_3: 4844527275425927429
+      Slider-Interactive_30: 5463151712938080792
+      Slider-Interactive_31: 43820358899550027
+      Slider-Interactive_32: 4837609226489819547
+      Slider-Interactive_33: -8262291064992560209
+      Slider-Interactive_34: 2994005108976396498
+      Slider-Interactive_35: -9036587870937929394
+      Slider-Interactive_36: -1712536613331818428
+      Slider-Interactive_37: -6166638809243420480
+      Slider-Interactive_38: -6795763553766061209
+      Slider-Interactive_39: -3524530266158870702
+      Slider-Interactive_4: -7053860906588171439
+      Slider-Interactive_40: -4853487585953991778
+      Slider-Interactive_41: -1779766513387008633
+      Slider-Interactive_42: 4997630230950052322
+      Slider-Interactive_43: 4435440390565113288
+      Slider-Interactive_44: -133296529550344487
+      Slider-Interactive_5: 7329506297041619363
+      Slider-Interactive_6: -8128480917670877129
+      Slider-Interactive_7: 5977470789871403381
+      Slider-Interactive_8: 8798251291470507394
+      Slider-Interactive_9: -6005338193300887615
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

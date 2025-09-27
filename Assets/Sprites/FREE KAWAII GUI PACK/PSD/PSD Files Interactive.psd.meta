@@ -228,6 +228,32 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -1234,7 +1260,52 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      PSD Files Interactive_0: -1921771140782366242
+      PSD Files Interactive_1: -7193368231872670712
+      PSD Files Interactive_10: -4452042961260994940
+      PSD Files Interactive_11: 7312482788273974109
+      PSD Files Interactive_12: -8253072016198026178
+      PSD Files Interactive_13: 1979189632375467231
+      PSD Files Interactive_14: -4548029585560726256
+      PSD Files Interactive_15: -3839565532186321387
+      PSD Files Interactive_16: 4416956760092767186
+      PSD Files Interactive_17: 3316903552447738610
+      PSD Files Interactive_18: -38218827586634385
+      PSD Files Interactive_19: 1746697443391758210
+      PSD Files Interactive_2: -821991797639025813
+      PSD Files Interactive_20: -1107653017677106508
+      PSD Files Interactive_21: -1970244840916633140
+      PSD Files Interactive_22: -3214151029204226885
+      PSD Files Interactive_23: 6320904879580324808
+      PSD Files Interactive_24: -6798253527310877963
+      PSD Files Interactive_25: 6304168852538846201
+      PSD Files Interactive_26: 4841093430458988459
+      PSD Files Interactive_27: -4871158030048606126
+      PSD Files Interactive_28: 6728285100753093692
+      PSD Files Interactive_29: 6601199073332253047
+      PSD Files Interactive_3: -148695160006713886
+      PSD Files Interactive_30: 8357710276227091801
+      PSD Files Interactive_31: 5965819207681018990
+      PSD Files Interactive_32: 7150475258344425275
+      PSD Files Interactive_33: 4767214772850980099
+      PSD Files Interactive_34: -6416892189429022525
+      PSD Files Interactive_35: -4294094636249123115
+      PSD Files Interactive_36: 2460942735833711
+      PSD Files Interactive_37: 1327802994806162839
+      PSD Files Interactive_38: 2436353910581403549
+      PSD Files Interactive_39: 6167651966643408021
+      PSD Files Interactive_4: -261778695958944559
+      PSD Files Interactive_40: -4087706465868659358
+      PSD Files Interactive_41: -1886065172432360121
+      PSD Files Interactive_42: -1718749958932495988
+      PSD Files Interactive_43: -167502898944563138
+      PSD Files Interactive_44: 608407533378533582
+      PSD Files Interactive_5: -1420960719081378367
+      PSD Files Interactive_6: -5675230990307689995
+      PSD Files Interactive_7: 3651523230572927859
+      PSD Files Interactive_8: -2322508040695440069
+      PSD Files Interactive_9: 6779793581054489286
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

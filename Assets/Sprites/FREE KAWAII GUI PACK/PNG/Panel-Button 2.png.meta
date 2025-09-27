@@ -204,6 +204,32 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -1034,7 +1060,44 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Panel-Button 2_0: 7876923671132290781
+      Panel-Button 2_1: 2665031508588514230
+      Panel-Button 2_10: 1302403295044455657
+      Panel-Button 2_11: 8426320853862906114
+      Panel-Button 2_12: 4220728617819662532
+      Panel-Button 2_13: -6932262823237295930
+      Panel-Button 2_14: 5368691964293081234
+      Panel-Button 2_15: -3422867316527378953
+      Panel-Button 2_16: -7144064486760116535
+      Panel-Button 2_17: -206718102694827258
+      Panel-Button 2_18: 4313563700846304481
+      Panel-Button 2_19: 7489417433080050231
+      Panel-Button 2_2: 6252483462100919289
+      Panel-Button 2_20: 1124140562826620632
+      Panel-Button 2_21: -4924210734750634243
+      Panel-Button 2_22: 5397284788693765220
+      Panel-Button 2_23: -1404106024802448673
+      Panel-Button 2_24: 4260828662992878678
+      Panel-Button 2_25: 2648669145111374215
+      Panel-Button 2_26: 2260400120361889560
+      Panel-Button 2_27: -8237003645039774232
+      Panel-Button 2_28: -5901839775634848313
+      Panel-Button 2_29: -3889572264655858989
+      Panel-Button 2_3: 1835363962333278028
+      Panel-Button 2_30: -1037083352633232838
+      Panel-Button 2_31: 8327302589738057741
+      Panel-Button 2_32: 6966052029124977220
+      Panel-Button 2_33: 8221266545802655075
+      Panel-Button 2_34: -4024685506544460686
+      Panel-Button 2_35: -1251591479104434853
+      Panel-Button 2_36: 8450595853321089560
+      Panel-Button 2_4: 1703922720421574976
+      Panel-Button 2_5: -3328657410067369093
+      Panel-Button 2_6: 2615513861296368445
+      Panel-Button 2_7: -3109471776516834520
+      Panel-Button 2_8: 6822251638939033871
+      Panel-Button 2_9: -2937072959502923854
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

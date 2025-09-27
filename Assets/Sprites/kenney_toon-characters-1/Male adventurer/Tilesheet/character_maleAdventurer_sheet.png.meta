@@ -228,6 +228,32 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -1234,7 +1260,52 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      character_maleAdventurer_sheet_0: -8563910651593589603
+      character_maleAdventurer_sheet_1: 8464994446472211577
+      character_maleAdventurer_sheet_10: -2674015376226909812
+      character_maleAdventurer_sheet_11: 1513382224994232793
+      character_maleAdventurer_sheet_12: -6336447102311403536
+      character_maleAdventurer_sheet_13: -8686143697296481672
+      character_maleAdventurer_sheet_14: -4139239905225940998
+      character_maleAdventurer_sheet_15: -7040390724445298419
+      character_maleAdventurer_sheet_16: 4003315923550768147
+      character_maleAdventurer_sheet_17: 7518727941874775904
+      character_maleAdventurer_sheet_18: -7020001803537679622
+      character_maleAdventurer_sheet_19: -2507554368177050312
+      character_maleAdventurer_sheet_2: -4983062899841470299
+      character_maleAdventurer_sheet_20: -6073997176501578195
+      character_maleAdventurer_sheet_21: 3834181470141206396
+      character_maleAdventurer_sheet_22: 4126090002577614101
+      character_maleAdventurer_sheet_23: -2247369428627325914
+      character_maleAdventurer_sheet_24: -5605751151535691455
+      character_maleAdventurer_sheet_25: 5395534605888701525
+      character_maleAdventurer_sheet_26: 2669313746210940097
+      character_maleAdventurer_sheet_27: 2975089605400429512
+      character_maleAdventurer_sheet_28: 4795538757019550415
+      character_maleAdventurer_sheet_29: -1336213075898748123
+      character_maleAdventurer_sheet_3: -2669912229069413213
+      character_maleAdventurer_sheet_30: -5853872755056939
+      character_maleAdventurer_sheet_31: -7437765322694740808
+      character_maleAdventurer_sheet_32: -5412330271056851457
+      character_maleAdventurer_sheet_33: 6981561640199950318
+      character_maleAdventurer_sheet_34: 5668398521418494136
+      character_maleAdventurer_sheet_35: 293988538795231462
+      character_maleAdventurer_sheet_36: 6285999651715129587
+      character_maleAdventurer_sheet_37: 1822319955855182524
+      character_maleAdventurer_sheet_38: 6618510953871383448
+      character_maleAdventurer_sheet_39: 4926230503821805807
+      character_maleAdventurer_sheet_4: -1071764433739482211
+      character_maleAdventurer_sheet_40: 2737227544467138185
+      character_maleAdventurer_sheet_41: 2172827802222268700
+      character_maleAdventurer_sheet_42: 3323852201676940889
+      character_maleAdventurer_sheet_43: -4401434992193509516
+      character_maleAdventurer_sheet_44: 8862406561147004806
+      character_maleAdventurer_sheet_5: 3302959104238115982
+      character_maleAdventurer_sheet_6: 5615021212941672354
+      character_maleAdventurer_sheet_7: 6871199415176056516
+      character_maleAdventurer_sheet_8: 7733092818274284986
+      character_maleAdventurer_sheet_9: -4891761409539514402
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

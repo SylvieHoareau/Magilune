@@ -240,6 +240,32 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -1334,7 +1360,56 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      PSD Files Pannel_0: -5412185218014065156
+      PSD Files Pannel_1: 4022510367073741619
+      PSD Files Pannel_10: -6208653388186958698
+      PSD Files Pannel_11: -8746195317311083195
+      PSD Files Pannel_12: 3573911187230731528
+      PSD Files Pannel_13: -8167055419568613742
+      PSD Files Pannel_14: -5151722925355936183
+      PSD Files Pannel_15: -3008547325767476663
+      PSD Files Pannel_16: -5978499922039433257
+      PSD Files Pannel_17: -7749327825153907827
+      PSD Files Pannel_18: 8108641956135030783
+      PSD Files Pannel_19: -7765835716196408120
+      PSD Files Pannel_2: 4257075486843031098
+      PSD Files Pannel_20: -5515842699535851829
+      PSD Files Pannel_21: 3600359928098773021
+      PSD Files Pannel_22: -7616115365145608178
+      PSD Files Pannel_23: 7611981672100891437
+      PSD Files Pannel_24: 6101324557080449466
+      PSD Files Pannel_25: -8010930467659231545
+      PSD Files Pannel_26: -8398136651854889743
+      PSD Files Pannel_27: 635665291829797462
+      PSD Files Pannel_28: -4438653191767441722
+      PSD Files Pannel_29: 3082856961399413533
+      PSD Files Pannel_3: -5086415105622505189
+      PSD Files Pannel_30: -7232334329966657771
+      PSD Files Pannel_31: -9178818579986396006
+      PSD Files Pannel_32: 6207908689674489371
+      PSD Files Pannel_33: 2271379754775713084
+      PSD Files Pannel_34: 1692880020301230886
+      PSD Files Pannel_35: -2763403491324382466
+      PSD Files Pannel_36: 4508379182230728910
+      PSD Files Pannel_37: 1226091549473400615
+      PSD Files Pannel_38: 5580240154863073281
+      PSD Files Pannel_39: 1854804308199731766
+      PSD Files Pannel_4: -2877887656859188393
+      PSD Files Pannel_40: -2219325886732831530
+      PSD Files Pannel_41: 8700994127439249510
+      PSD Files Pannel_42: 3667337643998765702
+      PSD Files Pannel_43: -2387872802133197758
+      PSD Files Pannel_44: -9123689481246761331
+      PSD Files Pannel_45: 6513414338222871469
+      PSD Files Pannel_46: 2484917910963263885
+      PSD Files Pannel_47: 7892306570685564709
+      PSD Files Pannel_48: 960071501604800913
+      PSD Files Pannel_5: 3832577116354847756
+      PSD Files Pannel_6: 6419093716809112393
+      PSD Files Pannel_7: -2502267903128689293
+      PSD Files Pannel_8: 4015472400111794261
+      PSD Files Pannel_9: 991955961304139920
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

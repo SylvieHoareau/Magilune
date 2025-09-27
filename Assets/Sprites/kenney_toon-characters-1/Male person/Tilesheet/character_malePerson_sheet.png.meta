@@ -228,6 +228,32 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -1234,7 +1260,52 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      character_malePerson_sheet_0: 3834375047820297250
+      character_malePerson_sheet_1: 5823975105778095593
+      character_malePerson_sheet_10: -59960785930348716
+      character_malePerson_sheet_11: -1201249070811961085
+      character_malePerson_sheet_12: 4923958842622545554
+      character_malePerson_sheet_13: 5108205115730348256
+      character_malePerson_sheet_14: -8948650242220268875
+      character_malePerson_sheet_15: 5541417213454635398
+      character_malePerson_sheet_16: 8770700161705135310
+      character_malePerson_sheet_17: 6107021698866863560
+      character_malePerson_sheet_18: -2359550968817210389
+      character_malePerson_sheet_19: 1759158849442926240
+      character_malePerson_sheet_2: -6264139195701405521
+      character_malePerson_sheet_20: -1502786656795413220
+      character_malePerson_sheet_21: -7614381995020838916
+      character_malePerson_sheet_22: -5323621803671950405
+      character_malePerson_sheet_23: 3725677273937616433
+      character_malePerson_sheet_24: -614506996582395999
+      character_malePerson_sheet_25: -2198572211246801424
+      character_malePerson_sheet_26: 835390164932091873
+      character_malePerson_sheet_27: 144407828554686483
+      character_malePerson_sheet_28: 1131101575605075185
+      character_malePerson_sheet_29: -8357807847229164431
+      character_malePerson_sheet_3: 8940041609270156435
+      character_malePerson_sheet_30: 5170720327321901195
+      character_malePerson_sheet_31: 7191668746212891648
+      character_malePerson_sheet_32: -8082663474680798409
+      character_malePerson_sheet_33: -4266769772036214034
+      character_malePerson_sheet_34: 7389160802352075927
+      character_malePerson_sheet_35: -3303064928174624463
+      character_malePerson_sheet_36: -2528207782527912673
+      character_malePerson_sheet_37: -4245181470677852987
+      character_malePerson_sheet_38: 3654096522321376279
+      character_malePerson_sheet_39: -5510306614486959366
+      character_malePerson_sheet_4: -2665521202346768809
+      character_malePerson_sheet_40: 75803514918728379
+      character_malePerson_sheet_41: -7039102292617094392
+      character_malePerson_sheet_42: -6221365610935937986
+      character_malePerson_sheet_43: 4888081373391498514
+      character_malePerson_sheet_44: -1233791543342069973
+      character_malePerson_sheet_5: 3616546427655543805
+      character_malePerson_sheet_6: 8004302353480125091
+      character_malePerson_sheet_7: -1292158626132780193
+      character_malePerson_sheet_8: -145639852140620529
+      character_malePerson_sheet_9: 7358383692873577652
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

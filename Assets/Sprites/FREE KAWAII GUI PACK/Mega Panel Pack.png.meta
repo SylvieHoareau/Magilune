@@ -303,6 +303,32 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -1859,7 +1885,77 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Mega Panel Pack_0: 5489656106097325381
+      Mega Panel Pack_1: -7427111707748575184
+      Mega Panel Pack_10: 3214214757079675851
+      Mega Panel Pack_11: 841448140014537205
+      Mega Panel Pack_12: 2736886633529563974
+      Mega Panel Pack_13: 3452961196093640487
+      Mega Panel Pack_14: -7092231894778577688
+      Mega Panel Pack_15: 8372707379020602034
+      Mega Panel Pack_16: -8020925158299388683
+      Mega Panel Pack_17: -5718671754363608265
+      Mega Panel Pack_18: 3392366323508983949
+      Mega Panel Pack_19: -1602105978143104782
+      Mega Panel Pack_2: -7116057236831203408
+      Mega Panel Pack_20: 3112435408720983413
+      Mega Panel Pack_21: -2253743275946880541
+      Mega Panel Pack_22: -8515608705742825535
+      Mega Panel Pack_23: -7546034525095749959
+      Mega Panel Pack_24: -4757822079284217302
+      Mega Panel Pack_25: 303841260367687056
+      Mega Panel Pack_26: 9212491013945866778
+      Mega Panel Pack_27: -5304994738352659932
+      Mega Panel Pack_28: 3494486610803362710
+      Mega Panel Pack_29: 3446468913226603013
+      Mega Panel Pack_3: 4122230194856956467
+      Mega Panel Pack_30: -3627354483684296363
+      Mega Panel Pack_31: -207263399016965227
+      Mega Panel Pack_32: -8657162261610076469
+      Mega Panel Pack_33: -3679045051754474237
+      Mega Panel Pack_34: 4244299292328839379
+      Mega Panel Pack_35: 2167142604856150155
+      Mega Panel Pack_36: -7878081641542242720
+      Mega Panel Pack_37: -4199069451419866218
+      Mega Panel Pack_38: 1957097897637134435
+      Mega Panel Pack_39: -5634076054868907830
+      Mega Panel Pack_4: -5890892938154284544
+      Mega Panel Pack_40: -7586562310798674923
+      Mega Panel Pack_41: 5008221261982025103
+      Mega Panel Pack_42: 2510829688873411799
+      Mega Panel Pack_43: -4574379768089700955
+      Mega Panel Pack_44: 9167966542411904414
+      Mega Panel Pack_45: 7652550370685427111
+      Mega Panel Pack_46: -8746800531716299221
+      Mega Panel Pack_47: 173584368139155491
+      Mega Panel Pack_48: -2537302078451621055
+      Mega Panel Pack_49: 4338692722612981996
+      Mega Panel Pack_5: 8448150033560241628
+      Mega Panel Pack_50: -8484294994135153836
+      Mega Panel Pack_51: -1396007884578845825
+      Mega Panel Pack_52: 2732475621790765974
+      Mega Panel Pack_53: 67671521467431096
+      Mega Panel Pack_54: -1387461682627252447
+      Mega Panel Pack_55: 1291472221506151377
+      Mega Panel Pack_56: 4429768780093720209
+      Mega Panel Pack_57: -4223069034017602980
+      Mega Panel Pack_58: -7963924298813962380
+      Mega Panel Pack_59: -5685078535418957469
+      Mega Panel Pack_6: 7963533553638123506
+      Mega Panel Pack_60: 6703791247988316734
+      Mega Panel Pack_61: 2987425762370607825
+      Mega Panel Pack_62: -8068494958232922472
+      Mega Panel Pack_63: -2266169795964786455
+      Mega Panel Pack_64: -6336343154711161393
+      Mega Panel Pack_65: -5429863001920500131
+      Mega Panel Pack_66: 5091519052777832510
+      Mega Panel Pack_67: 3511345565218920775
+      Mega Panel Pack_68: -6897872807208978244
+      Mega Panel Pack_69: -5726702590700054229
+      Mega Panel Pack_7: -7928872836716057063
+      Mega Panel Pack_8: 1659570354494153561
+      Mega Panel Pack_9: -2622263184296332384
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

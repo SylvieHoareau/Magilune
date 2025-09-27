@@ -228,6 +228,32 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -1234,7 +1260,52 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      character_zombie_sheetHD_0: -5806457359794995684
+      character_zombie_sheetHD_1: -6898913643019315462
+      character_zombie_sheetHD_10: 8951875131410422736
+      character_zombie_sheetHD_11: 1974475366922168638
+      character_zombie_sheetHD_12: 4021752863069516095
+      character_zombie_sheetHD_13: -3087122610255803986
+      character_zombie_sheetHD_14: 3538652962896144919
+      character_zombie_sheetHD_15: 4114022357370052870
+      character_zombie_sheetHD_16: -232563019910007522
+      character_zombie_sheetHD_17: -245146274153611953
+      character_zombie_sheetHD_18: -8500896230565795734
+      character_zombie_sheetHD_19: 5576087111977233339
+      character_zombie_sheetHD_2: -6374972590264285883
+      character_zombie_sheetHD_20: 9205177647683571314
+      character_zombie_sheetHD_21: -1675115828470569763
+      character_zombie_sheetHD_22: -5621152320550542194
+      character_zombie_sheetHD_23: -560619149871424881
+      character_zombie_sheetHD_24: 1993643225267404275
+      character_zombie_sheetHD_25: 3422901058098630668
+      character_zombie_sheetHD_26: 3765198856043323122
+      character_zombie_sheetHD_27: -541889990724755003
+      character_zombie_sheetHD_28: -1401120885620450685
+      character_zombie_sheetHD_29: -2254894310975962080
+      character_zombie_sheetHD_3: 1744739604552028860
+      character_zombie_sheetHD_30: -6750243405551611555
+      character_zombie_sheetHD_31: 7915700061600799362
+      character_zombie_sheetHD_32: -8710281174178165128
+      character_zombie_sheetHD_33: 4569034785341412528
+      character_zombie_sheetHD_34: 4968007834958645205
+      character_zombie_sheetHD_35: -2354930725937528518
+      character_zombie_sheetHD_36: -3366607764122792924
+      character_zombie_sheetHD_37: -6910273210888476994
+      character_zombie_sheetHD_38: -9177494380412057897
+      character_zombie_sheetHD_39: 1080461869310985201
+      character_zombie_sheetHD_4: 758190531393433050
+      character_zombie_sheetHD_40: 8822265547244109423
+      character_zombie_sheetHD_41: -5288297721654070414
+      character_zombie_sheetHD_42: -8072323313791499033
+      character_zombie_sheetHD_43: -2442319594529463937
+      character_zombie_sheetHD_44: 5775610099869794055
+      character_zombie_sheetHD_5: -6415699080185260115
+      character_zombie_sheetHD_6: -974443960956693221
+      character_zombie_sheetHD_7: -7764659581757102351
+      character_zombie_sheetHD_8: 1420694770142380749
+      character_zombie_sheetHD_9: 3664230085253489265
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -312,6 +312,32 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -1934,7 +1960,80 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      NEW Button Slider_0: 8808432637132552131
+      NEW Button Slider_1: 5362701943899205852
+      NEW Button Slider_10: 3787733409518062953
+      NEW Button Slider_11: -8212417918932316441
+      NEW Button Slider_12: 6063956142428133935
+      NEW Button Slider_13: 6539516457211853004
+      NEW Button Slider_14: 5572404601753327921
+      NEW Button Slider_15: 1984567819022609161
+      NEW Button Slider_16: 3700521472384868766
+      NEW Button Slider_17: 8899717398441130174
+      NEW Button Slider_18: -1006500740978065966
+      NEW Button Slider_19: 6195129720215647116
+      NEW Button Slider_2: 3912477042347783098
+      NEW Button Slider_20: 4833722429047422199
+      NEW Button Slider_21: -2256442512232243347
+      NEW Button Slider_22: 5485437287457002720
+      NEW Button Slider_23: -6425195452840635157
+      NEW Button Slider_24: -7536432604998393876
+      NEW Button Slider_25: -6092050235882441147
+      NEW Button Slider_26: 26809991517848831
+      NEW Button Slider_27: 2108864046014639646
+      NEW Button Slider_28: -1516251898174437806
+      NEW Button Slider_29: 3069157757370870092
+      NEW Button Slider_3: 4352013763956073151
+      NEW Button Slider_30: 4459951236065093472
+      NEW Button Slider_31: -2592904862500748795
+      NEW Button Slider_32: 6081889810491290033
+      NEW Button Slider_33: 2540284100136000251
+      NEW Button Slider_34: -4114029114301214460
+      NEW Button Slider_35: 2768473178149765016
+      NEW Button Slider_36: -4161855516439325606
+      NEW Button Slider_37: -5564076693870474181
+      NEW Button Slider_38: 4438847596504908870
+      NEW Button Slider_39: 8782645078113748784
+      NEW Button Slider_4: -8509426637891951689
+      NEW Button Slider_40: 3316247577383432300
+      NEW Button Slider_41: -1065192494007078973
+      NEW Button Slider_42: -1839186506657509595
+      NEW Button Slider_43: -299403987287114806
+      NEW Button Slider_44: 6620946934206344315
+      NEW Button Slider_45: -9150290209089209418
+      NEW Button Slider_46: -4220893373598838593
+      NEW Button Slider_47: -2855056912171647106
+      NEW Button Slider_48: 800820925437658030
+      NEW Button Slider_49: 3468544219027454528
+      NEW Button Slider_5: 1483678128741237976
+      NEW Button Slider_50: 1555648899157390235
+      NEW Button Slider_51: -2687838978652386009
+      NEW Button Slider_52: 1065363867271934642
+      NEW Button Slider_53: 483484778413680784
+      NEW Button Slider_54: -9092215293719898682
+      NEW Button Slider_55: 2801397011150988077
+      NEW Button Slider_56: 8746202706022281961
+      NEW Button Slider_57: 1714200308598460002
+      NEW Button Slider_58: 8180275954199752954
+      NEW Button Slider_59: -4747509707280874866
+      NEW Button Slider_6: -8920290098592766344
+      NEW Button Slider_60: 1624608244594041937
+      NEW Button Slider_61: -6611281607587602973
+      NEW Button Slider_62: 1707580095250735894
+      NEW Button Slider_63: 5734925526779910554
+      NEW Button Slider_64: -3121984575996184433
+      NEW Button Slider_65: -4107009777565666079
+      NEW Button Slider_66: -3160017350578998617
+      NEW Button Slider_67: 8402418025966895927
+      NEW Button Slider_68: -3962795648652493744
+      NEW Button Slider_69: 7270358895470352894
+      NEW Button Slider_7: -179956277174397813
+      NEW Button Slider_70: -5153558030734561453
+      NEW Button Slider_71: -3506564004458397400
+      NEW Button Slider_72: 6659469802743305937
+      NEW Button Slider_8: 3084795893376285591
+      NEW Button Slider_9: -7520729974794141067
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

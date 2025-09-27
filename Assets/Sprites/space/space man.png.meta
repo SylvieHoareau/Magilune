@@ -267,6 +267,32 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -1559,7 +1585,65 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      space man_0: 7590277137651099692
+      space man_1: -8477400783344273609
+      space man_10: -1524209632453952863
+      space man_11: -3797768510568887728
+      space man_12: 2089934975262002451
+      space man_13: 2110388841448788028
+      space man_14: -2173598217521082048
+      space man_15: 4229080042904139730
+      space man_16: 2724944966888735157
+      space man_17: -585052380652014035
+      space man_18: -7539290990766993069
+      space man_19: 404897131240417401
+      space man_2: 6285554231994175471
+      space man_20: 4137689324355681472
+      space man_21: 4738754602916679968
+      space man_22: 3362205122773738329
+      space man_23: -7719374419903632856
+      space man_24: -2972837958101309034
+      space man_25: -1794668892558572110
+      space man_26: 5384821074984981666
+      space man_27: -6711428426665974626
+      space man_28: -5589522946649157603
+      space man_29: 8973421125409829253
+      space man_3: -7880335035632112422
+      space man_30: 1114998639223432988
+      space man_31: -9064741169280752095
+      space man_32: 7528767583161546789
+      space man_33: 62036487280854298
+      space man_34: 7324112658707524015
+      space man_35: 5788237582407392935
+      space man_36: 8879842548008920075
+      space man_37: -1638006918537169982
+      space man_38: 757296154317390191
+      space man_39: 2985207363720721099
+      space man_4: 4241836788380728472
+      space man_40: 971918347715316268
+      space man_41: -6065755455363317501
+      space man_42: -5611001166014295332
+      space man_43: -1581033192264529742
+      space man_44: -6484748931488522626
+      space man_45: 4002501265332313988
+      space man_46: 7010285821689790538
+      space man_47: 3436685791737348416
+      space man_48: -3149482407605804708
+      space man_49: 9069957310984423672
+      space man_5: 3832520674669513245
+      space man_50: -8541358742822296934
+      space man_51: -90063372509283308
+      space man_52: 2759097532222216113
+      space man_53: 3451496466190514681
+      space man_54: 4605344950694340069
+      space man_55: 5743869168717350383
+      space man_56: 6593969584630604813
+      space man_57: 325457081653853173
+      space man_6: 8991003310032608078
+      space man_7: 5373766974620071482
+      space man_8: 1137791466662185839
+      space man_9: 5801250647404611004
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

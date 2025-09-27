@@ -228,6 +228,32 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -1234,7 +1260,52 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      character_robot_sheet_0: -8711639992148211659
+      character_robot_sheet_1: -1590713170655242202
+      character_robot_sheet_10: -7695435458928197689
+      character_robot_sheet_11: 5023326035639037819
+      character_robot_sheet_12: -3127324719085819422
+      character_robot_sheet_13: 8354300075382340858
+      character_robot_sheet_14: -3607640537393484467
+      character_robot_sheet_15: 9172181138875169433
+      character_robot_sheet_16: 8574182954476853400
+      character_robot_sheet_17: 6677715732853451020
+      character_robot_sheet_18: 1130857293186551762
+      character_robot_sheet_19: 4608735820066487545
+      character_robot_sheet_2: -2849485307045471607
+      character_robot_sheet_20: 9076240025961370441
+      character_robot_sheet_21: -119372264494698459
+      character_robot_sheet_22: -488683410830328075
+      character_robot_sheet_23: -6806703272843042507
+      character_robot_sheet_24: 7180793197293036763
+      character_robot_sheet_25: -5339856721682761344
+      character_robot_sheet_26: 1632152336776609993
+      character_robot_sheet_27: 8728216599396469661
+      character_robot_sheet_28: 6605995086050335001
+      character_robot_sheet_29: 2263791074400102716
+      character_robot_sheet_3: -695331956977632012
+      character_robot_sheet_30: 6411164699462396847
+      character_robot_sheet_31: -3834748520788466188
+      character_robot_sheet_32: 2410028259413547690
+      character_robot_sheet_33: 6090716844247387897
+      character_robot_sheet_34: -4765740384936395671
+      character_robot_sheet_35: 7285435980672587767
+      character_robot_sheet_36: -1235727586745845334
+      character_robot_sheet_37: -1071726394229842972
+      character_robot_sheet_38: -7760781889259200773
+      character_robot_sheet_39: -6273516331102826607
+      character_robot_sheet_4: -998731859257342908
+      character_robot_sheet_40: 8533522069251888223
+      character_robot_sheet_41: 7469224613546395363
+      character_robot_sheet_42: 6818334044060403641
+      character_robot_sheet_43: 2517743834984194692
+      character_robot_sheet_44: -5368212654515986337
+      character_robot_sheet_5: 2375316684564991239
+      character_robot_sheet_6: 874570605889546236
+      character_robot_sheet_7: -449400542005440794
+      character_robot_sheet_8: -5664775822929504571
+      character_robot_sheet_9: 6421507164320863326
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

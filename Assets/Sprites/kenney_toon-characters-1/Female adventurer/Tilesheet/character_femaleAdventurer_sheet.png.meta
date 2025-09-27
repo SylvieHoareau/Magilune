@@ -228,6 +228,32 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -1234,7 +1260,52 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      character_femaleAdventurer_sheet_0: 229395018008720978
+      character_femaleAdventurer_sheet_1: -1662156775536959249
+      character_femaleAdventurer_sheet_10: -7601754151834945039
+      character_femaleAdventurer_sheet_11: 3431655471555848625
+      character_femaleAdventurer_sheet_12: -591240025155538268
+      character_femaleAdventurer_sheet_13: 6477989553037541853
+      character_femaleAdventurer_sheet_14: 7474466634757066818
+      character_femaleAdventurer_sheet_15: 8662735896272704821
+      character_femaleAdventurer_sheet_16: -5169503002562404269
+      character_femaleAdventurer_sheet_17: -433888544767433852
+      character_femaleAdventurer_sheet_18: -8927697672224388780
+      character_femaleAdventurer_sheet_19: -4028643064439809189
+      character_femaleAdventurer_sheet_2: 11324360291856359
+      character_femaleAdventurer_sheet_20: -8540040716049973881
+      character_femaleAdventurer_sheet_21: -4638622866751103742
+      character_femaleAdventurer_sheet_22: -6341122352307106425
+      character_femaleAdventurer_sheet_23: 6738986028995836419
+      character_femaleAdventurer_sheet_24: 3077882844077997413
+      character_femaleAdventurer_sheet_25: 4882657078418627583
+      character_femaleAdventurer_sheet_26: 7054516914569996141
+      character_femaleAdventurer_sheet_27: -3540777533622174061
+      character_femaleAdventurer_sheet_28: 2569877082839000219
+      character_femaleAdventurer_sheet_29: -3940850301486119866
+      character_femaleAdventurer_sheet_3: -6513941430409244263
+      character_femaleAdventurer_sheet_30: 2260948022003977912
+      character_femaleAdventurer_sheet_31: -5077508371159884425
+      character_femaleAdventurer_sheet_32: 3074062834356218466
+      character_femaleAdventurer_sheet_33: -6266479010278836708
+      character_femaleAdventurer_sheet_34: -7280440445620300695
+      character_femaleAdventurer_sheet_35: 32487501990019946
+      character_femaleAdventurer_sheet_36: -700341977584692145
+      character_femaleAdventurer_sheet_37: -7631010355227147390
+      character_femaleAdventurer_sheet_38: -8445754779855312591
+      character_femaleAdventurer_sheet_39: 9135716588421653594
+      character_femaleAdventurer_sheet_4: -7678389054226022116
+      character_femaleAdventurer_sheet_40: -5830746052484996060
+      character_femaleAdventurer_sheet_41: -4295364106171840961
+      character_femaleAdventurer_sheet_42: 1810376272730840104
+      character_femaleAdventurer_sheet_43: -5833574059654184031
+      character_femaleAdventurer_sheet_44: -3569109809870536897
+      character_femaleAdventurer_sheet_5: 1144102854764246051
+      character_femaleAdventurer_sheet_6: 1369755301149515418
+      character_femaleAdventurer_sheet_7: -785591350491247021
+      character_femaleAdventurer_sheet_8: 5554177796619248159
+      character_femaleAdventurer_sheet_9: -4752575311466423774
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

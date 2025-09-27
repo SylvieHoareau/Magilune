@@ -228,6 +228,32 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -1234,7 +1260,52 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      character_malePerson_sheetHD_0: -3220866925559446012
+      character_malePerson_sheetHD_1: 3326166528050119343
+      character_malePerson_sheetHD_10: 7037709206784282047
+      character_malePerson_sheetHD_11: 5670294240775390139
+      character_malePerson_sheetHD_12: -4037636879483110603
+      character_malePerson_sheetHD_13: -998252318455875153
+      character_malePerson_sheetHD_14: 8683196871581290890
+      character_malePerson_sheetHD_15: -5623360793310099356
+      character_malePerson_sheetHD_16: 5220313286676973184
+      character_malePerson_sheetHD_17: 6427182248483400793
+      character_malePerson_sheetHD_18: -2655596095379641811
+      character_malePerson_sheetHD_19: -4566857209695383143
+      character_malePerson_sheetHD_2: 3515573232913304699
+      character_malePerson_sheetHD_20: 1158360420314010213
+      character_malePerson_sheetHD_21: 5877546204618469026
+      character_malePerson_sheetHD_22: 3399268818463948177
+      character_malePerson_sheetHD_23: -1035333424173942578
+      character_malePerson_sheetHD_24: -7698605076525762790
+      character_malePerson_sheetHD_25: 3906119921382731586
+      character_malePerson_sheetHD_26: -4189881725997283189
+      character_malePerson_sheetHD_27: 6683793856840059111
+      character_malePerson_sheetHD_28: -281471689284128895
+      character_malePerson_sheetHD_29: -2683126656799187555
+      character_malePerson_sheetHD_3: 5639903136114553558
+      character_malePerson_sheetHD_30: 2160951092569295054
+      character_malePerson_sheetHD_31: 7159255433823473184
+      character_malePerson_sheetHD_32: 8256011421767893508
+      character_malePerson_sheetHD_33: -2901963105819636614
+      character_malePerson_sheetHD_34: -5339528928196780065
+      character_malePerson_sheetHD_35: -7239030485315474977
+      character_malePerson_sheetHD_36: 557283010281964175
+      character_malePerson_sheetHD_37: -282690358545402647
+      character_malePerson_sheetHD_38: -8050170951569028092
+      character_malePerson_sheetHD_39: -8038236198308931415
+      character_malePerson_sheetHD_4: -4408346614120524715
+      character_malePerson_sheetHD_40: 2900474294857452355
+      character_malePerson_sheetHD_41: 1116750201681724596
+      character_malePerson_sheetHD_42: 4573130686186458128
+      character_malePerson_sheetHD_43: -5096547375440356614
+      character_malePerson_sheetHD_44: -4069926751164244171
+      character_malePerson_sheetHD_5: -3934009042581840819
+      character_malePerson_sheetHD_6: -7979922305348211709
+      character_malePerson_sheetHD_7: 8355713536840646678
+      character_malePerson_sheetHD_8: -2587227145103355632
+      character_malePerson_sheetHD_9: -6823444071436608275
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -129,6 +129,32 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -409,7 +435,19 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      2_fireboll_3_0: -2426563114491677022
+      2_fireboll_3_1: -4300272367315844130
+      2_fireboll_3_10: -1391223704372363910
+      2_fireboll_3_11: 6368033106695907191
+      2_fireboll_3_2: -8047870637839223919
+      2_fireboll_3_3: -4606248139650390812
+      2_fireboll_3_4: 8135101677134108294
+      2_fireboll_3_5: -5379988639704834346
+      2_fireboll_3_6: -5947258117555184729
+      2_fireboll_3_7: -6184403811452688940
+      2_fireboll_3_8: 7054512969186575350
+      2_fireboll_3_9: -6745482007050881377
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

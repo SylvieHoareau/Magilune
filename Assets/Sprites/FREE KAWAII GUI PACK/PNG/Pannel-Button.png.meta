@@ -240,6 +240,32 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -1334,7 +1360,56 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Pannel-Button_0: 4206839219503851064
+      Pannel-Button_1: -2862013250062483575
+      Pannel-Button_10: 9054868869696032016
+      Pannel-Button_11: -2225559550794069863
+      Pannel-Button_12: -8804816365119218637
+      Pannel-Button_13: -144241069948769531
+      Pannel-Button_14: 6212890263143447339
+      Pannel-Button_15: -2927986642301106261
+      Pannel-Button_16: 5334978811394306941
+      Pannel-Button_17: 8605707415347006990
+      Pannel-Button_18: -5848360855657192214
+      Pannel-Button_19: -3646674651009634193
+      Pannel-Button_2: -8725943491968395474
+      Pannel-Button_20: -3456594168181726873
+      Pannel-Button_21: 1155947705248156937
+      Pannel-Button_22: -4483671836839785595
+      Pannel-Button_23: -588368968972545226
+      Pannel-Button_24: 1328274078461188304
+      Pannel-Button_25: -1771871777560461755
+      Pannel-Button_26: 6364509725084858343
+      Pannel-Button_27: 6094732270122067803
+      Pannel-Button_28: -2210430552297294668
+      Pannel-Button_29: 7253088868153472438
+      Pannel-Button_3: -44848817543896176
+      Pannel-Button_30: -2179621986202753049
+      Pannel-Button_31: -5543431626360779288
+      Pannel-Button_32: 3918349752784586766
+      Pannel-Button_33: -1058472906032661355
+      Pannel-Button_34: 8276498262757337128
+      Pannel-Button_35: 941744050962869215
+      Pannel-Button_36: -1939451778243607361
+      Pannel-Button_37: -4481457667061314702
+      Pannel-Button_38: -5935521357196308658
+      Pannel-Button_39: -3103964753595848385
+      Pannel-Button_4: -2687215590646317653
+      Pannel-Button_40: -2642673073286220185
+      Pannel-Button_41: -3764094479251288139
+      Pannel-Button_42: 7700136107307098540
+      Pannel-Button_43: -6892294151884591775
+      Pannel-Button_44: -2359758929493844214
+      Pannel-Button_45: 6877825719651010404
+      Pannel-Button_46: -6735319969403238751
+      Pannel-Button_47: 6175312866253425308
+      Pannel-Button_48: 7487433459150148742
+      Pannel-Button_5: 6300758762619047212
+      Pannel-Button_6: 4479556037494897700
+      Pannel-Button_7: -3572307744983369954
+      Pannel-Button_8: -9140584323275267575
+      Pannel-Button_9: -8867585701253100104
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
