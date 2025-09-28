@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Unity.Cinemachine;
+using System.Collections; // pour afficher les coroutines
 
 public class PlayerController : MonoBehaviour, PlayerControls.IPlayerActions
 {
@@ -26,6 +27,11 @@ public class PlayerController : MonoBehaviour, PlayerControls.IPlayerActions
     [SerializeField] private CinemachineCamera followCamera;
     private const float BaseOrthoSize = 5f; // Taille de base de votre caméra
     private const float InjuryOrthoSize = 4.5f; // Léger zoom pour le feedback de trauma
+
+    [SerializeField] private LayerMask passThroughLayer;
+    [SerializeField] private float disableTime = 0.5f;
+
+    private Collider2D playerCollider;
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -54,6 +60,11 @@ public class PlayerController : MonoBehaviour, PlayerControls.IPlayerActions
         // S'abonner à l'événement de perte de capacité (FEEDBACK DE CAMERA)
         abilityManager.OnJumpCapabilityLost += HandleJumpLossFeedback;
 
+    }
+
+    void Start()
+    {
+        playerCollider = GetComponent<Collider2D>();
     }
 
     void OnEnable()
@@ -111,7 +122,7 @@ public class PlayerController : MonoBehaviour, PlayerControls.IPlayerActions
     /// <summary>
     /// Gère l'action d'Interaction/Locomotion (Grappin/Jetpack/Grimpe)
     /// </summary>
-    public void OnInteract(InputAction.CallbackContext context) 
+    public void OnInteract(InputAction.CallbackContext context)
     {
         // La spécification demande "Interact (Locomotion system in/out)"
         if (context.performed)
@@ -148,8 +159,13 @@ public class PlayerController : MonoBehaviour, PlayerControls.IPlayerActions
             // Inverse le scale X pour retourner le sprite horizontalement
             transform.localScale = new Vector3(Mathf.Sign(moveInput.x), 1f, 1f);
         }
+
+        if (Input.GetKeyDown(KeyCode.S)) // ou KeyCode.DownArrow
+        {
+            StartCoroutine(DisableCollision());
+        }
     }
-    
+
     // ----------------------------------------
     // Gestion du Feedback de Perte de Capacité (Caméra)
     // ----------------------------------------
@@ -160,7 +176,7 @@ public class PlayerController : MonoBehaviour, PlayerControls.IPlayerActions
         {
             StartCoroutine(SmoothZoom(InjuryOrthoSize, 0.5f));
         }
-        
+
         // 2. Autre feedback (son, particules, etc.)
     }
 
@@ -179,5 +195,12 @@ public class PlayerController : MonoBehaviour, PlayerControls.IPlayerActions
             yield return null;
         }
         followCamera.Lens.OrthographicSize = targetSize;
+    }
+
+    private IEnumerator DisableCollision()
+    {
+        Physics2D.IgnoreLayerCollision(gameObject.layer, LayerMask.NameToLayer("PassThrough"), true);
+        yield return new WaitForSeconds(disableTime);
+        Physics2D.IgnoreLayerCollision(gameObject.layer, LayerMask.NameToLayer("PassThrough"), false);
     }
 }
