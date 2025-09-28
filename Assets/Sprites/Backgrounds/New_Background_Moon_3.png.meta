@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 8919d0aa78c74ba44aae142cf2d6f7bf
+guid: b806d295e9b5b0aa7bf116c192c47dd1
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 774561676593540966
-    second: 1_IDLE_000_0
+      213: -5420228082290638162
+    second: New_Bacground_Moon_3_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 64
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 1_IDLE_000_0
+      name: New_Bacground_Moon_3_0
       rect:
         serializedVersion: 2
-        x: 15
+        x: 0
         y: 0
-        width: 471
-        height: 438
+        width: 1024
+        height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 66f2df5bdbbcfba00800000000000000
-      internalID: 774561676593540966
+      spriteID: ea24879d64b77c4b0800000000000000
+      internalID: -5420228082290638162
       vertices: []
       indices: 
       edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      1_IDLE_000_0: 774561676593540966
+      New_Bacground_Moon_3_0: -5420228082290638162
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

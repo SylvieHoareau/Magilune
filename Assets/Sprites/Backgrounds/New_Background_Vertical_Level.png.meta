@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 3b5e569ca5f5fa64ea55e58ca9d47f0d
+guid: 1fb9de5782facf2bd9d927a34194cb5d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7340913335481639244
-    second: Background-Magilune_0
+      213: 2744425900679049040
+    second: New_Background_Vertical_Level_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,7 +126,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Background-Magilune_0
+      name: New_Background_Vertical_Level_0
       rect:
         serializedVersion: 2
         x: 0
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c41af48e8c920e560800000000000000
-      internalID: 7340913335481639244
+      spriteID: 05f2b5ae0d8261620800000000000000
+      internalID: 2744425900679049040
       vertices: []
       indices: 
       edges: []
@@ -160,8 +160,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Background-Magilune_0: 7340913335481639244
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
