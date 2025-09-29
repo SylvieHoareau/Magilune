@@ -1,0 +1,35 @@
+using UnityEngine;
+
+public class Bullet : MonoBehaviour
+{
+    [Header("Bullet Stats")]
+    [SerializeField] private int damage = 1;           // dégâts infligés
+    [SerializeField] private float lifetime = 3f;      // durée avant auto-destruction
+    [SerializeField] private LayerMask hitLayers;      // couches que la balle peut toucher (Player, murs)
+
+    private void Start()
+    {
+        // Détruire automatiquement après X secondes pour éviter les fuites mémoire
+        Destroy(gameObject, lifetime);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        // Vérifier si l’objet touché est dans le layer autorisé
+        if (((1 << collision.gameObject.layer) & hitLayers) != 0)
+        {
+            // Si c’est le Player → on applique des dégâts
+            if (collision.CompareTag("Player"))
+            {
+                PlayerHealth playerHealth = collision.GetComponent<PlayerHealth>();
+                if (playerHealth != null)
+                {
+                    playerHealth.TakeDamage(damage);
+                }
+            }
+
+            // Détruire la balle après l’impact
+            Destroy(gameObject);
+        }
+    }
+}

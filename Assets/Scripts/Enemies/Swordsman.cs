@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 [RequireComponent(typeof(Rigidbody2D), typeof(Animator))]
 public class Swordsman : MonoBehaviour, AttackEventHandler.IDamageable
@@ -143,6 +144,9 @@ public class Swordsman : MonoBehaviour, AttackEventHandler.IDamageable
         health -= damageAmount;
         Debug.Log($"Swordsman took {damageAmount} damage, remaining health: {health}");
 
+         // Feedback visuel
+        StartCoroutine(DamageFlash());
+
         if (health <= 0)
         {
             Die();
@@ -162,6 +166,19 @@ public class Swordsman : MonoBehaviour, AttackEventHandler.IDamageable
             {
                 playerHealth.TakeDamage(damage);
             }
+        }
+    }
+
+    // Coroutine pour faire clignoter l’ennemi en rouge
+    private IEnumerator DamageFlash()
+    {
+        SpriteRenderer sr = GetComponent<SpriteRenderer>();
+        if (sr != null)
+        {
+            Color originalColor = sr.color;
+            sr.color = Color.red;
+            yield return new WaitForSeconds(0.15f);
+            sr.color = originalColor;
         }
     }
 
