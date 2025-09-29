@@ -61,7 +61,7 @@ public class Swordsman : MonoBehaviour, AttackEventHandler.IDamageable
                 Patrol();
                 break;
             case State.Chase:
-                ChaseP();
+                Chase();
                 break;
             case State.Attack:
                 Attack();
@@ -156,7 +156,9 @@ public class Swordsman : MonoBehaviour, AttackEventHandler.IDamageable
         if (hit != null)
         {
             Debug.Log("Player touché !");
-            // Ici tu appelles PlayerHealth.TakeDamage(damage)
+            // Ici on suppose que le joueur a une méthode TakeDamage
+            PlayerHealth playerHealth = hit.GetComponent<PlayerHealth>();
+            PlayerHealth.TakeDamage(damage);
         }
     }
 
