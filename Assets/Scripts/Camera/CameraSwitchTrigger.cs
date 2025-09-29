@@ -11,7 +11,7 @@ public class CameraSwitchTrigger : MonoBehaviour
     [SerializeField] private GameObject panoramicCameraObject;
 
     // Réfrence privée pour stocker le composant réel
-    private CinemachineVirtualCamera panoramicVcam; 
+    private CinemachineCamera panoramicVcam; 
 
     [Tooltip("La priorité à laquelle la camréa panomarique doit basculer")]
     [SerializeField] private int activePriority = 20;
@@ -28,7 +28,7 @@ public class CameraSwitchTrigger : MonoBehaviour
         }
 
         // Vérification 2 : Le composant CinemachineVirtualCamera est-il présent sur cet objet ?
-        panoramicVcam = panoramicCameraObject.GetComponent<CinemachineVirtualCamera>();
+        panoramicVcam = panoramicCameraObject.GetComponent<CinemachineCamera>();
 
         if (panoramicVcam == null)
         {

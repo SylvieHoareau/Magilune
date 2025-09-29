@@ -29,9 +29,16 @@ public class CameraManager : MonoBehaviour
     /// </summary>
     public void SetFollowCameraActive()
     {
-        followCamera.Priority = ActivePriority;
-        panoramicCamera.Priority = InactivePriority;
-        Debug.Log("Caméra : Suivi du Joueur activée.");
+        if (followCamera != null && panoramicCamera != null)
+        {
+            followCamera.Priority = ActivePriority;
+            panoramicCamera.Priority = InactivePriority;
+            Debug.Log("Caméra : Suivi du Joueur activée.");
+        }
+        else
+        {
+            Debug.LogError("CameraManager : Références de caméra manquantes.");
+        }
     }
 
     /// <summary>
@@ -39,11 +46,15 @@ public class CameraManager : MonoBehaviour
     /// </summary>
     public void SetPanoramicCameraActive()
     {
-        panoramicCamera.Priority = ActivePriority;
-        followCamera.Priority = InactivePriority;
-        Debug.Log("Caméra : Vue Panoramique activée.");
+        if (followCamera != null && panoramicCamera != null)
+        {
+            panoramicCamera.Priority = ActivePriority;
+            followCamera.Priority = InactivePriority;
+            Debug.Log("Caméra : Vue Panoramique activée.");
+        }
+        else
+        {
+            Debug.LogError("CameraManager : Références de caméra manquantes.");
+        }
     }
-
-    // Pro-Tip: Vous pouvez appeler ces méthodes via un Trigger Volume
-    // dans votre niveau pour déclencher les moments contemplatifs.
 }
