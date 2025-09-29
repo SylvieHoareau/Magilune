@@ -8,13 +8,21 @@ public class PlayerHealth : MonoBehaviour
     private int currentHealth;
 
     private Animator animator;
+    private HealthUI healthUI;
 
-    void Start()
+    void Awake()
     {
         currentHealth = maxHealth;
         animator = GetComponent<Animator>();
+        healthUI = FindObjectOfType<HealthUI>();
+
+        if (healthUI != null)
+        {
+            healthUI.UpdateHearts(currentHealth, maxHealth);
+        }
     }
- /// <summary>
+
+    /// <summary>
     /// Méthode appelée par les ennemis (comme Swordsman) pour infliger des dégâts
     /// </summary>
     public void TakeDamage(int damage)
@@ -28,10 +36,15 @@ public class PlayerHealth : MonoBehaviour
             animator.SetTrigger("Hurt");
         }
 
-        if (currentHealth <= 0)
+        if (healthUI != null)
         {
-            Die();
+            healthUI.UpdateHearts(currentHealth, maxHealth);
         }
+
+        if (currentHealth <= 0)
+            {
+                Die();
+            }
     }
 
     private void Die()
@@ -53,5 +66,9 @@ public class PlayerHealth : MonoBehaviour
     {
         currentHealth = Mathf.Min(currentHealth + amount, maxHealth);
         Debug.Log($"Player healed, new health: {currentHealth}");
+        if (healthUI != null)
+        {
+            healthUI.UpdateHearts(currentHealth, maxHealth);
+        }
     }
 }
