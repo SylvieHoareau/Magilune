@@ -158,7 +158,10 @@ public class Swordsman : MonoBehaviour, AttackEventHandler.IDamageable
             Debug.Log("Player touché !");
             // Ici on suppose que le joueur a une méthode TakeDamage
             PlayerHealth playerHealth = hit.GetComponent<PlayerHealth>();
-            PlayerHealth.TakeDamage(damage);
+            if (playerHealth != null)
+            {
+                playerHealth.TakeDamage(damage);
+            }
         }
     }
 
