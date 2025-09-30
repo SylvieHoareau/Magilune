@@ -19842,7 +19842,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8556593635391063389, guid: 9be6ee7d6ac528149b68bd9b419c9b3d, type: 3}
       propertyPath: jumpForce
-      value: 8
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 9096283396808862978, guid: 9be6ee7d6ac528149b68bd9b419c9b3d, type: 3}
       propertyPath: m_SortingLayer
