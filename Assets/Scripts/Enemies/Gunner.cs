@@ -13,7 +13,12 @@ public class Gunner : MonoBehaviour, AttackEventHandler.IDamageable
     [SerializeField] private Transform rightPoint;
     private bool movingRight = true;
 
+    [Header("Ranged Attack Module")]
+    // Lien avec le module générique.
+    [SerializeField] private RangedAttackModule rangedAttackModule; 
+
     [Header("Detection & Attack")]
+    [SerializeField] private RangedAttackModule rangedAttack; // Référence au nouveau module
     [SerializeField] private float detectionRange = 5f;
     [SerializeField] private float fireCooldown = 1.5f;
     [SerializeField] private GameObject bulletPrefab;
@@ -55,6 +60,26 @@ public class Gunner : MonoBehaviour, AttackEventHandler.IDamageable
             case State.Attack:
                 Attack();
                 break;
+        }
+
+         if (currentState == State.Attack)
+        {
+            if (Time.time > lastFireTime + fireCooldown)
+            {
+                // Appel de la méthode Shoot du module externe
+                // 1. Déclenchement de l'animation de tir
+                animator.SetTrigger("Shoot"); 
+
+                // 2. Délégation de l'action de tir au module !
+                if (rangedAttackModule != null)
+                {
+                    rangedAttackModule.Shoot();
+                }
+                else
+                {
+                    Debug.LogWarning("RangedAttackModule n'est pas assigné sur le Gunner.");
+                }
+            }
         }
 
         HandleStateTransitions();

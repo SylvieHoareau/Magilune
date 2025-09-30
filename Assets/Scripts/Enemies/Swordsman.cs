@@ -174,11 +174,12 @@ public class Swordsman : MonoBehaviour, AttackEventHandler.IDamageable
     // Animation Event → pour appliquer les dégâts pendant l'attaque
     public void DealDamage()
     {
+        // Utilisation de Physics2D.OverlapCircle pour la détection de la Hitbox
         Collider2D hit = Physics2D.OverlapCircle(transform.position, attackRange, playerLayer);
+        
         if (hit != null)
         {
-            Debug.Log("Player touché !");
-            // Ici on suppose que le joueur a une méthode TakeDamage
+            // Récupérer le composant PlayerHealth
             PlayerHealth playerHealth = hit.GetComponent<PlayerHealth>();
             if (playerHealth != null)
             {

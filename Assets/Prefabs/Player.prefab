@@ -9793,7 +9793,6 @@ GameObject:
   - component: {fileID: 2578145361278484990}
   - component: {fileID: 4149226864587076281}
   - component: {fileID: 8556593635391063389}
-  - component: {fileID: 6334152363382410307}
   - component: {fileID: 4545861340522153875}
   m_Layer: 6
   m_Name: Player
@@ -10011,6 +10010,8 @@ MonoBehaviour:
   abilityManager: {fileID: 4149226864587076281}
   jumpAbility: {fileID: 8556593635391063389}
   jetpackAbility: {fileID: 3989528727941966061}
+  fallMultiplier: 2.5
+  lowJumpMultiplier: 2
   followCamera: {fileID: 0}
   passThroughLayer:
     serializedVersion: 2
@@ -10054,23 +10055,6 @@ MonoBehaviour:
     m_Bits: 8
   groundCheck: {fileID: 1025539722433567665}
   groundCheckRadius: 0.1
---- !u!114 &6334152363382410307
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4038668021053607100}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5227c992bd6530d4b8edec7c10147b8f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  jetPackForce: 7
-  fuelMax: 1
-  jetpackParticles: {fileID: 8020980692260538883}
-  jetpackSmoke: {fileID: 6200563553755374055}
-  jetPackAudio: {fileID: 0}
 --- !u!114 &4545861340522153875
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10165,6 +10149,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   _damageAmount: 1
+  starProjectilePrefab: {fileID: 0}
+  projectileOffset: 0.5
 --- !u!1 &4950644632702542311
 GameObject:
   m_ObjectHideFlags: 0

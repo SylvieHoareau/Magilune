@@ -9,6 +9,10 @@ public class Turret : MonoBehaviour, AttackEventHandler.IDamageable
     [SerializeField] private float detectionRange = 6f;
     [SerializeField] private float fireCooldown = 2f;
 
+    [Header("Ranged Attack Module")]
+    // Le lien avec le module générique.
+    [SerializeField] private RangedAttackModule rangedAttackModule; 
+
     [Header("Shooting")]
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Transform firePoint;
@@ -32,18 +36,25 @@ public class Turret : MonoBehaviour, AttackEventHandler.IDamageable
         float distance = Vector2.Distance(transform.position, player.position);
 
         // Si le joueur est dans la zone de détection
-        if (distance <= detectionRange)
+       if (distance <= detectionRange)
         {
-            // Orientation vers le joueur
-            if (player.position.x < transform.position.x)
-                transform.localScale = new Vector3(-1, 1, 1);
-            else
-                transform.localScale = new Vector3(1, 1, 1);
+            // Orientation vers le joueur (Mise à jour pour être plus propre)
+            bool lookRight = player.position.x > transform.position.x;
+            transform.localScale = new Vector3(lookRight ? 1 : -1, 1, 1);
 
             // Tir
-            if (Time.time - lastFireTime >= fireCooldown)
+            if (Time.time > lastFireTime + fireCooldown)
             {
-                Shoot();
+                // ------------- POINT D'INTÉGRATION CLÉ -------------
+                animator.SetTrigger("Shoot");
+                
+                // Délégation de l'action de tir au module !
+                if (rangedAttackModule != null)
+                {
+                    rangedAttackModule.Shoot();
+                }
+                // ----------------------------------------------------
+
                 lastFireTime = Time.time;
             }
         }

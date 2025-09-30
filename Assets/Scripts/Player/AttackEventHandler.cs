@@ -31,12 +31,25 @@ public class AttackEventHandler : MonoBehaviour
     public void PerformAttackHit()
     {
         // Calcul la position réelle de la Hitbox
-        float direction = _spriteRenderer.flipX ? -1f : 1f;
-        Vector2 position = (Vector2)transform.position + new Vector2(_attackOffset.x * direction, _attackOffset.y);
+        float directionX = _spriteRenderer.flipX ? -1f : 1f;
 
-        // Chercher les ennemis dans la zone d'attaque
-        Collider2D[] hitEnemies = Physics2D.OverlapBoxAll(position, _attackSize, 0f, _enemyLayer);
+        // Position de lancement du projectile
+        Vector2 hitboxPosition = (Vector2)transform.position + new Vector2(_attackOffset.x * directionX, _attackOffset.y);
 
+        // 1. Calculer la position de lancement de l'étoile
+        // On prend la position du joueur, on ajoute l'offset de l'attaque, 
+        // puis on ajoute l'offset spécifique du projectile (pour le positionner devant la baguette).
+        Vector2 launchPosition = (Vector2)transform.position + new Vector2(
+            (_attackOffset.x + projectileOffset) * directionX, 
+            _attackOffset.y 
+        );
+        
+        // 2. Définir la direction du projectile (Horizontal + légère élévation pour un effet magique)
+        Vector2 targetDirection = new Vector2(directionX, 0.3f); // 0.3f pour une légère courbe ascendante
+
+        // --- Partie Melee Hitbox (Gardée pour l'instant) ---
+        Collider2D[] hitEnemies = Physics2D.OverlapBoxAll(hitboxPosition, _attackSize, 0f, _enemyLayer);
+        
         // Appliquer les dégâts à chaque ennemi touché
         foreach (Collider2D enemy in hitEnemies)
         {
@@ -54,6 +67,11 @@ public class AttackEventHandler : MonoBehaviour
                 Debug.LogWarning($"L'objet {enemy.name} n'implémente pas IDamageable.");
             }
         }
+        // ----------------------------------------------------
+
+        // 3. Instanciation et Lancement (MAINTENANT ÇA MARCHE !)
+        StarProjectile newStar = Instantiate(starProjectilePrefab, launchPosition, Quaternion.identity);
+        newStar.Launch(targetDirection); 
     }
 
     // Fonction d'aide pour le debug (sera visible dans la vue Scene)
