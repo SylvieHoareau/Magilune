@@ -7,6 +7,9 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private int maxHealth = 3;
     private int currentHealth;
 
+    // Propriété publique pour vérifier si le joueur est mort
+    public bool IsDead => currentHealth <= 0;
+
     private Animator animator;
     private HealthUI healthUI;
 
@@ -28,6 +31,7 @@ public class PlayerHealth : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
+        currentHealth = Mathf.Max(currentHealth, 0); // Empêche la santé de descendre en dessous de 0   
         Debug.Log($"Player took {damage} damage, remaining health: {currentHealth}");
 
         // Feedback visuel/sonore
@@ -47,6 +51,7 @@ public class PlayerHealth : MonoBehaviour
             }
     }
 
+    // Méthode pour la mort du joueur
     private void Die()
     {
         Debug.Log("Player died!");
@@ -62,6 +67,7 @@ public class PlayerHealth : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
+    // Méthode pour soigner le joueur (optionnelle)
     public void Heal(int amount)
     {
         currentHealth = Mathf.Min(currentHealth + amount, maxHealth);

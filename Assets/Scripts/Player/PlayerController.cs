@@ -23,6 +23,9 @@ public class PlayerController : MonoBehaviour, PlayerControls.IPlayerActions
     [SerializeField] private JumpAbility jumpAbility;
     [SerializeField] private JetpackAbility jetpackAbility;
 
+    [Header("Saut Amélioré")]
+    [SerializeField] private float fallMultiplier = 2.5f; // Gravité supplémentaire en chute
+    [SerializeField] private float lowJumpMultiplier = 2f; // Gravité supplémentaire si saut relâché tôt
 
     // -- Référence à la virtual Camera pour le zoom/dézoom --
     [Header("Cinemachine")]
@@ -32,6 +35,14 @@ public class PlayerController : MonoBehaviour, PlayerControls.IPlayerActions
 
     [SerializeField] private LayerMask passThroughLayer;
     [SerializeField] private float disableTime = 0.5f;
+
+    [Header("Health")]
+    [SerializeField] private PlayerHealth playerHealth; // référence au script PlayerHealth
+
+    [Header("Shoot")]
+    [SerializeField] private GameObject bulletPrefab;
+    [SerializeField] private Transform firePoint; // Position où la balle sort
+    [SerializeField] private float bulletSpeed = 10f;
 
     private Collider2D playerCollider;
     void Awake()
@@ -53,6 +64,9 @@ public class PlayerController : MonoBehaviour, PlayerControls.IPlayerActions
         // Association des Callbacks à CETTE instance
         _playerControls.Player.SetCallbacks(this);
 
+        // Initialisation des modules de capacité
+        jumpAbility.Initialize(rb, _animator); 
+
         // Vérification des dépendances
         if (abilityManager == null || jumpAbility == null)
         {
@@ -62,6 +76,14 @@ public class PlayerController : MonoBehaviour, PlayerControls.IPlayerActions
         // S'abonner à l'événement de perte de capacité (FEEDBACK DE CAMERA)
         abilityManager.OnJumpCapabilityLost += HandleJumpLossFeedback;
 
+        if (playerHealth == null)
+        {
+            playerHealth = GetComponent<PlayerHealth>();
+            if (playerHealth == null)
+            {
+                Debug.LogError("PlayerController : Référence PlayerHealth manquante.");
+            }
+        }
     }
 
     void Start()
@@ -108,32 +130,23 @@ public class PlayerController : MonoBehaviour, PlayerControls.IPlayerActions
     // ----------------------------------------
     public void OnJump(InputAction.CallbackContext context)
     {
+        // GESTION DU SAUT (Phase 1)
         if (abilityManager.CanJump)
         {
-            // Le Controller vérifie si la capacité est ACTUELLEMENT active
             if (context.performed)
             {
-                // Le Controller délègue l'exécution de la logique de saut au module
                 jumpAbility.PerformJump();
+                // Si JumpAbility délègue l'animation, vous n'avez rien à faire ici. 
+                // Sinon, appelez-le ici :
+                // _animator.SetBool("IsJumping", true); 
             }
-            else
-            {
-                // Remplace le saut par le jetpack
-                jetpackAbility.HandleJetPack(context.performed || context.canceled == false);
-            }
-            
-            // Pro-Tip: Si la capacité est perdue, vous pouvez jouer un son "bruit de jambe cassée" ou un feedback ici.
         }
 
-        // Même touche utilisée pour le jetpack
-        bool isPressed = context.ReadValue<float>() > 0;
+        // GESTION DU JETPACK (Phase 2 ou co-active)
+        // La gestion du jetpack doit se faire dans Update/FixedUpdate en lisant l'input,
+        // ou ici si c'est un toggle (ce qui est rare pour un jetpack)
+        bool isPressed = context.ReadValue<float>() > 0; // Vrai si le bouton est enfoncé
         abilityManager.HandleJetpackInput(isPressed);
-
-        // if (abilityManager.CanUseJetpack)
-        // {
-        //     bool isPressed = context.ReadValue<float>() > 0;
-        //     jetpackAbility.HandleJetPack(isPressed);
-        // }
     }
     public void OnLook(InputAction.CallbackContext context) { }
 
@@ -146,8 +159,29 @@ public class PlayerController : MonoBehaviour, PlayerControls.IPlayerActions
         if (context.performed)
         {
             // PROCHAINES ÉTAPES : Appeler un AbilityManager ou un LocomotionSystem ici.
-            // Ex: abilityManager.ToggleLocomotion();
+            // abilityManager.ToggleLocomotion();
             Debug.Log("Interact Input Reçu : Préparation du système de Locomotion.");
+        }
+    }
+
+    public void OnShoot(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            Shoot();
+        }
+    }
+
+    private void Shoot()
+    {
+        if (bulletPrefab == null || firePoint == null) return;
+
+        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+
+        Rigidbody2D rbBullet = bullet.GetComponent<Rigidbody2D>();
+        if (rbBullet != null)
+        {
+            rbBullet.linearVelocity = transform.localScale.x * Vector2.right * bulletSpeed;
         }
     }
 
@@ -157,30 +191,99 @@ public class PlayerController : MonoBehaviour, PlayerControls.IPlayerActions
 
     void FixedUpdate()
     {
-        // Le mouvement physique doit être dans FixedUpdate()
-        Vector2 targetVelocity = moveInput * speed;
+        // Calcul de la vélocité cible en fonction de l'input
+        float targetXVelocity = moveInput.x * speed;
 
-        // Application d'une accélération progressive (mouvement cinématique)
-        rb.linearVelocity = Vector2.Lerp(rb.linearVelocity, targetVelocity, acceleration * Time.fixedDeltaTime);
+        // Application de l'accélération/lissage (Lerp) UNIQUEMENT sur l'axe X.
+        // On conserve la vélocité Y actuelle (gravité, saut, jetpack)
+        float newXVelocity = Mathf.Lerp(rb.linearVelocity.x, targetXVelocity, acceleration * Time.fixedDeltaTime);
+
+        // 3. Application de la nouvelle vélocité au Rigidbody2D
+        // Si la gravityScale est 0 (pour le jetpack), c'est au jetpack/saut de définir rb.linearVelocity.y
+        // Si la gravityScale est > 0, rb.linearVelocity.y est gérée par Unity Physics
+        rb.linearVelocity = new Vector2(newXVelocity, rb.linearVelocity.y);
+
+        // Mouvement : mettre à jour MoveSpeed pour Run/Idle
+        _animator.SetFloat("MoveSpeed", Mathf.Abs(rb.linearVelocity.x));
+
+        // Mettre à jour l'état de saut (IsJumping, Atterrissage, Chute)
+        if (jumpAbility.enabled) // Si la capacité de saut est encore active (Phase 1)
+        {
+            jumpAbility.UpdateAnimationState();
+        } 
+        
+        // Si le joueur est en l'air (JumpAbility.IsGrounded() == false)
+        if (!jumpAbility.IsGrounded())
+        {
+            // Chute rapide (quand la vélocité est négative, i.e., après le sommet)
+            if (rb.linearVelocity.y < 0)
+            {
+                // Appliquer plus de force de gravité pour une chute rapide
+                // (La formule ajoute de la force pour que la chute soit plus raide)
+                rb.linearVelocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier - 1) * Time.fixedDeltaTime;
+            }
+            
+            // Saut court (si le joueur relâche la touche de saut)
+            // La variable 'jumpInputHeld' doit être mise à jour dans la méthode OnJump ou OnAction du nouveau système Input
+            // Supposons que PlayerController a une booléenne `isJumpInputHeld`
+            else if (rb.linearVelocity.y > 0 /* && !isJumpInputHeld (si vous avez implémenté ça) */)
+            {
+                // Appliquer plus de force pour couper l'ascension
+                rb.linearVelocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.fixedDeltaTime;
+            }
+        }
+        
+        // Mettre à jour l'état de Vol (IsFlying)
+        // Le jetpack agit sur la physique, donc son état doit être mis à jour ici pour la synchro.
+        if (jetpackAbility.enabled) // Si la capacité de JetPack est active (Phase 2)
+        {
+            // Supposons que vous ayez un paramètre "IsFlying" ou "IsJetpacking" dans votre Animator
+            // Note: jetpackAbility.IsUsingJetpack doit être une propriété publique.
+            _animator.SetBool("IsFlying", jetpackAbility.IsUsingJetpack);
+
+            // Si vous utilisez IsFlying pour le Jetpack, assurez-vous de couper IsJumping
+            if (jetpackAbility.IsUsingJetpack)
+            {
+                _animator.SetBool(JumpAbility.IsJumpingHash, false); // Évite conflit en l'air
+            }
+        }
     }
 
     void Update()
     {
-        // Animation dans Update()
-        _animator.SetFloat("MoveSpeed", rb.linearVelocity.magnitude);
-        // L'Animator utilise la vélocité réelle, pas seulement l'input brut
+        // Animation de movement
+        // Utiliser Mathf.Abs(rb.linearVelocity.x) est plus précis pour l'animation de marche/course.
+        _animator.SetFloat("MoveSpeed", Mathf.Abs(rb.linearVelocity.x));
 
-        // Mettre à jour la direction pour le Blend Tree
-        // Vous devez aussi gérer le Flip du SpriteRenderer ici pour la direction visuelle
+        // Flip visuel
         if (moveInput.x != 0)
         {
             // Inverse le scale X pour retourner le sprite horizontalement
             transform.localScale = new Vector3(Mathf.Sign(moveInput.x), 1f, 1f);
         }
 
+        // Gestion du saut
+        bool isGrounded = jumpAbility.IsGrounded();
+        _animator.SetBool("IsGrounded", isGrounded);
+
+        // Gestion du jetpack
+        _animator.SetBool("IsFlying", jetpackAbility != null && jetpackAbility.IsUsingJetpack);
+
         if (Input.GetKeyDown(KeyCode.S)) // ou KeyCode.DownArrow
         {
             StartCoroutine(DisableCollision());
+        }
+
+        // Gestion de la mort du Player
+        if (playerHealth.IsDead)
+        {
+            // Désactive les contrôles
+            _playerControls.Disable();
+            // Autres logiques de mort (animation, son, etc.)
+            _animator.SetTrigger("Die");
+            rb.linearVelocity = Vector2.zero; // Arrête le mouvement
+            this.enabled = false; // Désactive ce script
+            return;
         }
     }
 

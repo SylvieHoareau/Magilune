@@ -9,6 +9,10 @@ public class AttackEventHandler : MonoBehaviour
     [SerializeField] private LayerMask _enemyLayer;
     [SerializeField] private int _damageAmount = 1;
 
+    [Header("Projectile Settings")]
+    [SerializeField] private StarProjectile starProjectilePrefab;
+    [SerializeField] private float projectileOffset = 0.5f; // Distance de lancement de la baguette
+
     // Référence au SpriteRenderer pour vérifier la direction
     private SpriteRenderer _spriteRenderer;
 

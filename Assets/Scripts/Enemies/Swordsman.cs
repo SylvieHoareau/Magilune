@@ -13,6 +13,9 @@ public class Swordsman : MonoBehaviour, AttackEventHandler.IDamageable
     [Header("Patrol")]
     [SerializeField] private Transform leftPoint;
     [SerializeField] private Transform rightPoint;
+
+    private Vector3 leftPointPos;
+    private Vector3 rightPointPos;
     private bool movingRight = true;
 
     [Header("Detection")]
@@ -37,6 +40,17 @@ public class Swordsman : MonoBehaviour, AttackEventHandler.IDamageable
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
+
+        // Sauvegarde des positions initiales
+        if (leftPoint != null && rightPoint != null)
+        {
+            leftPointPos = leftPoint.position;
+            rightPointPos = rightPoint.position;
+        }
+        else
+        {
+            Debug.LogError("LeftPoint ou RightPoint n'est pas assigné dans l'inspecteur.");
+        }
     }
 
     // Update is called once per frame
@@ -80,9 +94,13 @@ public class Swordsman : MonoBehaviour, AttackEventHandler.IDamageable
         rb.linearVelocity = new Vector2(dir * moveSpeed, rb.linearVelocity.y);
 
         if (movingRight && transform.position.x > rightPoint.position.x)
+        {
             movingRight = false;
+        }
         else if (!movingRight && transform.position.x < leftPoint.position.x)
+        {
             movingRight = true;
+        }
 
         animator.SetBool("IsMoving", true);
     }

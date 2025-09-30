@@ -15,6 +15,10 @@ public class JetpackAbility : MonoBehaviour
     private bool isUsingJetpack;
     private float currentFuel;
 
+     // Propriété publique pour vérifier si le joueur utilise le jetpack
+    public bool IsUsingJetpack => isUsingJetpack;
+
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();

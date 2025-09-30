@@ -9714,7 +9714,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1755176267928589831
 Transform:
   m_ObjectHideFlags: 0
@@ -9791,8 +9791,9 @@ GameObject:
   - component: {fileID: 8580765187050959828}
   - component: {fileID: 4307696097851321933}
   - component: {fileID: 2578145361278484990}
-  - component: {fileID: 8556593635391063389}
   - component: {fileID: 4149226864587076281}
+  - component: {fileID: 8556593635391063389}
+  - component: {fileID: 6334152363382410307}
   - component: {fileID: 4545861340522153875}
   m_Layer: 6
   m_Name: Player
@@ -9819,6 +9820,7 @@ Transform:
   - {fileID: 537009194641433693}
   - {fileID: 2860999245211928798}
   - {fileID: 1755176267928589831}
+  - {fileID: 2337156806952312754}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &9096283396808862978
@@ -10014,6 +10016,26 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   disableTime: 0.5
+  playerHealth: {fileID: 4545861340522153875}
+  bulletPrefab: {fileID: 8508656708880245413}
+  firePoint: {fileID: 0}
+  bulletSpeed: 10
+--- !u!114 &4149226864587076281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4038668021053607100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ed27c97d20138569b35b28cd8f903f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <CanJump>k__BackingField: 1
+  <CanUseJetpack>k__BackingField: 1
+  jumpAbility: {fileID: 8556593635391063389}
+  jetpackAbility: {fileID: 3989528727941966061}
 --- !u!114 &8556593635391063389
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10032,7 +10054,7 @@ MonoBehaviour:
     m_Bits: 8
   groundCheck: {fileID: 1025539722433567665}
   groundCheckRadius: 0.1
---- !u!114 &4149226864587076281
+--- !u!114 &6334152363382410307
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10041,13 +10063,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 4038668021053607100}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ed27c97d20138569b35b28cd8f903f9, type: 3}
+  m_Script: {fileID: 11500000, guid: 5227c992bd6530d4b8edec7c10147b8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <CanJump>k__BackingField: 1
-  <CanUseJetpack>k__BackingField: 1
-  jumpAbility: {fileID: 8556593635391063389}
-  jetpackAbility: {fileID: 3989528727941966061}
+  jetPackForce: 7
+  fuelMax: 1
+  jetpackParticles: {fileID: 8020980692260538883}
+  jetpackSmoke: {fileID: 6200563553755374055}
+  jetPackAudio: {fileID: 0}
 --- !u!114 &4545861340522153875
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10061,6 +10084,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 3
+--- !u!1 &4071206226958888018
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2337156806952312754}
+  m_Layer: 6
+  m_Name: FirePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2337156806952312754
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4071206226958888018}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2865874653074061738}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4949710297462757953
 GameObject:
   m_ObjectHideFlags: 0
@@ -10168,13 +10222,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bullet
       objectReference: {fileID: 0}
+    - target: {fileID: 2426159094050551588, guid: 97a9e81dbd3b83f4b900213c13b1e425, type: 3}
+      propertyPath: hitLayers.m_Bits
+      value: 128
+      objectReference: {fileID: 0}
     - target: {fileID: 8135372726879245913, guid: 97a9e81dbd3b83f4b900213c13b1e425, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.03
+      value: 3.22
       objectReference: {fileID: 0}
     - target: {fileID: 8135372726879245913, guid: 97a9e81dbd3b83f4b900213c13b1e425, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.59
+      value: 0.22
       objectReference: {fileID: 0}
     - target: {fileID: 8135372726879245913, guid: 97a9e81dbd3b83f4b900213c13b1e425, type: 3}
       propertyPath: m_LocalPosition.z
@@ -10216,5 +10274,10 @@ PrefabInstance:
 --- !u!4 &2860999245211928798 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8135372726879245913, guid: 97a9e81dbd3b83f4b900213c13b1e425, type: 3}
+  m_PrefabInstance: {fileID: 6292348655744409223}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8508656708880245413 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2397669760914455586, guid: 97a9e81dbd3b83f4b900213c13b1e425, type: 3}
   m_PrefabInstance: {fileID: 6292348655744409223}
   m_PrefabAsset: {fileID: 0}

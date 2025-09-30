@@ -28,6 +28,14 @@ public class Bullet : MonoBehaviour
                 }
             }
 
+            // Vérifie si l’objet peut recevoir des dégâts
+            AttackEventHandler.IDamageable damageable = collision.GetComponent<AttackEventHandler.IDamageable>();
+            if (damageable != null)
+            {
+                damageable.TakeDamage(damage);
+            }
+
+
             // Détruire la balle après l’impact
             Destroy(gameObject);
         }
