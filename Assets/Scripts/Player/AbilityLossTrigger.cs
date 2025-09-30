@@ -13,11 +13,19 @@ public class AbilityLossTrigger : MonoBehaviour
 
             if (abilityManager != null)
             {
+                // Perte de la capacité de saut
                 abilityManager.LoseJumpCapability();
+
+                // Activation du JetPack
+                abilityManager.HandleJetpackInput(true);
+
                 hasTriggered = true; // S'assurer que ça ne se déclenche qu'une fois
-                
+
                 // Optionnel: Désactiver le GameObject Trigger après utilisation
-                // gameObject.SetActive(false);
+                gameObject.SetActive(false);
+
+                Debug.Log("AbilityLossTrigger : Saut perdu → JetPack activé !");
+                
             }
         }
     }

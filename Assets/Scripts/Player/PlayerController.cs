@@ -21,6 +21,8 @@ public class PlayerController : MonoBehaviour, PlayerControls.IPlayerActions
     [Header("Modules de Capacité")]
     [SerializeField] private PlayerAbilityManager abilityManager;
     [SerializeField] private JumpAbility jumpAbility;
+    [SerializeField] private JetpackAbility jetpackAbility;
+
 
     // -- Référence à la virtual Camera pour le zoom/dézoom --
     [Header("Cinemachine")]
@@ -106,16 +108,32 @@ public class PlayerController : MonoBehaviour, PlayerControls.IPlayerActions
     // ----------------------------------------
     public void OnJump(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (abilityManager.CanJump)
         {
             // Le Controller vérifie si la capacité est ACTUELLEMENT active
-            if (abilityManager.CanJump)
+            if (context.performed)
             {
                 // Le Controller délègue l'exécution de la logique de saut au module
                 jumpAbility.PerformJump();
             }
+            else
+            {
+                // Remplace le saut par le jetpack
+                jetpackAbility.HandleJetPack(context.performed || context.canceled == false);
+            }
+            
             // Pro-Tip: Si la capacité est perdue, vous pouvez jouer un son "bruit de jambe cassée" ou un feedback ici.
         }
+
+        // Même touche utilisée pour le jetpack
+        bool isPressed = context.ReadValue<float>() > 0;
+        abilityManager.HandleJetpackInput(isPressed);
+
+        // if (abilityManager.CanUseJetpack)
+        // {
+        //     bool isPressed = context.ReadValue<float>() > 0;
+        //     jetpackAbility.HandleJetPack(isPressed);
+        // }
     }
     public void OnLook(InputAction.CallbackContext context) { }
 
