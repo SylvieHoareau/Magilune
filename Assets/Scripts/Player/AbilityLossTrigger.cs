@@ -21,6 +21,8 @@ public class AbilityLossTrigger : MonoBehaviour
 
                 hasTriggered = true; // S'assurer que ça ne se déclenche qu'une fois
 
+                // Ajouter un son de "ouïe !" doux et un bruit de 'boîte' qui tombe
+                            
                 // Optionnel: Désactiver le GameObject Trigger après utilisation
                 gameObject.SetActive(false);
 

@@ -52,12 +52,12 @@ public class JumpAbility : MonoBehaviour
     public void PerformJump()
     {
         // Ajout de la vérification de l'état de la capacité
-        if (!isEnabled) 
+        if (!isEnabled)
         {
             // Optionnel : Jouer un son ou un feedback visuel de capacité bloquée
             return;
         }
-    
+
         if (IsGrounded())
         {
             // Appliquer la force de saut
@@ -74,7 +74,7 @@ public class JumpAbility : MonoBehaviour
     // ------------------------
     // LOGIQUE ATTERISSAGE
     // ------------------------
-    
+
     // Cette méthode doit être appelée par PlayerController.FixedUpdate()
     public void UpdateAnimationState()
     {
@@ -102,5 +102,17 @@ public class JumpAbility : MonoBehaviour
 
         // Mettre à jour l'état pour la prochaine frame
         wasGroundedLastFrame = isCurrentlyGrounded;
+    }
+    
+    public void HandleJumpInput()
+    {
+        if (!isEnabled) // isEnabled est l'état CanJump dans PlayerAbilityManager
+        {
+            // Jouer un son d'échec "boing" ou "ouïe"
+            // Jouer une animation de petit "mini-hop" douloureux 
+            return; 
+        }
+        
+        // ... Logique de saut normale ...
     }
 }
