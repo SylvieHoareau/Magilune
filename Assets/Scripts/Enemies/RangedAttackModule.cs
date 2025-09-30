@@ -33,14 +33,14 @@ public class RangedAttackModule : MonoBehaviour
     /// </summary>
     public void Shoot()
     {
-        if (projectilePrefab == null)
+        if (projectilePrefab == null || firePoint == null)
         {
             Debug.LogError($"RangedAttackModule sur {gameObject.name} n'a pas de prefab de projectile assigné.");
             return;
         }
 
         // 1. Instancier le projectile au point de tir
-        GameObject newProjectile = Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
+        GameObject newProjectileGO = Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
         
         // 2. Déterminer la direction de tir
         float directionX = 1f; // Par défaut : droite
@@ -60,14 +60,21 @@ public class RangedAttackModule : MonoBehaviour
         Vector2 shootDirection = new Vector2(directionX, 0f);
 
         // 3. Appliquer la vélocité au Rigidbody2D du projectile
-        Rigidbody2D bulletRb = newProjectile.GetComponent<Rigidbody2D>();
+        Rigidbody2D bulletRb = newProjectileGO.GetComponent<Rigidbody2D>();
         if (bulletRb != null)
         {
+            // Appliquer la vitesse au projectile
             bulletRb.linearVelocity = shootDirection * projectileSpeed;
+
+            // Appliquer également une rotation de la vélocité pour le visuel
+            // S'assurer que l'axe Y positif de la balle est vers le haut (sa direction)
+            float angle = Mathf.Atan2(shootDirection.y, shootDirection.x) * Mathf.Rad2Deg;
+            newProjectileGO.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
         }
         else
         {
             Debug.LogError($"Le Prefab de projectile sur {gameObject.name} n'a pas de Rigidbody2D pour appliquer la vitesse !");
+            Destroy(newProjectileGO); // Nettoyer l'instance si mal configurée
         }
 
         if (firePoint == null)

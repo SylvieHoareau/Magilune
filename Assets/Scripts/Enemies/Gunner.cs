@@ -18,7 +18,6 @@ public class Gunner : MonoBehaviour, AttackEventHandler.IDamageable
     [SerializeField] private RangedAttackModule rangedAttackModule; 
 
     [Header("Detection & Attack")]
-    [SerializeField] private RangedAttackModule rangedAttack; // Référence au nouveau module
     [SerializeField] private float detectionRange = 5f;
     [SerializeField] private float fireCooldown = 1.5f;
     [SerializeField] private GameObject bulletPrefab;

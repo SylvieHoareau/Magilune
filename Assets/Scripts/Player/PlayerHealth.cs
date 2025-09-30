@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -9,6 +10,10 @@ public class PlayerHealth : MonoBehaviour
 
     // Propriété publique pour vérifier si le joueur est mort
     public bool IsDead => currentHealth <= 0;
+
+    [Header("Game Over")]
+    [SerializeField] private float deathAnimationTime = 1.5f; // Durée de l'animation de mort
+    [SerializeField] private string gameOverSceneName = "GameOver"; // Nom de la scène à charger
 
     private Animator animator;
     private HealthUI healthUI;
@@ -55,16 +60,44 @@ public class PlayerHealth : MonoBehaviour
     private void Die()
     {
         Debug.Log("Player died!");
+
+        // Déclenchement de l'animation de mort
         if (animator != null)
         {
             animator.SetTrigger("Die");
         }
 
-        // On peut désactiver les contrôles
-        GetComponent<PlayerController>().enabled = false;
+       // Désactiver les contrôles immédiatement (pour éviter toute interaction)
+        PlayerController controller = GetComponent<PlayerController>();
+        if (controller != null)
+        {
+            controller.enabled = false;
+        }
 
-        // TODO : ajouter écran de Game Over
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        // Démarrer la séquence de fin de jeu
+        StartCoroutine(GameOverSequence());
+    }
+
+    /// <summary>
+    /// Coroutine pour temporiser l'affichage de l'écran Game Over.
+    /// </summary>
+    private IEnumerator GameOverSequence()
+    {
+        // 1. Attendre que l'animation de mort soit jouée
+        yield return new WaitForSeconds(deathAnimationTime);
+
+        // 2. Charger la scène Game Over
+        // PRO-TIP : Vérifiez toujours que la scène existe
+        if (Application.CanStreamedLevelBeLoaded(gameOverSceneName))
+        {
+            SceneManager.LoadScene(gameOverSceneName);
+        }
+        else
+        {
+            Debug.LogError($"Scène Game Over non trouvée ou non ajoutée aux Build Settings : {gameOverSceneName}");
+            // Fallback : Recharger la scène actuelle si la scène Game Over est manquante
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
     }
 
     // Méthode pour soigner le joueur (optionnelle)
