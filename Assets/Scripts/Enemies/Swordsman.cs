@@ -6,7 +6,7 @@ using System;
 public class Swordsman : MonoBehaviour, AttackEventHandler.IDamageable
 {
     [Header("Stats")]
-    [SerializeField] private int health = 3;
+    [SerializeField] private float health = 3;
     [SerializeField] private float moveSpeed = 2.0f;
     [SerializeField] private float chaseSpeed = 3.5f;
     [SerializeField] private int damage = 1;
@@ -170,7 +170,7 @@ public class Swordsman : MonoBehaviour, AttackEventHandler.IDamageable
     }
 
     // Implémentation de IDamageable
-    public void EnemyTakeDamage(int damageAmount)
+    public void EnemyTakeDamage(float damageAmount)
     {
         health -= damageAmount;
         Debug.Log($"Swordsman took {damageAmount} damage, remaining health: {health}");

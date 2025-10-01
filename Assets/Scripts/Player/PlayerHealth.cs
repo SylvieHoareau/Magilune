@@ -5,8 +5,8 @@ using System.Collections;
 public class PlayerHealth : MonoBehaviour
 {
     [Header("Player Health")]
-    [SerializeField] private int maxHealth = 3;
-    private int currentHealth;
+    [SerializeField] private float maxHealth = 3f;
+    private float currentHealth;
 
     // Propriété publique pour vérifier si le joueur est mort
     public bool IsDead => currentHealth <= 0;
@@ -41,10 +41,10 @@ public class PlayerHealth : MonoBehaviour
     /// <summary>
     /// Méthode appelée par les ennemis (comme Swordsman) pour infliger des dégâts au joueur
     /// </summary>
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
         Debug.Log("Player Script TakeDamage called");
-        
+
         currentHealth -= damage;
         currentHealth = Mathf.Max(currentHealth, 0); // Empêche la santé de descendre en dessous de 0   
         Debug.Log($"Player took {damage} damage, remaining health: {currentHealth}");

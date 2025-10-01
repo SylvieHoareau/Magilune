@@ -4,10 +4,10 @@ using System.Collections;
 public class EnemyHealth : MonoBehaviour
 {
     [Header("Enemy Health")]
-    [SerializeField] private int maxHealth = 3;
-    public int MaxHealth => maxHealth; // Propriété publique en lecture seule
-    private int currentHealth;
-    public int CurrentHealth => currentHealth; // Propriété publique en lecture seule
+    public float maxHealth = 3f;
+    public float MaxHealth => maxHealth; // Propriété publique en lecture seule
+    private float currentHealth;
+    public float CurrentHealth => currentHealth; // Propriété publique en lecture seule
 
     [Header("Hit Effect")]
     private EnemyFloatingHealthUI _floatingUI; 
@@ -39,7 +39,7 @@ public class EnemyHealth : MonoBehaviour
         }
     }
 
-    public void EnemyTakeDamage(int damage)
+    public void EnemyTakeDamage(float damage)
     {
         currentHealth -= damage;
         currentHealth = Mathf.Max(currentHealth, 0); // Empêche la santé de descendre en dessous de 0   

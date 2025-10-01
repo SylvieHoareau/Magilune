@@ -47,7 +47,7 @@ public class EnemyFloatingHealthUI : MonoBehaviour
     /// </summary>
     /// <param name="maxHealth">Santé maximale de l'ennemi.</param>
     /// <param name="currentHealth">Santé actuelle de l'ennemi.</param>
-    public void UpdateFloatingHeart(int maxHealth, int currentHealth)
+    public void UpdateFloatingHeart(float maxHealth, float currentHealth)
     {
         // 1. Calculer le ratio de vie restant
         float healthRatio = (float)currentHealth / maxHealth;

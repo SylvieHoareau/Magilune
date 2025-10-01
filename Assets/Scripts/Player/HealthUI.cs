@@ -11,7 +11,7 @@ public class HealthUI : MonoBehaviour
     /// <summary>
     /// Met à jour l’affichage des cœurs en fonction des PV du joueur.
     /// </summary>
-    public void UpdateHearts(int currentHealth, int maxHealth)
+    public void UpdateHearts(float currentHealth, float maxHealth)
     {
         for (int i = 0; i < hearts.Length; i++)
         {

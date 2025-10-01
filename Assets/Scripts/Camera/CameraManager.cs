@@ -9,10 +9,10 @@ public class CameraManager : MonoBehaviour
 {
     [Header("Cameras")]
     [Tooltip("Caméra principale, prioritaire par défaut (ex: 15)")]
-    [SerializeField] private CinemachineCamera followCamera;
+    [SerializeField] private GameObject followCamera;
     
     [Tooltip("Caméra panoramique pour les moments contemplatifs (ex: 10)")]
-    [SerializeField] private CinemachineCamera panoramicCamera;
+    [SerializeField] private GameObject panoramicCamera;
 
     // Constantes pour la priorité
     private const int ActivePriority = 15; // Devrait correspondre à la priorité de 'followCamera'
@@ -31,8 +31,10 @@ public class CameraManager : MonoBehaviour
     {
         if (followCamera != null && panoramicCamera != null)
         {
-            followCamera.Priority = ActivePriority;
-            panoramicCamera.Priority = InactivePriority;
+            // followCamera.Priority = ActivePriority;
+            // panoramicCamera.Priority = InactivePriority;
+            followCamera.SetActive(true);
+            panoramicCamera.SetActive(false);
             Debug.Log("Caméra : Suivi du Joueur activée.");
         }
         else
@@ -48,8 +50,10 @@ public class CameraManager : MonoBehaviour
     {
         if (followCamera != null && panoramicCamera != null)
         {
-            panoramicCamera.Priority = ActivePriority;
-            followCamera.Priority = InactivePriority;
+            // panoramicCamera.Priority = ActivePriority;
+            // followCamera.Priority = InactivePriority;
+            followCamera.SetActive(false);
+            panoramicCamera.SetActive(true);
             Debug.Log("Caméra : Vue Panoramique activée.");
         }
         else

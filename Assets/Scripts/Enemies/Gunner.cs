@@ -4,9 +4,9 @@ using UnityEngine;
 public class Gunner : MonoBehaviour, AttackEventHandler.IDamageable
 {
     [Header("Stats")]
-    [SerializeField] private int health = 3;
+    [SerializeField] private float health = 3f;
     [SerializeField] private float moveSpeed = 2f;
-    [SerializeField] private int damage = 1;
+    [SerializeField] private float damage = 1f;
 
     [Header("Patrol")]
     [SerializeField] private Transform leftPoint;
@@ -102,11 +102,16 @@ public class Gunner : MonoBehaviour, AttackEventHandler.IDamageable
         rb.linearVelocity = Vector2.zero;
         animator.SetBool("IsMoving", false);
 
+        Debug.Log("${attackCooldown} This is the attack cooldown from Gunner.");
+
+
         if (Time.time - lastFireTime >= fireCooldown)
         {
             animator.SetTrigger("Shoot");
             Shoot();
             lastFireTime = Time.time;
+            Debug.Log("Le Gunner attaque ! (Animation Trigger)");
+
         }
     }
 
@@ -155,7 +160,7 @@ public class Gunner : MonoBehaviour, AttackEventHandler.IDamageable
     }
 
     // Implémentation de IDamageable
-    public void EnemyTakeDamage(int damageAmount)
+    public void EnemyTakeDamage(float damageAmount)
     {
         health -= damageAmount;
         Debug.Log($"Gunner took {damageAmount} damage, remaining health: {health}");

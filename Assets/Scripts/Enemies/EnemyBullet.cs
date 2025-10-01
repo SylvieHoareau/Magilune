@@ -1,11 +1,13 @@
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class EnemyBullet : MonoBehaviour
 {
     [Header("Bullet Stats")]
-    [SerializeField] private int damage = 1;           // dégâts infligés
+    [SerializeField] public float damage = 1f;           // dégâts infligés
     [SerializeField] private float lifetime = 3f;      // durée avant auto-destruction
     [SerializeField] private LayerMask hitLayers;      // couches que la balle peut toucher (Player, murs)
+
+    public Vector3 playerPos; // Position du joueur pour orienter la balle
 
     private void Start()
     {

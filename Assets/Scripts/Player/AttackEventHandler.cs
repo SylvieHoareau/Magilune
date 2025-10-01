@@ -7,7 +7,7 @@ public class AttackEventHandler : MonoBehaviour
     [SerializeField] private Vector2 _attackOffset = new Vector2(0.8f, 0.0f);
     [SerializeField] private Vector2 _attackSize = new Vector2(1.2f, 1.0f);
     [SerializeField] private LayerMask _enemyLayer;
-    [SerializeField] private int _damageAmount = 1;
+    [SerializeField] private float _damageAmount = 1;
 
     [Header("Projectile Settings")]
     [SerializeField] private StarProjectile starProjectilePrefab;
@@ -107,7 +107,7 @@ public class AttackEventHandler : MonoBehaviour
     // Interface pour les objets pouvant recevoir des dégâts
     public interface IDamageable
     {
-        void EnemyTakeDamage(int damage);
+        void EnemyTakeDamage(float damage);
     }
 
 }

@@ -4,8 +4,8 @@ using UnityEngine;
 public class Turret : MonoBehaviour, AttackEventHandler.IDamageable
 {
     [Header("Stats")]
-    [SerializeField] private int health = 3;
-    [SerializeField] private int damage = 1;
+    [SerializeField] private float health = 3f;
+    [SerializeField] private float damage = 1f;
     [SerializeField] private float detectionRange = 6f;
     [SerializeField] private float fireCooldown = 2f;
 
@@ -45,7 +45,6 @@ public class Turret : MonoBehaviour, AttackEventHandler.IDamageable
             // Tir
             if (Time.time > lastFireTime + fireCooldown)
             {
-                // ------------- POINT D'INTÉGRATION CLÉ -------------
                 animator.SetTrigger("Shoot");
                 
                 // Délégation de l'action de tir au module !
@@ -74,14 +73,15 @@ public class Turret : MonoBehaviour, AttackEventHandler.IDamageable
             float direction = transform.localScale.x;
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
             if (rb != null)
+            {
                 rb.linearVelocity = new Vector2(direction * 5f, 0);
-
+            }
             Destroy(bullet, 3f);
         }
     }
 
     // Implémentation de IDamageable
-    public void EnemyTakeDamage(int damageAmount)
+    public void EnemyTakeDamage(float damageAmount)
     {
         health -= damageAmount;
         Debug.Log($"Turret took {damageAmount} damage, remaining health: {health}");
@@ -112,6 +112,7 @@ public class Turret : MonoBehaviour, AttackEventHandler.IDamageable
         Destroy(gameObject);
     }
 
+    // Pour visualiser la zone de détection dans l'éditeur
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.magenta;
