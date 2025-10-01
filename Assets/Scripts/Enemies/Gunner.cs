@@ -131,6 +131,8 @@ public class Gunner : MonoBehaviour, AttackEventHandler.IDamageable
 
     private void Shoot()
     {
+        Debug.Log($" {gameObject.name} attaque à distance !");
+
         if (bulletPrefab != null && firePoint != null)
         {
             GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
@@ -144,10 +146,16 @@ public class Gunner : MonoBehaviour, AttackEventHandler.IDamageable
             // On peut détruire la balle après un certain temps
             Destroy(bullet, 3f);
         }
+
+         if (bulletPrefab == null)
+        {
+            Debug.Log("Pas de bullet Prefab assignée au Gunner, impossible de tirer.");
+            return;
+        }
     }
 
     // Implémentation de IDamageable
-    public void TakeDamage(int damageAmount)
+    public void EnemyTakeDamage(int damageAmount)
     {
         health -= damageAmount;
         Debug.Log($"Gunner took {damageAmount} damage, remaining health: {health}");
@@ -170,6 +178,7 @@ public class Gunner : MonoBehaviour, AttackEventHandler.IDamageable
         }
     }
 
+    // Gère la mort du Gunner
     private void Die()
     {
         Debug.Log("Gunner died.");

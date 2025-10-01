@@ -39,7 +39,7 @@ public class EnemyHealth : MonoBehaviour
         }
     }
 
-    public void TakeDamage(int damage)
+    public void EnemyTakeDamage(int damage)
     {
         currentHealth -= damage;
         currentHealth = Mathf.Max(currentHealth, 0); // Empêche la santé de descendre en dessous de 0   
@@ -91,7 +91,8 @@ public class EnemyHealth : MonoBehaviour
 
         _flashCoroutine = null;
     }
-    
+
+    // Gérer la mort de l'ennemi
     public void Die()
     {
         Debug.Log("Enemy died!");
@@ -103,10 +104,11 @@ public class EnemyHealth : MonoBehaviour
         // DÉSACTIVER IMMÉDIATEMENT L'UI FLOTTANTE LORS DE LA MORT
         if (_floatingUI != null)
         {
-            _floatingUI.gameObject.SetActive(false); 
+            _floatingUI.gameObject.SetActive(false);
         }
 
         // Détruire l'objet après un délai pour permettre à l'animation de mort de jouer
         Destroy(gameObject, 1f); // Ajuster le délai selon la durée de l'animation
+        Debug.Log($"Enemy {gameObject.name} will be destroyed in 1 second.");
     }
 }

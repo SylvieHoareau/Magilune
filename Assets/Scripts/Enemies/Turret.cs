@@ -62,6 +62,8 @@ public class Turret : MonoBehaviour, AttackEventHandler.IDamageable
 
     private void Shoot()
     {
+        Debug.Log("La Turret attaque ! (Projectile lancé)");
+
         if (bulletPrefab != null && firePoint != null)
         {
             animator.SetTrigger("Shoot");
@@ -79,7 +81,7 @@ public class Turret : MonoBehaviour, AttackEventHandler.IDamageable
     }
 
     // Implémentation de IDamageable
-    public void TakeDamage(int damageAmount)
+    public void EnemyTakeDamage(int damageAmount)
     {
         health -= damageAmount;
         Debug.Log($"Turret took {damageAmount} damage, remaining health: {health}");

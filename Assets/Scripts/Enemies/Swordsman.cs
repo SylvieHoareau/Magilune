@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System;
 
 [RequireComponent(typeof(Rigidbody2D), typeof(Animator))]
 public class Swordsman : MonoBehaviour, AttackEventHandler.IDamageable
@@ -53,8 +54,7 @@ public class Swordsman : MonoBehaviour, AttackEventHandler.IDamageable
         }
     }
 
-    // Update is called once per frame
-    private void Update()
+    private void Start()
     {
         // Vérifie si le joueur est dans la scène
         if (player == null)
@@ -68,6 +68,16 @@ public class Swordsman : MonoBehaviour, AttackEventHandler.IDamageable
             {
                 return; // Sort de la méthode Update si le joueur n'est pas trouvé  
             }
+        }
+    }
+
+    // Update is called once per frame
+    private void Update()
+    {
+
+        if (player == null)
+        {
+            Debug.Log("Player not found in the scene.");
         }
 
         switch (currentState)
@@ -120,10 +130,13 @@ public class Swordsman : MonoBehaviour, AttackEventHandler.IDamageable
         rb.linearVelocity = Vector2.zero;
         animator.SetBool("IsMoving", false);
 
+        Debug.Log("${attackCooldown} This is the attack cooldown.");
+
         if (Time.time - lastAttackTime > attackCooldown)
         {
             animator.SetTrigger("Attack");
             lastAttackTime = Time.time;
+            Debug.Log("Le Swordsman attaque ! (Animation Trigger)");
         }
     }
 
@@ -157,7 +170,7 @@ public class Swordsman : MonoBehaviour, AttackEventHandler.IDamageable
     }
 
     // Implémentation de IDamageable
-    public void TakeDamage(int damageAmount)
+    public void EnemyTakeDamage(int damageAmount)
     {
         health -= damageAmount;
         Debug.Log($"Swordsman took {damageAmount} damage, remaining health: {health}");
@@ -174,11 +187,14 @@ public class Swordsman : MonoBehaviour, AttackEventHandler.IDamageable
     // Animation Event → pour appliquer les dégâts pendant l'attaque
     public void DealDamage()
     {
+        Debug.Log("Le Swordsman attaque ! (Hitbox Check)");
+
         // Utilisation de Physics2D.OverlapCircle pour la détection de la Hitbox
         Collider2D hit = Physics2D.OverlapCircle(transform.position, attackRange, playerLayer);
         
         if (hit != null)
         {
+            Debug.Log("Player touché !");
             // Récupérer le composant PlayerHealth
             PlayerHealth playerHealth = hit.GetComponent<PlayerHealth>();
             if (playerHealth != null)

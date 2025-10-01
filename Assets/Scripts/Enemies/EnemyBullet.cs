@@ -32,7 +32,7 @@ public class Bullet : MonoBehaviour
             AttackEventHandler.IDamageable damageable = collision.GetComponent<AttackEventHandler.IDamageable>();
             if (damageable != null)
             {
-                damageable.TakeDamage(damage);
+                damageable.EnemyTakeDamage(damage);
             }
 
 

@@ -36,8 +36,8 @@ public class PlayerController : MonoBehaviour, PlayerControls.IPlayerActions
     [SerializeField] private LayerMask passThroughLayer;
     [SerializeField] private float disableTime = 0.5f;
 
-    [Header("Health")]
-    [SerializeField] private PlayerHealth playerHealth; // référence au script PlayerHealth
+    // [Header("Health")]
+    // [SerializeField] private PlayerHealth playerHealth; // référence au script PlayerHealth
 
     [Header("Shoot")]
     [SerializeField] private GameObject bulletPrefab;
@@ -76,14 +76,14 @@ public class PlayerController : MonoBehaviour, PlayerControls.IPlayerActions
         // S'abonner à l'événement de perte de capacité (FEEDBACK DE CAMERA)
         abilityManager.OnJumpCapabilityLost += HandleJumpLossFeedback;
 
-        if (playerHealth == null)
-        {
-            playerHealth = GetComponent<PlayerHealth>();
-            if (playerHealth == null)
-            {
-                Debug.LogError("PlayerController : Référence PlayerHealth manquante.");
-            }
-        }
+        // if (playerHealth == null)
+        // {
+        //     playerHealth = GetComponent<PlayerHealth>();
+        //     if (playerHealth == null)
+        //     {
+        //         Debug.LogError("PlayerController : Référence PlayerHealth manquante.");
+        //     }
+        // }
     }
 
     void Start()
@@ -275,16 +275,16 @@ public class PlayerController : MonoBehaviour, PlayerControls.IPlayerActions
         }
 
         // Gestion de la mort du Player
-        if (playerHealth.IsDead)
-        {
-            // Désactive les contrôles
-            _playerControls.Disable();
-            // Autres logiques de mort (animation, son, etc.)
-            _animator.SetTrigger("Die");
-            rb.linearVelocity = Vector2.zero; // Arrête le mouvement
-            this.enabled = false; // Désactive ce script
-            return;
-        }
+        // if (playerHealth.IsDead)
+        // {
+        //     // Désactive les contrôles
+        //     _playerControls.Disable();
+        //     // Autres logiques de mort (animation, son, etc.)
+        //     _animator.SetTrigger("Die");
+        //     rb.linearVelocity = Vector2.zero; // Arrête le mouvement
+        //     this.enabled = false; // Désactive ce script
+        //     // return;
+        // }
     }
 
     // ----------------------------------------

@@ -20,21 +20,31 @@ public class PlayerHealth : MonoBehaviour
 
     void Awake()
     {
+        // Initialisation de la santé
         currentHealth = maxHealth;
         animator = GetComponent<Animator>();
+
+        // Trouver le HealthUI dans la scène
         healthUI = FindObjectOfType<HealthUI>();
 
         if (healthUI != null)
         {
+            // Initialiser l'UI de santé
             healthUI.UpdateHearts(currentHealth, maxHealth);
+        }
+        else
+        {
+            Debug.LogWarning("HealthUI non trouvé dans la scene. Ajouter HealthUI component.");
         }
     }
 
     /// <summary>
-    /// Méthode appelée par les ennemis (comme Swordsman) pour infliger des dégâts
+    /// Méthode appelée par les ennemis (comme Swordsman) pour infliger des dégâts au joueur
     /// </summary>
     public void TakeDamage(int damage)
     {
+        Debug.Log("Player Script TakeDamage called");
+        
         currentHealth -= damage;
         currentHealth = Mathf.Max(currentHealth, 0); // Empêche la santé de descendre en dessous de 0   
         Debug.Log($"Player took {damage} damage, remaining health: {currentHealth}");
@@ -45,15 +55,16 @@ public class PlayerHealth : MonoBehaviour
             animator.SetTrigger("Hurt");
         }
 
+        // Mettre à jour l'UI de santé
         if (healthUI != null)
         {
             healthUI.UpdateHearts(currentHealth, maxHealth);
         }
 
         if (currentHealth <= 0)
-            {
-                Die();
-            }
+        {
+            Die();
+        }
     }
 
     // Méthode pour la mort du joueur
@@ -101,13 +112,13 @@ public class PlayerHealth : MonoBehaviour
     }
 
     // Méthode pour soigner le joueur (optionnelle)
-    public void Heal(int amount)
-    {
-        currentHealth = Mathf.Min(currentHealth + amount, maxHealth);
-        Debug.Log($"Player healed, new health: {currentHealth}");
-        if (healthUI != null)
-        {
-            healthUI.UpdateHearts(currentHealth, maxHealth);
-        }
-    }
+    // public void Heal(int amount)
+    // {
+    //     currentHealth = Mathf.Min(currentHealth + amount, maxHealth);
+    //     Debug.Log($"Player healed, new health: {currentHealth}");
+    //     if (healthUI != null)
+    //     {
+    //         healthUI.UpdateHearts(currentHealth, maxHealth);
+    //     }
+    // }
 }

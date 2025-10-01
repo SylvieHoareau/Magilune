@@ -66,7 +66,7 @@ public class StarProjectile : MonoBehaviour
             EnemyHealth enemyHealth = other.GetComponent<EnemyHealth>();
             if (enemyHealth != null)
             {
-                enemyHealth.TakeDamage(damage);
+                enemyHealth.EnemyTakeDamage(damage);
             }
 
             // Effet d'impact visuel ici (explosion de particules)

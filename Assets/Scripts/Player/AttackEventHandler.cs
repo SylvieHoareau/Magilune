@@ -58,7 +58,7 @@ public class AttackEventHandler : MonoBehaviour
             if (damageable != null)
             {
                 // Appeler la méthode TakeDamage de l'ennemi
-                damageable.TakeDamage(_damageAmount);
+                damageable.EnemyTakeDamage(_damageAmount);
 
                 Debug.Log($"Ennemi {enemy.name} touché pour {_damageAmount} dégâts.");
             }
@@ -107,7 +107,7 @@ public class AttackEventHandler : MonoBehaviour
     // Interface pour les objets pouvant recevoir des dégâts
     public interface IDamageable
     {
-        void TakeDamage(int damage);
+        void EnemyTakeDamage(int damage);
     }
 
 }
