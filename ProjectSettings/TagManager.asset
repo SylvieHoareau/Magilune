@@ -6,6 +6,7 @@ TagManager:
   tags:
   - groundCheck
   - Ground
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -15,8 +16,8 @@ TagManager:
   - UI
   - Player
   - Enemy
-  - 
-  - 
+  - PassThrough
+  - PlayerAttack
   - 
   - 
   - 
