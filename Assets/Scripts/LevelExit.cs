@@ -8,6 +8,7 @@ public class LevelExit : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            Debug.Log("Player reached the level exit.");
             // Charger le niveau suivant
             UnityEngine.SceneManagement.SceneManager.LoadScene(nextLevelName);
             Debug.Log($"Niveau '{nextLevelName}' chargé.");

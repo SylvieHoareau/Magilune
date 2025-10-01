@@ -18,10 +18,12 @@ public class HealthUI : MonoBehaviour
             if (i < currentHealth)
             {
                 hearts[i].sprite = heartFull;
+                Debug.Log($"Heart {i + 1} set to FULL");
             }
             else
             {
                 hearts[i].sprite = heartEmpty;
+                Debug.Log($"Heart {i + 1} set to EMPTY");
             }
 
             // Optionnel : cacher les cœurs au-delà du maxHealth

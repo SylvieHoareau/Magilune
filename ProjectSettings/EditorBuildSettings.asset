@@ -12,11 +12,11 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: e7591ec1f8023e04686991203b03c645
   - enabled: 1
+    path: Assets/Scenes/Level_Test_Full_Gameplay.unity
+    guid: ebeed6b5171c8184998f564aab950506
+  - enabled: 0
     path: Assets/Scenes/Level1_Forest.unity
     guid: 1cf641a26a37c7a46a04f69480b2e7a2
-  - enabled: 1
-    path: Assets/Scenes/Credits.unity
-    guid: 460cd85237011154d9f3d73011c7b8c3
   - enabled: 1
     path: Assets/Scenes/GameOver.unity
     guid: a665c36bf9404b845974e852673de615
@@ -24,8 +24,8 @@ EditorBuildSettings:
     path: Assets/Scenes/Victory.unity
     guid: 177d7887abec01c4b9c0e76d637ed769
   - enabled: 1
-    path: Assets/Scenes/Level_Test_Full_Gameplay.unity
-    guid: ebeed6b5171c8184998f564aab950506
+    path: Assets/Scenes/Credits.unity
+    guid: 460cd85237011154d9f3d73011c7b8c3
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
