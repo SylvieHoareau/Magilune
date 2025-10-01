@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: fe6956aa6cb7ac8439243146a8e683ad
+guid: e308191fcd61922348aa56845eae5a06
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8101675474538990972
-    second: New_Background_Moon_5_0
+      213: 5674241639082100929
+    second: Tile_Platform_Magilune-removebg-preview_0
+  - first:
+      213: -7797825975735480618
+    second: Tile_Platform_Magilune-removebg-preview_1
+  - first:
+      213: 6870487201981276479
+    second: Tile_Platform_Magilune-removebg-preview_2
+  - first:
+      213: 6223706156464941536
+    second: Tile_Platform_Magilune-removebg-preview_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,23 +135,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: New_Background_Moon_5_0
+      name: Tile_Platform_Magilune-removebg-preview_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1344
-        height: 768
+        x: 178
+        y: 74
+        width: 274
+        height: 222
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 482fb969411119f80800000000000000
-      internalID: -8101675474538990972
+      spriteID: 1c8083315b4febe40800000000000000
+      internalID: 5674241639082100929
       vertices: []
       indices: 
       edges: []
@@ -151,7 +160,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 55a5a5bc231fef3e5acddfc02d52e2a8
     internalID: 0
     vertices: []
     indices: 
@@ -161,7 +170,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      New_Background_Moon_5_0: -8101675474538990972
+      Tile_Platform_Magilune-removebg-preview_0: 5674241639082100929
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
