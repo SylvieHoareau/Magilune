@@ -44,8 +44,7 @@ public class PlayerAbilityManager : MonoBehaviour
             if (jumpAbility != null)
             {
                 jumpAbility.SetEnabled(false);
-                // Pro-tip: Vous pouvez désactiver le composant JumpAbility si vous êtes sûr de ne plus l'utiliser.
-                // jumpAbility.enabled = false;
+                // jumpAbility.IsEnabled = false;
             }
             Debug.Log("Capacité de Saut perdue : Trauma à la jambe !");
 
@@ -54,6 +53,10 @@ public class PlayerAbilityManager : MonoBehaviour
 
             // Active le JetPack comme alternative
             EnableJetpackCapability();
+
+            // CONSEIL PRO: Désactiver le contrôle du joueur pendant 0.5s 
+            // pour marquer la transition et justifier le "trauma". 
+            // Ceci doit être géré dans PlayerController.
         }
     }
 

@@ -216,10 +216,12 @@ GameObject:
   - component: {fileID: 8580765187050959828}
   - component: {fileID: 4307696097851321933}
   - component: {fileID: 2578145361278484990}
+  - component: {fileID: 5874600255863617328}
   - component: {fileID: 8556593635391063389}
   - component: {fileID: 4151619075145777495}
   - component: {fileID: 4571140758700138805}
   - component: {fileID: 4545861340522153875}
+  - component: {fileID: 345347558357758286}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -292,8 +294,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1465857781
+  m_SortingLayer: 4
   m_SortingOrder: 1
   m_Sprite: {fileID: 774561676593540966, guid: 8919d0aa78c74ba44aae142cf2d6f7bf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -321,7 +323,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 2
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -449,6 +451,22 @@ MonoBehaviour:
   bulletPrefab: {fileID: 790826862963040386}
   firePoint: {fileID: 2337156806952312754}
   bulletSpeed: 10
+--- !u!114 &5874600255863617328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4038668021053607100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ed27c97d20138569b35b28cd8f903f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerAbilityManager
+  <CanJump>k__BackingField: 1
+  <CanUseJetpack>k__BackingField: 1
+  jumpAbility: {fileID: 8556593635391063389}
+  jetpackAbility: {fileID: 4151619075145777495}
 --- !u!114 &8556593635391063389
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -512,6 +530,22 @@ MonoBehaviour:
   maxHealth: 1000
   deathAnimationTime: 1.5
   gameOverSceneName: GameOver
+--- !u!114 &345347558357758286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4038668021053607100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71b7052c413bf7067aec100aad5b19ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerPlatformDropper
+  playerCollider: {fileID: 4307696097851321933}
+  passThroughPlatformLayer:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &4071206226958888018
 GameObject:
   m_ObjectHideFlags: 0
