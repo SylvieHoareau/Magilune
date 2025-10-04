@@ -16,9 +16,6 @@ public class AbilityLossTrigger : MonoBehaviour
                 // Perte de la capacité de saut
                 abilityManager.LoseJumpCapability();
 
-                // Activation du JetPack
-                abilityManager.HandleJetpackInput(true);
-
                 hasTriggered = true; // S'assurer que ça ne se déclenche qu'une fois
 
                 // Ajouter un son de "ouïe !" doux et un bruit de 'boîte' qui tombe

@@ -39,11 +39,21 @@ public class PlayerAbilityManager : MonoBehaviour
         if (CanJump)
         {
             CanJump = false;
+
+            // Désactiver la capacité dans JumpAbility
+            if (jumpAbility != null)
+            {
+                jumpAbility.SetEnabled(false);
+                // Pro-tip: Vous pouvez désactiver le composant JumpAbility si vous êtes sûr de ne plus l'utiliser.
+                // jumpAbility.enabled = false;
+            }
             Debug.Log("Capacité de Saut perdue : Trauma à la jambe !");
+
             // Déclenche l'événement pour la caméra et le feedback visuel/sonore
             OnJumpCapabilityLost?.Invoke();
+
             // Active le JetPack comme alternative
-            EnableJetpack();
+            EnableJetpackCapability();
         }
     }
 
@@ -58,11 +68,13 @@ public class PlayerAbilityManager : MonoBehaviour
     /// <summary>
     /// Active la capacité de JetPack.
     /// </summary>
-    private void EnableJetpack()
+    private void EnableJetpackCapability()
     {
         if (jetpackAbility != null)
         {
             CanUseJetpack = true;
+            // Activer le composant JetpackAbility s'il était désactivé au démarrage
+            jetpackAbility.enabled = true; 
             Debug.Log("JetPack activé comme alternative au saut !");
         }
         else

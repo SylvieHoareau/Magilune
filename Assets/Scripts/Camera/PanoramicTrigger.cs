@@ -7,19 +7,27 @@ public class PanoramicTrigger : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-
-        // DEBUG : L'événement OnTriggerEnter2D a été déclenché
+        // DEBUG : On enregistre que le trigger a été atteint (étape 1 de debug)
         Debug.Log("OnTriggerEnter2D déclenché avec : " + other.name);
 
-        if (other.CompareTag("Player") && cameraManager != null)
+        // Vérifier si c'est le joueur
+        if (!other.CompareTag("Player"))
         {
-            cameraManager.SetPanoramicCameraActive();
-            Debug.Log("CAMÉRA PANORAMIQUE : Vue panoramique activée.");
+            Debug.Log("PanoramicTrigger : Déclencheur ignoré. L'objet n'est pas le 'Player'.");
+            // C'est un objet qui n'est pas le joueur, on s'arrête.
+            return;
         }
-        else if (cameraManager == null)
+
+        // Vérifier si le CameraManager est assigné
+        if (cameraManager == null)
         {
-            Debug.LogWarning($"Tag invalide : {other.gameObject.name} n'a pas le tag 'Player'.");
+            Debug.LogError("PanoramicTrigger : Référence CameraManager manquante ! Veuillez l'assigner dans l'Inspector.");
+            return;
         }
+
+        // Déclenchement de la fonctionnalité
+        cameraManager.SetPanoramicCameraActive();
+        Debug.Log("CAMÉRA PANORAMIQUE : Vue panoramique activée.");
     }
 
     private void OnTriggerExit2D(Collider2D other)

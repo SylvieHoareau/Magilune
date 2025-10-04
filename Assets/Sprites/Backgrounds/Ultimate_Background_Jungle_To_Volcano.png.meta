@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: d7eedfad72f7f85feaf8bf990b695fab
+guid: 070ff16e67af6c1f9a4733cb88e3014c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4189582823231055355
-    second: Ultimate_Background_Magilune_Volcano_0
+      213: 1753154053311268571
+    second: Ultimate_Background_Jungle_To_Volcano_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,7 +126,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Ultimate_Background_Magilune_Volcano_0
+      name: Ultimate_Background_Jungle_To_Volcano_0
       rect:
         serializedVersion: 2
         x: 0
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: bf5e3cf5163642a30800000000000000
-      internalID: 4189582823231055355
+      spriteID: bd68728a254745810800000000000000
+      internalID: 1753154053311268571
       vertices: []
       indices: 
       edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Ultimate_Background_Magilune_Volcano_0: 4189582823231055355
+      Ultimate_Background_Jungle_To_Volcano_0: 1753154053311268571
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

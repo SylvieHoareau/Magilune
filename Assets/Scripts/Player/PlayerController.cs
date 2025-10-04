@@ -55,8 +55,6 @@ public class PlayerController : MonoBehaviour, PlayerControls.IPlayerActions
             Debug.LogError("Dependencies manquantes (Rigidbody2D ou Animator) sur PlayerController.");
         }
 
-        rb.gravityScale = 0;
-
         // Création de l'instance avec le nouveau nom de classe
         _playerControls = new PlayerControls();
 
@@ -124,12 +122,38 @@ public class PlayerController : MonoBehaviour, PlayerControls.IPlayerActions
         }
     }
 
+    // Méthode pour gérer la gravité améliorée (chute rapide et saut court)
+    private void UpdatePhysicsState()
+    {
+        // C'est le gestionnaire qui décide de la gravité.
+        if (abilityManager.CanJump)
+        {
+            // PHASE 1 : Saut normal. On utilise la gravité d'Unity (par défaut à 1)
+            if (rb.gravityScale != 1f) rb.gravityScale = 1f;
+        }
+        else if (abilityManager.CanUseJetpack)
+        {
+            // PHASE 2 : Jetpack. On force la gravité à 0 (ou une petite valeur) 
+            // car le jetpack applique sa propre force.
+            if (rb.gravityScale != 0f) rb.gravityScale = 0f;
+
+            // Mise à jour de l'état du jetpack dans FixedUpdate
+            abilityManager.HandleJetpackInput(IsJumpInputHeld); // On utilise l'état de l'input
+        }
+    }
+
+    // Stocker l'état de l'input du saut
+    private bool IsJumpInputHeld = false; 
+
     // Implémentation des autres actions (Doivent être présentes)
     // ----------------------------------------
     // Logique de Saut dans le Controller (après refactoring)
     // ----------------------------------------
     public void OnJump(InputAction.CallbackContext context)
     {
+        // On met à jour l'état de l'input de saut/jetpack
+        IsJumpInputHeld = context.ReadValue<float>() > 0;
+
         // GESTION DU SAUT (Phase 1)
         if (abilityManager.CanJump)
         {
@@ -191,6 +215,9 @@ public class PlayerController : MonoBehaviour, PlayerControls.IPlayerActions
 
     void FixedUpdate()
     {
+        // Gérer la gravité et les capacités avant le mouvement
+        UpdatePhysicsState();
+        
         // Calcul de la vélocité cible en fonction de l'input
         float targetXVelocity = moveInput.x * speed;
 
@@ -207,7 +234,7 @@ public class PlayerController : MonoBehaviour, PlayerControls.IPlayerActions
         _animator.SetFloat("MoveSpeed", Mathf.Abs(rb.linearVelocity.x));
 
         // Mettre à jour l'état de saut (IsJumping, Atterrissage, Chute)
-        if (jumpAbility.enabled) // Si la capacité de saut est encore active (Phase 1)
+        if (jumpAbility.IsEnabled) // Si la capacité de saut est encore active (Phase 1)
         {
             jumpAbility.UpdateAnimationState();
         } 
@@ -230,21 +257,6 @@ public class PlayerController : MonoBehaviour, PlayerControls.IPlayerActions
             {
                 // Appliquer plus de force pour couper l'ascension
                 rb.linearVelocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.fixedDeltaTime;
-            }
-        }
-        
-        // Mettre à jour l'état de Vol (IsFlying)
-        // Le jetpack agit sur la physique, donc son état doit être mis à jour ici pour la synchro.
-        if (jetpackAbility.enabled) // Si la capacité de JetPack est active (Phase 2)
-        {
-            // Supposons que vous ayez un paramètre "IsFlying" ou "IsJetpacking" dans votre Animator
-            // Note: jetpackAbility.IsUsingJetpack doit être une propriété publique.
-            _animator.SetBool("IsFlying", jetpackAbility.IsUsingJetpack);
-
-            // Si vous utilisez IsFlying pour le Jetpack, assurez-vous de couper IsJumping
-            if (jetpackAbility.IsUsingJetpack)
-            {
-                _animator.SetBool(JumpAbility.IsJumpingHash, false); // Évite conflit en l'air
             }
         }
     }
@@ -304,7 +316,7 @@ public class PlayerController : MonoBehaviour, PlayerControls.IPlayerActions
     /// <summary>
     /// Coroutine pour lisser la transition de taille orthographique de Cinemachine.
     /// </summary>
-    private System.Collections.IEnumerator SmoothZoom(float targetSize, float duration)
+    private IEnumerator SmoothZoom(float targetSize, float duration)
     {
         float startSize = followCamera.Lens.OrthographicSize;
         float time = 0;

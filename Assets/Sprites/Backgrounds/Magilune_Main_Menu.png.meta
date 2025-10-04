@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Magilune_Main_Menu_0: -8003016717802455325
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
