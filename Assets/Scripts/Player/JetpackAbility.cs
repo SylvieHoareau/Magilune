@@ -96,6 +96,19 @@ public class JetpackAbility : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Retourne le ratio de carburant actuel (entre 0.0 et 1.0).
+    /// </summary>
+    public float CurrentFuelRatio
+    {
+        get
+        {
+            // Évite la division par zéro si fuelMax est accidentellement à 0
+            if (fuelMax <= 0) return 0f; 
+            return currentFuel / fuelMax;
+        }
+    }
+
     public void RefillFuel()
     {
         currentFuel = fuelMax;
