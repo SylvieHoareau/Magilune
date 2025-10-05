@@ -1,7 +1,7 @@
 using System.Drawing;
 using UnityEngine;
 
-public class EnnemyPatrol : MonoBehaviour
+public class PatrolModule : MonoBehaviour
 {
 
     [Header("Stats")]
