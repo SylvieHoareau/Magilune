@@ -10,9 +10,12 @@ public class EnemyHealth : MonoBehaviour
     private float currentHealth;
     public float CurrentHealth => currentHealth; // Propriété publique en lecture seule
 
-    public event Action OnDeath; // C'est un System.Action, un événement sans paramètre
+    // ÉVÉNEMENTS POUR LA MORT ET LES DÉGÂTS
+    public event Action OnEnemyDied; 
     public event Action OnHurt; // Ajout d'un événement pour les dégâts subis
-    // D'autres scripts peuvent s'abonner à ceci
+                                // D'autres scripts peuvent s'abonner à ceci
+    
+    private Animator animator;
     void Awake()
     {
         currentHealth = maxHealth;
@@ -41,7 +44,12 @@ public class EnemyHealth : MonoBehaviour
         Debug.Log("Enemy died!");
 
         // DÉCLENCHEMENT DE L'ÉVÉNEMENT DE MORT
-        OnDeath?.Invoke(); 
+        OnEnemyDied?.Invoke(); 
+
+        if (animator != null)
+        {
+            animator.SetTrigger("Die");
+        }
         
         // La destruction doit rester ici car elle est liée aux données (la vie est finie)
         Destroy(gameObject, 1f); 

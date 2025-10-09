@@ -1,6 +1,20 @@
 using UnityEngine;
 public class ScoreManager : MonoBehaviour
 {
+    private int score = 0;
+    public int Score => score; // Propriété publique en lecture seule
+    private void Awake()
+    {
+        // Optionnel : Trouver tous les ennemis de la scène et s'abonner.
+        EnemyHealth[] enemies = FindObjectsOfType<EnemyHealth>();
+
+        foreach (EnemyHealth enemy in enemies)
+        {
+            // L'abonnement se fait ici (ou à la ligne 23 dans votre cas)
+            enemy.OnEnemyDied += AddScoreOnDeath;
+        }
+    }
+
     // Méthode appelée lorsqu'un ennemi est détruit
     private void OnEnable()
     {
@@ -28,5 +42,12 @@ public class ScoreManager : MonoBehaviour
     {
         Debug.Log("Réaction à la mort : L'ennemi va dropper un objet !");
         // Logique pour instancier un objet à looter ici.
+    }
+
+    private void AddScoreOnDeath()
+    {
+        // Logique pour augmenter le score
+        Debug.Log("Ennemi tué ! +100 points !");
+        score += 100;
     }
 }
