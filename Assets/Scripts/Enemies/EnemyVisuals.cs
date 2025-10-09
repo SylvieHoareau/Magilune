@@ -33,7 +33,7 @@ public class EnemyVisuals : MonoBehaviour
 
         // 2. ABONNEMENT aux événements de EnemyHealth !
         _health.OnHurt += HandleHurt;
-        _health.OnDeath += HandleDeath;
+        _health.OnEnemyDied += HandleDeath;
     }
 
     private void OnDestroy()
@@ -42,7 +42,7 @@ public class EnemyVisuals : MonoBehaviour
         if (_health != null)
         {
             _health.OnHurt -= HandleHurt;
-            _health.OnDeath -= HandleDeath;
+            _health.OnEnemyDied -= HandleDeath;
         }
     }
 
