@@ -7,16 +7,27 @@ using UnityEngine;
 public class RangedAttackModule : MonoBehaviour
 {
     [Header("Ranged Attack")]
+    // DEFINITION DE ATTACKRANGE DANS EnemyCore POUR LA LOGIQUE GLOBALE
+    // Permet de lire la portée dans EnemyCore et de l'éditer dans l'inspecteur
+    [field: SerializeField] public float AttackRange { get; private set; } = 5f;    
+
     [Tooltip("Prefab du projectile (StarProjectile, Bullet, etc.)")]
     [SerializeField] private GameObject projectilePrefab; // Utilisation de StarProjectile, comme dans votre PlayerAttack
     [SerializeField] private Transform firePoint;            // Point de spawn du projectile
     [SerializeField] private float projectileSpeed = 10f;    // Vitesse de base si non définie par le projectile lui-même
-    
+
+    // Définition du Cooldown (pour TryShoot dans EnemyCore)
+    [Header("Cooldown")]
+    [SerializeField] private float shootCooldown = 2f;      // Temps entre chaque tir
+    private float lastShootTime; // Temps du dernier tir
+
     // Référence au SpriteRenderer pour déterminer la direction du tir
     private SpriteRenderer _spriteRenderer;
+    private Animator _animator;
 
     private void Awake()
     {
+        _animator = GetComponent<Animator>();
         // Récupérer le SpriteRenderer pour vérifier la direction d'orientation (flipX ou scale.x)
         _spriteRenderer = GetComponent<SpriteRenderer>();
 
@@ -26,6 +37,31 @@ public class RangedAttackModule : MonoBehaviour
             // Peut être sur un enfant ou un parent, mais pour un ennemi simple, il est souvent sur le root
             _spriteRenderer = GetComponentInParent<SpriteRenderer>();
         }
+
+        // Initialiser le temps du dernier tir pour permettre un tir immédiat au début
+        lastShootTime = -shootCooldown; // Permet de tirer immédiatement au début
+    }
+
+    // DEFINITIONS DE TRYSHOOT (appelé par EnemyCore)
+    /// <summary>
+    /// Tente de tirer un projectile si le cooldown est écoulé.
+    /// </summary>
+    /// <returns>True si le tir a été effectué, false sinon.</returns>
+    public bool TryShoot()
+    {
+        if (Time.time >= lastShootTime + shootCooldown)
+        {
+            // Le cooldown est écoulé, on peut tirer
+            Shoot();
+            lastShootTime = Time.time; // Met à jour le temps du dernier tir
+            // Jouer l'animation de tir si disponible
+            if (_animator != null)
+            {
+                _animator.SetTrigger("Shoot");
+            }
+            return true;
+        }
+        return false; // Cooldown pas encore écoulé
     }
 
     /// <summary>
@@ -39,10 +75,17 @@ public class RangedAttackModule : MonoBehaviour
             return;
         }
 
-        // 1. Instancier le projectile au point de tir
+        // Déclencher l'animation de tir si l'ennemi en a une
+        if (_animator != null)
+        {
+             // Assurez-vous que l'Animator de l'ennemi a un paramètre Trigger appelé "Shoot"
+            _animator.SetTrigger("Shoot"); 
+        }
+
+        // Instancier le projectile au point de tir
         GameObject newProjectileGO = Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
-        
-        // 2. Déterminer la direction de tir
+
+        // Déterminer la direction de tir
         float directionX = 1f; // Par défaut : droite
 
         // float directionX = (_spriteRenderer != null && _spriteRenderer.flipX) ? -1f : transform.localScale.x;
@@ -59,7 +102,7 @@ public class RangedAttackModule : MonoBehaviour
 
         Vector2 shootDirection = new Vector2(directionX, 0f);
 
-        // 3. Appliquer la vélocité au Rigidbody2D du projectile
+        // Appliquer la vélocité au Rigidbody2D du projectile
         Rigidbody2D bulletRb = newProjectileGO.GetComponent<Rigidbody2D>();
         if (bulletRb != null)
         {

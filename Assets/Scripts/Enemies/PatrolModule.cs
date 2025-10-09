@@ -35,7 +35,7 @@ public class PatrolModule : MonoBehaviour
             Patrol();
         }
 
-        ChaseOrPatrol();
+        // ChaseOrPatrol();
     }
 
     public void UpdatePatrolPoint()
@@ -69,41 +69,54 @@ public class PatrolModule : MonoBehaviour
         }
     }
     
-    public void Chase()
+    /// <summary>
+    /// Déplace l'ennemi vers le joueur si dans la portée de poursuite.
+    /// Cette méthode est appelée depuis EnemyCore.
+    /// </summary>
+    /// <param name="target">La position du joueur.</param>
+    public void Chase(Transform target)
     {
-        if (ChaseDistance() <= chaseRange)
+        if (animator != null)
         {
-            // Logique de poursuite du joueur
-            Debug.Log("Chasing the player!");
-            transform.position = Vector2.MoveTowards(transform.position, player.position, moveSpeed * Time.deltaTime);
+            animator.SetBool("IsMoving", true);
         }
-        else
+
+        // Déplacer l'ennemi vers le joueur si dans la portée de poursuite
+        transform.position = Vector2.MoveTowards(
+            transform.position,
+            target.position,
+            moveSpeed * Time.deltaTime
+        );
+
+        // Gérer l'orientation de l'ennemi (s'il doit faire face à la cible)
+        float direction = target.position.x - transform.position.x;
+        if (Mathf.Abs(direction) > 0.1f)
         {
-            // Logique lorsque le joueur est hors de portée
-            Debug.Log("Player is out of range.");
+            // Change l'échelle pour retourner le sprite : +1 si à droite, -1 si à gauche
+            transform.localScale = new Vector3(Mathf.Sign(direction), 1, 1);
         }
     }
 
-    public void ChaseOrPatrol()
-    {
-        if (ChaseDistance() <= chaseRange)
-        {
-            // Logique de poursuite du joueur
-            Debug.Log("Chasing the player!");
-            transform.position = Vector2.MoveTowards(transform.position, player.position, moveSpeed * Time.deltaTime);
-        }
-        else
-        {
-            // Logique lorsque le joueur est hors de portée
-            Debug.Log("Player is out of range, patrolling.");
-        }
-    }
+    // public void ChaseOrPatrol()
+    // {
+    //     if (ChaseDistance() <= chaseRange)
+    //     {
+    //         // Logique de poursuite du joueur
+    //         Debug.Log("Chasing the player!");
+    //         transform.position = Vector2.MoveTowards(transform.position, player.position, moveSpeed * Time.deltaTime);
+    //     }
+    //     else
+    //     {
+    //         // Logique lorsque le joueur est hors de portée
+    //         Debug.Log("Player is out of range, patrolling.");
+    //     }
+    // }
 
-    public float ChaseDistance()
-    {
-        float distance = Vector2.Distance(transform.position, player.position);
-        return distance;
-    }
+    // public float ChaseDistance()
+    // {
+    //     float distance = Vector2.Distance(transform.position, player.position);
+    //     return distance;
+    // }
 
 }
 
