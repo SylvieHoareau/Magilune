@@ -110,15 +110,19 @@ public class EnemyCore : MonoBehaviour
         switch (currentState)
         {
             case EnemyState.Patrol:
-                HandlePatrolState(distanceToPlayer);
-                break;
             case EnemyState.Chase:
-                HandleChaseState(distanceToPlayer);
+                // PatrolModule gère à la fois la Patrouille et la Poursuite.
+                if (patrolModule != null) patrolModule.SetModuleActive(false);
                 break;
             case EnemyState.Attack:
-                HandleAttackState(distanceToPlayer);
+                // Désactiver les deux modules d'attaque pour s'assurer qu'ils s'arrêtent.
+                if (meleeAttackModule != null) meleeAttackModule.SetModuleActive(false);
+                if (rangedAttackModule != null) rangedAttackModule.SetModuleActive(false);
                 break;
-                // Hurt et Die gérés par l'événement de EnemyHealth
+            case EnemyState.Hurt:
+            case EnemyState.Die:
+                // Rien à désactiver en particulier ici.
+                break;
         }
 
         // Mise à jour de l'état actuel
@@ -134,17 +138,16 @@ public class EnemyCore : MonoBehaviour
         switch (newState)
         {
             case EnemyState.Patrol:
-                // Initialiser la patrouille
-                patrolModule?.StartPatrol();
-                break;
             case EnemyState.Chase:
-                // Initialiser la poursuite
-                patrolModule?.StartChase(player);
+                // Initialiser la patrouille et de la poursuite
+                // PatrolModule gère à la fois la Patrouille et la Poursuites
+                if (patrolModule != null) patrolModule.SetModuleActive(true);               
                 break;
             case EnemyState.Attack:
                 // Initialiser l'attaque
-                meleeAttackModule?.ResetAttackCooldown();
-                rangedAttackModule?.ResetShootCooldown();
+                // Désactiver les deux modules d'attaque pour sassurer qu'ils s'arrêtent
+                if (meleeAttackModule != null) meleeAttackModule.SetModuleActive(true);
+                else if (rangedAttackModule != null) rangedAttackModule.SetModuleActive(true);
                 break;
             case EnemyState.Hurt:
                 // Initialiser les dégâts

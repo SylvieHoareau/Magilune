@@ -17,9 +17,16 @@ public class MeleeAttackModule : MonoBehaviour
     private float lastAttackTime;
     private Animator animator;
 
+    private bool isActive = false;
+
     private void Awake()
     {
         animator = GetComponent<Animator>();
+    }
+
+    public void SetModuleActive(bool state)
+    {
+        isActive = state;
     }
 
     public bool TryAttack()

@@ -14,9 +14,13 @@ public class PatrolModule : MonoBehaviour
     public float chaseRange;
     public Transform player;
 
+    public bool isActive = false;
+
     private Rigidbody2D rb;
     private Animator animator;
 
+
+    // --- LIFECYCLE ---
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -37,6 +41,21 @@ public class PatrolModule : MonoBehaviour
 
         // ChaseOrPatrol();
     }
+
+    /// <summary>
+    /// Définit l'état actif du module. Utile pour la FSM de EnemyCore.
+    /// </summary>
+    public void SetModuleActive(bool state)
+    {
+        isActive = state;
+        if (state == false)
+        {
+            // Logique de sortie : arrêter le mouvement forcé
+            // Si le module a un Rigidbody, l'arrêter ici
+            GetComponent<Rigidbody2D>().velocity = Vector2.zero; 
+        }
+    }
+
 
     public void UpdatePatrolPoint()
     {
@@ -59,6 +78,8 @@ public class PatrolModule : MonoBehaviour
 
     public void Patrol()
     {
+        if (!isActive) return; // Ne rien faire si inactif
+        
         animator.SetBool("IsMoving", true);
 
         transform.position = Vector2.MoveTowards(transform.position, points[currentPointNumber].position, moveSpeed * Time.deltaTime);
@@ -76,6 +97,8 @@ public class PatrolModule : MonoBehaviour
     /// <param name="target">La position du joueur.</param>
     public void Chase(Transform target)
     {
+        if (!isActive) return; // Ne rien faire si inactif
+
         if (animator != null)
         {
             animator.SetBool("IsMoving", true);

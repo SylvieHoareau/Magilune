@@ -25,6 +25,9 @@ public class RangedAttackModule : MonoBehaviour
     private SpriteRenderer _spriteRenderer;
     private Animator _animator;
 
+    private bool isActive = false;
+
+
     private void Awake()
     {
         _animator = GetComponent<Animator>();
@@ -40,6 +43,11 @@ public class RangedAttackModule : MonoBehaviour
 
         // Initialiser le temps du dernier tir pour permettre un tir immédiat au début
         lastShootTime = -shootCooldown; // Permet de tirer immédiatement au début
+    }
+
+    public void SetModuleActive(bool state)
+    {
+        isActive = state;
     }
 
     // DEFINITIONS DE TRYSHOOT (appelé par EnemyCore)
