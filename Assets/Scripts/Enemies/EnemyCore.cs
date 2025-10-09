@@ -1,3 +1,4 @@
+using UnityEditorInternal;
 using UnityEngine;
 
 /// <summary>
@@ -30,7 +31,7 @@ public class EnemyCore : MonoBehaviour
         animator = GetComponent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player")?.transform;
         // Optionnel : lier la fonction Die() à l'événement de mort de EnemyHealth
-        GetComponent<EnemyHealth>().OnDeath += TransitionToDie;
+        GetComponent<EnemyHealth>().OnEnemyDied += TransitionToDie;
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -43,23 +44,7 @@ public class EnemyCore : MonoBehaviour
     {
         if (player == null) return;
 
-        // 1. Détermine la distance par rapport au joueur (Optimisation : ne pas faire dans Update si possible)
-        float distanceToPlayer = Vector2.Distance(transform.position, player.position);
-
-        // 2. LOGIQUE GLOBALE DE TRANSITION D'ÉTAT
-        switch (currentState)
-        {
-            case EnemyState.Patrol:
-                HandlePatrolState(distanceToPlayer);
-                break;
-            case EnemyState.Chase:
-                HandleChaseState(distanceToPlayer);
-                break;
-            case EnemyState.Attack:
-                HandleAttackState(distanceToPlayer);
-                break;
-                // Hurt et Die gérés par l'événement de EnemyHealth
-        }
+        TransitionTo(currentState); // Appel de la méthode de transition chaque frame
     }
     
     // --- Fonctions de transition d'état ---
@@ -109,23 +94,106 @@ public class EnemyCore : MonoBehaviour
         else if (rangedAttackModule != null)
             rangedAttackModule.TryShoot();
     }
-    
+
+    /// <summary>
+    /// Transitionne vers un nouvel état.
+    /// </summary>
+    /// <param name="newState"></param>
     public void TransitionTo(EnemyState newState)
     {
+        if (player == null) return;
+
+        // Détermine la distance par rapport au joueur (Optimisation : ne pas faire dans Update si possible)
+        float distanceToPlayer = Vector2.Distance(transform.position, player.position);
+
         // Logique de sortie de l'état précédent si nécessaire
-        // ...
+        switch (currentState)
+        {
+            case EnemyState.Patrol:
+                HandlePatrolState(distanceToPlayer);
+                break;
+            case EnemyState.Chase:
+                HandleChaseState(distanceToPlayer);
+                break;
+            case EnemyState.Attack:
+                HandleAttackState(distanceToPlayer);
+                break;
+                // Hurt et Die gérés par l'événement de EnemyHealth
+        }
 
+        // Mise à jour de l'état actuel
         currentState = newState;
-        animator.SetInteger("State", (int)currentState); // Lier à l'Animator
 
-        // Logique d'entrée dans le nouvel état
-        // ...
+        // Synchronisation avec l'Animator
+        if (animator != null)
+        {
+            // int correspond à l'index de l'énumération (0=Idle, 1=Patrol, 2=Chase, 3=Attack, 4=Hurt, 5=Die)
+            animator.SetInteger("State", (int)currentState);
+        }
+        // Logique d'entrée dans le nouvel état si nécessaire
+        switch (newState)
+        {
+            case EnemyState.Patrol:
+                // Initialiser la patrouille
+                patrolModule?.StartPatrol();
+                break;
+            case EnemyState.Chase:
+                // Initialiser la poursuite
+                patrolModule?.StartChase(player);
+                break;
+            case EnemyState.Attack:
+                // Initialiser l'attaque
+                meleeAttackModule?.ResetAttackCooldown();
+                rangedAttackModule?.ResetShootCooldown();
+                break;
+            case EnemyState.Hurt:
+                // Initialiser les dégâts
+                animator.SetTrigger("Hurt");
+                break;
+            case EnemyState.Die:
+                // Initialiser la mort
+                animator.SetTrigger("Die");
+                // Désactiver le Core pour arrêter tout mouvement/logique
+                this.enabled = false;
+                break;
+        }
+
+        Debug.Log($"Transition vers l'état : {currentState}");
+
+    }
+    
+    public void TakeHit()
+    {
+        // On ne veut pas se faire frapper si on est déjà mort
+        if (currentState == EnemyState.Die) return;
+
+        // Si on n'est pas déjà en train de subir des dégâts pour éviter de casser l'animation Hurt
+        if (currentState != EnemyState.Hurt)
+        {
+            TransitionTo(EnemyState.Hurt);
+        }
+    }
+
+    public void ResumeState()
+    {
+        // Après avoir été blessé, on ne reprend pas l'état Hurt/Die.
+        // On revient à la poursuite si le joueur est toujours là, sinon à la patrouille.
+        float dist = Vector2.Distance(transform.position, player.position);
+
+        if (dist <= detectionRange)
+        {
+            TransitionTo(EnemyState.Chase);
+        }
+        else
+        {
+            TransitionTo(EnemyState.Patrol);
+        }
     }
     
     public void TransitionToDie()
     {
         TransitionTo(EnemyState.Die);
         // Désactiver le Core pour arrêter tout mouvement/logique
-        this.enabled = false; 
+        this.enabled = false;
     }
 }

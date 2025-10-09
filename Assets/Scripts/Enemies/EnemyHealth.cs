@@ -25,16 +25,21 @@ public class EnemyHealth : MonoBehaviour
     public void EnemyTakeDamage(float damage)
     {
         currentHealth -= damage;
-        currentHealth = Mathf.Max(currentHealth, 0); 
-        
+        currentHealth = Mathf.Max(currentHealth, 0);
+
         Debug.Log($"Enemy took {damage} damage, remaining health: {currentHealth}");
 
         // DÉCLENCHEMENT DE L'ÉVÉNEMENT DE DÉGÂTS
-        OnHurt?.Invoke(); 
+        OnHurt?.Invoke();
 
         if (currentHealth <= 0)
         {
-            Die();
+            OnEnemyDied?.Invoke(); // Déclenche TransitionToDie() via l'événement
+        }
+        else
+        {
+            // Transition vers l'état Hurt
+            GetComponent<EnemyCore>().TransitionTo(EnemyState.Hurt);
         }
     }
 
