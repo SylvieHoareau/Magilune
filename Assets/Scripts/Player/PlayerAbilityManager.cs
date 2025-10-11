@@ -106,4 +106,15 @@ public class PlayerAbilityManager : MonoBehaviour
             jetpackAbility.HandleJetPack(isPressed);
         }
     }
+
+    /// <summary>
+    /// Transmet la commande du joueur au GrappleAbility
+    /// </summary>
+    public void HandleGrappleInput(bool isPressed)
+    {
+        if (grappleAbility != null)
+        {
+            grappleAbility.HandleGrappleInput(isPressed);
+        }
+    }
 }

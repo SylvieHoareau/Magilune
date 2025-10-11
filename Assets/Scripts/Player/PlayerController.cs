@@ -22,6 +22,8 @@ public class PlayerController : MonoBehaviour, PlayerControls.IPlayerActions
     [SerializeField] private PlayerAbilityManager abilityManager;
     [SerializeField] private JumpAbility jumpAbility;
     [SerializeField] private JetpackAbility jetpackAbility;
+    [SerializeField] private GrappleAbility grappleAbility;
+
 
     [Header("Saut Amélioré")]
     [SerializeField] private float fallMultiplier = 2.5f; // Gravité supplémentaire en chute
@@ -87,6 +89,16 @@ public class PlayerController : MonoBehaviour, PlayerControls.IPlayerActions
     void Start()
     {
         playerCollider = GetComponent<Collider2D>();
+
+        // Initialisation du Grapple
+        if (abilityManager != null && abilityManager.TryGetComponent<GrappleAbility>(out GrappleAbility grapple))
+        {
+            grappleAbility = grapple;
+            grappleAbility.Initialize(rb, abilityManager); // On passe le Rigidbody et l'AbilityManager
+        }
+
+        // S'abonner à l'événement de perte de capacité (pour les zooms/feedbacks)
+        abilityManager.OnJumpCapabilityLost += HandleJumpLossFeedback;
     }
 
     void OnEnable()
@@ -143,7 +155,7 @@ public class PlayerController : MonoBehaviour, PlayerControls.IPlayerActions
     }
 
     // Stocker l'état de l'input du saut
-    private bool IsJumpInputHeld = false; 
+    private bool IsJumpInputHeld = false;
 
     // Implémentation des autres actions (Doivent être présentes)
     // ----------------------------------------
@@ -171,6 +183,20 @@ public class PlayerController : MonoBehaviour, PlayerControls.IPlayerActions
         // ou ici si c'est un toggle (ce qui est rare pour un jetpack)
         bool isPressed = context.ReadValue<float>() > 0; // Vrai si le bouton est enfoncé
         abilityManager.HandleJetpackInput(isPressed);
+    }
+    
+    public void OnGrapple(InputAction.CallbackContext context)
+    {
+        if (abilityManager == null) return;
+
+        if (context.performed)
+        {
+            abilityManager.HandleGrappleInput(true); // Commencer le grapple
+        }
+        else if (context.canceled)
+        {
+            abilityManager.HandleGrappleInput(false); // Arrêter le grapple
+        }
     }
     public void OnLook(InputAction.CallbackContext context) { }
 
@@ -237,8 +263,8 @@ public class PlayerController : MonoBehaviour, PlayerControls.IPlayerActions
         if (jumpAbility.IsEnabled) // Si la capacité de saut est encore active (Phase 1)
         {
             jumpAbility.UpdateAnimationState();
-        } 
-        
+        }
+
         // Si le joueur est en l'air (JumpAbility.IsGrounded() == false)
         if (!jumpAbility.IsGrounded())
         {
@@ -249,7 +275,7 @@ public class PlayerController : MonoBehaviour, PlayerControls.IPlayerActions
                 // (La formule ajoute de la force pour que la chute soit plus raide)
                 rb.linearVelocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier - 1) * Time.fixedDeltaTime;
             }
-            
+
             // Saut court (si le joueur relâche la touche de saut)
             // La variable 'jumpInputHeld' doit être mise à jour dans la méthode OnJump ou OnAction du nouveau système Input
             // Supposons que PlayerController a une booléenne `isJumpInputHeld`
@@ -259,6 +285,20 @@ public class PlayerController : MonoBehaviour, PlayerControls.IPlayerActions
                 rb.linearVelocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.fixedDeltaTime;
             }
         }
+        
+        if (grappleAbility != null && grappleAbility.IsGrappling())
+        {
+            // Réduire la gravité ou la neutraliser pour un meilleur balancement
+            rb.gravityScale = 0.5f; // ou 0f si vous voulez un balancement parfait
+
+            // Note : le balancement (AddForce) se fait dans GrappleAbility.FixedUpdate()
+
+            // S'il est en Grappling, on peut sortir et ignorer le saut/gravité avancée
+            return; 
+        }
+
+        // Revenir à la gravité normale lorsque le grappling est terminé
+        rb.gravityScale = 3f; 
     }
 
     void Update()

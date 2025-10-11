@@ -360,8 +360,9 @@ GameObject:
   - component: {fileID: 3328249694988872410}
   - component: {fileID: 2447477912123174143}
   - component: {fileID: 6951735732169599714}
-  - component: {fileID: 2841462532424584356}
-  - component: {fileID: 3929652175657208761}
+  - component: {fileID: 5518194927770479746}
+  - component: {fileID: 6216534308088370371}
+  - component: {fileID: 6293286570778911646}
   m_Layer: 7
   m_Name: Swordsman
   m_TagString: Enemy
@@ -432,8 +433,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -507731145
+  m_SortingLayer: 5
   m_SortingOrder: 1
   m_Sprite: {fileID: -3561858456799500357, guid: 9cac0325fdcecac43a280c5300ad0dde, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -492,7 +493,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 7.358897, y: 9.6609745}
   m_EdgeRadius: 0
---- !u!50 &2841462532424584356
+--- !u!50 &5518194927770479746
 Rigidbody2D:
   serializedVersion: 5
   m_ObjectHideFlags: 0
@@ -519,7 +520,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!95 &3929652175657208761
+--- !u!95 &6216534308088370371
 Animator:
   serializedVersion: 7
   m_ObjectHideFlags: 0
@@ -541,6 +542,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6293286570778911646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7083959522996003522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd8125e79a4a4cb44978b339ae533220, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 3
 --- !u!1001 &9207243373553942901
 PrefabInstance:
   m_ObjectHideFlags: 0
