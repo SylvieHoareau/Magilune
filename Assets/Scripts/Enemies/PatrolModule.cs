@@ -52,7 +52,7 @@ public class PatrolModule : MonoBehaviour
         {
             // Logique de sortie : arrêter le mouvement forcé
             // Si le module a un Rigidbody, l'arrêter ici
-            GetComponent<Rigidbody2D>().velocity = Vector2.zero; 
+            GetComponent<Rigidbody2D>().linearVelocity = Vector2.zero; 
         }
     }
 
