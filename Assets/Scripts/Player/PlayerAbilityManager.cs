@@ -13,7 +13,10 @@ public class PlayerAbilityManager : MonoBehaviour
 
     [Header("Modules reliés")]
     [SerializeField] private JumpAbility jumpAbility;
+    // Jetpack
     [SerializeField] private JetpackAbility jetpackAbility;
+    // Grapple
+    [SerializeField] private GrappleAbility grappleAbility; 
     // Événement pour signaler la perte de capacité au reste du système (Caméra, UI, etc.)
     public event System.Action OnJumpCapabilityLost;
 
@@ -25,6 +28,14 @@ public class PlayerAbilityManager : MonoBehaviour
         {
             jetpackAbility = GetComponent<JetpackAbility>();
             if (jetpackAbility == null)
+            {
+                Debug.LogWarning("PlayerAbilityManager : Référence JetPackAbility manquante.");
+            }
+        }
+        if (grappleAbility == null)
+        {
+            grappleAbility = GetComponent<GrappleAbility>();
+            if (grappleAbility == null)
             {
                 Debug.LogWarning("PlayerAbilityManager : Référence JetPackAbility manquante.");
             }
@@ -51,12 +62,11 @@ public class PlayerAbilityManager : MonoBehaviour
             // Déclenche l'événement pour la caméra et le feedback visuel/sonore
             OnJumpCapabilityLost?.Invoke();
 
+            grappleAbility?.SetEnabled(true); 
+
             // Active le JetPack comme alternative
             EnableJetpackCapability();
 
-            // CONSEIL PRO: Désactiver le contrôle du joueur pendant 0.5s 
-            // pour marquer la transition et justifier le "trauma". 
-            // Ceci doit être géré dans PlayerController.
         }
     }
 
