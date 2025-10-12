@@ -346,7 +346,6 @@ MonoBehaviour:
   m_ScreenCoordScaleBias: {x: 0, y: 0, z: 0, w: 0}
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
-  m_Version: 2
   m_TaaSettings:
     m_Quality: 3
     m_FrameInfluence: 0.1
@@ -354,6 +353,7 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+  m_Version: 2
 --- !u!1001 &123304688
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -541,7 +541,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 5489530116258308103, guid: 268006febe02d8d96b489fc7aa893f69, type: 3}
+  m_Sprite: {fileID: -7642986446173420197, guid: ce0c6c947a0c4171cbc83cc678387b64, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
