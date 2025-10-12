@@ -11,11 +11,8 @@ GameObject:
   - component: {fileID: 6788340759645253730}
   - component: {fileID: 3435943737544165325}
   - component: {fileID: 6102168604257086757}
-  - component: {fileID: 1529810265019258114}
   - component: {fileID: 845198623792897676}
   - component: {fileID: 6159163391123730896}
-  - component: {fileID: 7429961560295265213}
-  - component: {fileID: 8117222373381217992}
   m_Layer: 7
   m_Name: Turret
   m_TagString: Enemy
@@ -63,6 +60,8 @@ SpriteRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -84,6 +83,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
@@ -144,28 +144,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 4.78125, y: 5.4375}
   m_EdgeRadius: 0
---- !u!114 &1529810265019258114
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6697835534169586684}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d051cf0742e7f3376a38f1cec52526b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 3
-  damage: 1
-  detectionRange: 6
-  fireCooldown: 2
-  rangedAttackModule: {fileID: 2777620978477691423}
-  bulletPrefab: {fileID: 6512477243978579300}
-  firePoint: {fileID: 7801069843612303150}
-  playerLayer:
-    serializedVersion: 2
-    m_Bits: 64
 --- !u!95 &845198623792897676
 Animator:
   serializedVersion: 7
@@ -215,40 +193,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &7429961560295265213
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6697835534169586684}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd8125e79a4a4cb44978b339ae533220, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 3
-  damageFlashDuration: 0.15
-  damageFlashColor: {r: 1, g: 0, b: 0, a: 1}
---- !u!114 &8117222373381217992
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6697835534169586684}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13ea26217571b2042bcc4b373023c206, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  damage: 1
-  bulletPrefab: {fileID: 6512477243978579300}
-  attackRange: 3
-  enemyType: 1
-  canAttack: 0
-  attackCooldown: 1
 --- !u!1 &7176289767782404977
 GameObject:
   m_ObjectHideFlags: 0
@@ -301,6 +245,8 @@ SpriteRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -322,6 +268,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -401,17 +348,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b88d20d1243806e45ab6c5de263e12ac, type: 3}
---- !u!114 &2777620978477691423 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 516709616565913527, guid: b88d20d1243806e45ab6c5de263e12ac, type: 3}
-  m_PrefabInstance: {fileID: 2425099582194415016}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 398bc23404e8d2845a6a82eb66a76eba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &4413153750900417411 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2060683582883452459, guid: b88d20d1243806e45ab6c5de263e12ac, type: 3}

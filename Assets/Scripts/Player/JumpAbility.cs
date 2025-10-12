@@ -1,3 +1,4 @@
+using NUnit.Framework;
 using UnityEngine;
 
 /// <summary>
@@ -18,8 +19,8 @@ public class JumpAbility : MonoBehaviour
     // Hashing des paramètres pour l'optimisation (meilleure pratique)
     public static readonly int IsJumpingHash = Animator.StringToHash("IsJumping");
     private bool wasGroundedLastFrame; // État de la frame précédente
-    private bool isEnabled = true; // Démarre activé
-
+    [field: SerializeField] // Garder visible dans l'Inspector
+    public bool IsEnabled { get; private set; } = true;
 
     public void Initialize(Rigidbody2D rbRef, Animator animRef)
     {
@@ -41,9 +42,11 @@ public class JumpAbility : MonoBehaviour
         return Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
     }
 
+    // C'est au manager de capacités de contrôler l'état
+    // (perte de capacité, gain de capacité, etc.)
     public void SetEnabled(bool state)
     {
-        isEnabled = state;
+        IsEnabled = state;
     }
 
     /// <summary>
@@ -52,22 +55,19 @@ public class JumpAbility : MonoBehaviour
     public void PerformJump()
     {
         // Ajout de la vérification de l'état de la capacité
-        if (!isEnabled)
+        if (!IsEnabled || !IsGrounded())
         {
             // Optionnel : Jouer un son ou un feedback visuel de capacité bloquée
             return;
         }
 
-        if (IsGrounded())
-        {
-            // Appliquer la force de saut
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+        // Logique de saut
+        rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
 
-            // Logique d'Animation : Déclenchement du saut
-            if (animator != null)
-            {
-                animator.SetBool(IsJumpingHash, true);
-            }
+        // Logique d'Animation : Déclenchement du saut
+        if (animator != null)
+        {
+            animator.SetBool(IsJumpingHash, true);
         }
     }
 
@@ -106,7 +106,7 @@ public class JumpAbility : MonoBehaviour
     
     public void HandleJumpInput()
     {
-        if (!isEnabled) // isEnabled est l'état CanJump dans PlayerAbilityManager
+        if (!IsEnabled) // isEnabled est l'état CanJump dans PlayerAbilityManager
         {
             // Jouer un son d'échec "boing" ou "ouïe"
             // Jouer une animation de petit "mini-hop" douloureux 

@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System;
 
 public class EnemyHealth : MonoBehaviour
 {
@@ -9,106 +10,54 @@ public class EnemyHealth : MonoBehaviour
     private float currentHealth;
     public float CurrentHealth => currentHealth; // Propriété publique en lecture seule
 
-    [Header("Hit Effect")]
-    private EnemyFloatingHealthUI _floatingUI; 
-    private Animator animator;
-
-    [Header("Feedback Visuel (Pour les 3 ans)")]
-    [SerializeField] private float damageFlashDuration = 0.15f; // Durée du flash
-    [SerializeField] private Color damageFlashColor = Color.red; // Couleur de l'effet
+    // ÉVÉNEMENTS POUR LA MORT ET LES DÉGÂTS
+    public event Action OnEnemyDied; 
+    public event Action OnHurt; // Ajout d'un événement pour les dégâts subis
+                                // D'autres scripts peuvent s'abonner à ceci
     
-    private SpriteRenderer _spriteRenderer;
-    private HealthUI healthUI;
-    private Coroutine _flashCoroutine;
+    private Animator animator;
     void Awake()
     {
         currentHealth = maxHealth;
-        animator = GetComponent<Animator>();
-        _spriteRenderer = GetComponent<SpriteRenderer>(); // Récupérer le SpriteRenderer
-
-        // Trouver l'UI flottante dans les enfants
-        _floatingUI = GetComponentInChildren<EnemyFloatingHealthUI>();
-        // Mise à jour initiale de l'UI flottante
-        if (_floatingUI != null)
-        {
-            _floatingUI.UpdateFloatingHeart(maxHealth, currentHealth);
-        }
-        else
-        {
-            Debug.LogWarning("EnemyFloatingHealthUI non trouvé dans les enfants. L'UI de vie flottante ne fonctionnera pas.");
-        }
+        Debug.Log($"Enemy {gameObject.name} initialized with {currentHealth} health.");
     }
 
     public void EnemyTakeDamage(float damage)
     {
         currentHealth -= damage;
-        currentHealth = Mathf.Max(currentHealth, 0); // Empêche la santé de descendre en dessous de 0   
-        Debug.Log($"Player took {damage} damage, remaining health: {currentHealth}");
+        currentHealth = Mathf.Max(currentHealth, 0);
 
-        // DÉCLENCHER LE FLASH DE COULEUR
-        if (_flashCoroutine != null)
-        {
-            StopCoroutine(_flashCoroutine); // Arrêter l'ancien flash pour que le nouveau puisse démarrer
-        }
-        _flashCoroutine = StartCoroutine(DamageFlash());
+        Debug.Log($"Enemy took {damage} damage, remaining health: {currentHealth}");
 
-        // Animation
-        if (animator != null)
-        {
-            // Utiliser un trigger est mieux que SetBool si l'animation est courte et ne boucle pas
-            animator.SetTrigger("Hurt"); 
-        }
+        // DÉCLENCHEMENT DE L'ÉVÉNEMENT DE DÉGÂTS
+        OnHurt?.Invoke();
 
-        // UI (si l'ennemi a sa propre UI)
-        if (_floatingUI != null)
-        {
-            _floatingUI.UpdateFloatingHeart(maxHealth, currentHealth);
-        }
-
-        // Mort
         if (currentHealth <= 0)
         {
-            Die();
+            OnEnemyDied?.Invoke(); // Déclenche TransitionToDie() via l'événement
         }
-    }
-
-     /// <summary>
-    /// Coroutine pour le feedback visuel de dégâts (Flash rouge/blanc).
-    /// </summary>
-    private IEnumerator DamageFlash()
-    {
-        if (_spriteRenderer == null) yield break; // S'assurer que le SR existe
-
-        Color originalColor = _spriteRenderer.color;
-        
-        // Appliquer la couleur de dégât
-        _spriteRenderer.color = damageFlashColor;
-        
-        yield return new WaitForSeconds(damageFlashDuration);
-        
-        // Revenir à la couleur originale
-        _spriteRenderer.color = originalColor;
-
-        _flashCoroutine = null;
+        else
+        {
+            // Transition vers l'état Hurt
+            GetComponent<EnemyCore>().TransitionTo(EnemyState.Hurt);
+        }
     }
 
     // Gérer la mort de l'ennemi
     public void Die()
     {
         Debug.Log("Enemy died!");
+
+        // DÉCLENCHEMENT DE L'ÉVÉNEMENT DE MORT
+        OnEnemyDied?.Invoke(); 
+
         if (animator != null)
         {
             animator.SetTrigger("Die");
         }
-
-        // DÉSACTIVER IMMÉDIATEMENT L'UI FLOTTANTE LORS DE LA MORT
-        if (_floatingUI != null)
-        {
-            _floatingUI.gameObject.SetActive(false);
-        }
-
-        // Détruire l'objet après un délai pour permettre à l'animation de mort de jouer
-        Destroy(gameObject, 1f); // Ajuster le délai selon la durée de l'animation
+        
+        // La destruction doit rester ici car elle est liée aux données (la vie est finie)
+        Destroy(gameObject, 1f); 
         Debug.Log($"Enemy {gameObject.name} will be destroyed in 1 second.");
     }
 }

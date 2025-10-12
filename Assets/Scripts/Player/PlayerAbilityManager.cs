@@ -13,7 +13,10 @@ public class PlayerAbilityManager : MonoBehaviour
 
     [Header("Modules reliés")]
     [SerializeField] private JumpAbility jumpAbility;
+    // Jetpack
     [SerializeField] private JetpackAbility jetpackAbility;
+    // Grapple
+    [SerializeField] private GrappleAbility grappleAbility; 
     // Événement pour signaler la perte de capacité au reste du système (Caméra, UI, etc.)
     public event System.Action OnJumpCapabilityLost;
 
@@ -29,6 +32,14 @@ public class PlayerAbilityManager : MonoBehaviour
                 Debug.LogWarning("PlayerAbilityManager : Référence JetPackAbility manquante.");
             }
         }
+        if (grappleAbility == null)
+        {
+            grappleAbility = GetComponent<GrappleAbility>();
+            if (grappleAbility == null)
+            {
+                Debug.LogWarning("PlayerAbilityManager : Référence JetPackAbility manquante.");
+            }
+        }
     }
 
     /// <summary>
@@ -39,11 +50,23 @@ public class PlayerAbilityManager : MonoBehaviour
         if (CanJump)
         {
             CanJump = false;
+
+            // Désactiver la capacité dans JumpAbility
+            if (jumpAbility != null)
+            {
+                jumpAbility.SetEnabled(false);
+                // jumpAbility.IsEnabled = false;
+            }
             Debug.Log("Capacité de Saut perdue : Trauma à la jambe !");
+
             // Déclenche l'événement pour la caméra et le feedback visuel/sonore
             OnJumpCapabilityLost?.Invoke();
+
+            grappleAbility?.SetEnabled(true); 
+
             // Active le JetPack comme alternative
-            EnableJetpack();
+            EnableJetpackCapability();
+
         }
     }
 
@@ -58,11 +81,13 @@ public class PlayerAbilityManager : MonoBehaviour
     /// <summary>
     /// Active la capacité de JetPack.
     /// </summary>
-    private void EnableJetpack()
+    private void EnableJetpackCapability()
     {
         if (jetpackAbility != null)
         {
             CanUseJetpack = true;
+            // Activer le composant JetpackAbility s'il était désactivé au démarrage
+            jetpackAbility.enabled = true; 
             Debug.Log("JetPack activé comme alternative au saut !");
         }
         else
@@ -79,6 +104,17 @@ public class PlayerAbilityManager : MonoBehaviour
         if (CanUseJetpack && jetpackAbility != null)
         {
             jetpackAbility.HandleJetPack(isPressed);
+        }
+    }
+
+    /// <summary>
+    /// Transmet la commande du joueur au GrappleAbility
+    /// </summary>
+    public void HandleGrappleInput(bool isPressed)
+    {
+        if (grappleAbility != null)
+        {
+            grappleAbility.HandleGrappleInput(isPressed);
         }
     }
 }
