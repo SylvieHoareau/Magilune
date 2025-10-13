@@ -10,9 +10,11 @@ public class AbilityHUD : MonoBehaviour
     [Header("Références")]
     [Tooltip("L'objet qui contient l'icône de Saut/Jetpack")]
     [SerializeField] private GameObject jumpIconContainer;
+    [SerializeField] private GameObject grapplingIconContainer;
+    [SerializeField] private GameObject climbingIconContainer;
     [SerializeField] private GameObject jetpackIconContainer;
-    [Tooltip("Le Slider (barre de progression) du carburant du Jetpack.")]
-    [SerializeField] private Slider jetpackFuelSlider; 
+    // [Tooltip("Le Slider (barre de progression) du carburant du Jetpack.")]
+    // [SerializeField] private Slider jetpackFuelSlider; 
     
     // Le gestionnaire d'événements du joueur
     [SerializeField] private PlayerAbilityManager abilityManager;
@@ -44,27 +46,27 @@ public class AbilityHUD : MonoBehaviour
         UpdateHUD(abilityManager.CanJump, abilityManager.CanUseJetpack);
         
         // Initialiser le slider à plein au démarrage (si le jetpack est actif)
-        if (jetpackFuelSlider != null)
-        {
-            jetpackFuelSlider.value = jetpackAbility.CurrentFuelRatio;
-        }
+        // if (jetpackFuelSlider != null)
+        // {
+        //     jetpackFuelSlider.value = jetpackAbility.CurrentFuelRatio;
+        // }
     }
     
     // Mise à jour de la barre de carburant du jetpack
     private void Update()
     {
         // On vérifie le carburant UNIQUEMENT si le jetpack est la capacité active
-        if (abilityManager.CanUseJetpack && jetpackFuelSlider != null)
-        {
-            // Mise à jour continue de la barre de progression
-            jetpackFuelSlider.value = jetpackAbility.CurrentFuelRatio;
+        // if (abilityManager.CanUseJetpack && jetpackFuelSlider != null)
+        // {
+        //     // Mise à jour continue de la barre de progression
+        //     jetpackFuelSlider.value = jetpackAbility.CurrentFuelRatio;
 
-            // PRO TIP: Feedback visuel rapide sur le faible niveau de carburant
-            // if (jetpackAbility.CurrentFuelRatio < 0.2f)
-            // {
-            //     // Faire clignoter l'icône ou la couleur de la barre
-            // }
-        }
+        //     // PRO TIP: Feedback visuel rapide sur le faible niveau de carburant
+        //     // if (jetpackAbility.CurrentFuelRatio < 0.2f)
+        //     // {
+        //     //     // Faire clignoter l'icône ou la couleur de la barre
+        //     // }
+        // }
     }
     
     // Cette méthode est appelée AUTOMATIQUEMENT lorsque l'événement se déclenche

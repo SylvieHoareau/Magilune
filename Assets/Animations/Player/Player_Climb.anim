@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: PlayerHurt
+  m_Name: Player_Climb
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,7 +21,9 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: -7241492849452499657, guid: d74eaf6340db4594cbb74c52cf33dc75, type: 3}
+      value: {fileID: 8553112520086176871, guid: 6d067890af626db42aeb866868c634c0, type: 3}
+    - time: 0.15
+      value: {fileID: -7392728150835869789, guid: 5f6f79ff152f64845ba96bbe90c2f08c, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -44,13 +46,14 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: -7241492849452499657, guid: d74eaf6340db4594cbb74c52cf33dc75, type: 3}
+    - {fileID: 8553112520086176871, guid: 6d067890af626db42aeb866868c634c0, type: 3}
+    - {fileID: -7392728150835869789, guid: 5f6f79ff152f64845ba96bbe90c2f08c, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.016666668
+    m_StopTime: 0.16666667
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
