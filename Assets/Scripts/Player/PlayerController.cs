@@ -125,8 +125,11 @@ public class PlayerController : MonoBehaviour, PlayerControls.IPlayerActions
     // Gestion du Mouvement (Utilisé pour l'input Vector2)
     public void OnMove(InputAction.CallbackContext context)
     {
-        // Votre logique originale de LinkActions() est déplacée ici, simplifiée.
+
         moveInput = context.ReadValue<Vector2>();
+        
+        // Transmettre l'input au gestionnaire d'escalade
+        abilityManager.HandleClimbInput(moveInput);
     }
 
     // Gestion de l'Attaque (Input de type Bouton)
@@ -259,10 +262,13 @@ public class PlayerController : MonoBehaviour, PlayerControls.IPlayerActions
         // On conserve la vélocité Y actuelle (gravité, saut, jetpack)
         float newXVelocity = Mathf.Lerp(rb.linearVelocity.x, targetXVelocity, acceleration * Time.fixedDeltaTime);
 
-        // 3. Application de la nouvelle vélocité au Rigidbody2D
+        // Application de la nouvelle vélocité au Rigidbody2D
         // Si la gravityScale est 0 (pour le jetpack), c'est au jetpack/saut de définir rb.linearVelocity.y
         // Si la gravityScale est > 0, rb.linearVelocity.y est gérée par Unity Physics
         rb.linearVelocity = new Vector2(newXVelocity, rb.linearVelocity.y);
+
+        // GESTION DE LA PRIORITE DES CAPACITES
+        bool isAnyAbilityActive = false;
 
         // Mouvement : mettre à jour MoveSpeed pour Run/Idle
         _animator.SetFloat("MoveSpeed", Mathf.Abs(rb.linearVelocity.x));
@@ -293,20 +299,42 @@ public class PlayerController : MonoBehaviour, PlayerControls.IPlayerActions
                 rb.linearVelocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.fixedDeltaTime;
             }
         }
-        
+
+        // Escalade (Priorité maximale)
+        if (climbAbility != null && climbAbility.IsClimbing())
+        {
+            // La logique d'escalade et de physique (rb.linearVelocity = ...) est dans ClimbAbility.HandleClimbInput()
+            isAnyAbilityActive = true;
+            return; // Sortir immédiatement pour ignorer le mouvement horizontal normal et la gravité
+        }
+
+        // Grappling
         if (grappleAbility != null && grappleAbility.IsGrappling())
         {
             // Réduire la gravité ou la neutraliser pour un meilleur balancement
             rb.gravityScale = 0.5f; // ou 0f si vous voulez un balancement parfait
 
-            // Note : le balancement (AddForce) se fait dans GrappleAbility.FixedUpdate()
+            // Le balancement (AddForce) se fait dans GrappleAbility.FixedUpdate()
 
             // S'il est en Grappling, on peut sortir et ignorer le saut/gravité avancée
-            return; 
+            return;
+        }
+        
+        // Jetpack
+        if (abilityManager.CanUseJetpack && jetpackAbility != null && jetpackAbility.IsUsingJetpack)
+        {
+            // La logique de force du Jetpack est dans JetpackAbility.HandleJetPack()
+            isAnyAbilityActive = true;
+            // Ne pas faire de 'return' ici si vous voulez que le joueur puisse se déplacer horizontalement en Jetpack.
         }
 
-        // Revenir à la gravité normale lorsque le grappling est terminé
-        rb.gravityScale = 3f; 
+         // --- LOGIQUE DE GRAVITÉ AMÉLIORÉE (Si aucune capacité spéciale n'est active) ---
+
+        if (!isAnyAbilityActive)
+        {
+            // Réinitialiser la gravité au cas où une autre capacité l'aurait changée
+            rb.gravityScale = 3f; // Assurez-vous que c'est votre gravité de base
+        }
     }
 
     void Update()
