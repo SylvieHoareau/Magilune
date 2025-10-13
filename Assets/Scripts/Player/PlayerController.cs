@@ -22,7 +22,8 @@ public class PlayerController : MonoBehaviour, PlayerControls.IPlayerActions
     [SerializeField] private PlayerAbilityManager abilityManager;
     [SerializeField] private JumpAbility jumpAbility;
     [SerializeField] private JetpackAbility jetpackAbility;
-    [SerializeField] private GrappleAbility grappleAbility;
+    private GrappleAbility grappleAbility;
+    private ClimbAbility climbAbility; // <--- NOUVELLE RÉFÉRENCE
 
 
     [Header("Saut Amélioré")]
@@ -95,6 +96,13 @@ public class PlayerController : MonoBehaviour, PlayerControls.IPlayerActions
         {
             grappleAbility = grapple;
             grappleAbility.Initialize(rb, abilityManager); // On passe le Rigidbody et l'AbilityManager
+        }
+
+        // Initialisation du ClimbAbility
+        if (abilityManager != null && abilityManager.TryGetComponent<ClimbAbility>(out ClimbAbility climb))
+        {
+            climbAbility = climb;
+            climbAbility.Initialize(rb, _animator);
         }
 
         // S'abonner à l'événement de perte de capacité (pour les zooms/feedbacks)

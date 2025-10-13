@@ -10,6 +10,7 @@ public class PlayerAbilityManager : MonoBehaviour
     // Rendre l'état public pour que d'autres scripts puissent le lire (ex: PlayerController)
     [field: SerializeField] public bool CanJump { get; private set; } = true;
     [field: SerializeField] public bool CanUseJetpack { get; private set; } = true;
+    [field: SerializeField] public bool CanClimb { get; private set; } = true;
 
     [Header("Modules reliés")]
     [SerializeField] private JumpAbility jumpAbility;
@@ -17,6 +18,8 @@ public class PlayerAbilityManager : MonoBehaviour
     [SerializeField] private JetpackAbility jetpackAbility;
     // Grapple
     [SerializeField] private GrappleAbility grappleAbility; 
+    // Climb
+    [SerializeField] private ClimbAbility climbAbility;
     // Événement pour signaler la perte de capacité au reste du système (Caméra, UI, etc.)
     public event System.Action OnJumpCapabilityLost;
 
@@ -62,11 +65,16 @@ public class PlayerAbilityManager : MonoBehaviour
             // Déclenche l'événement pour la caméra et le feedback visuel/sonore
             OnJumpCapabilityLost?.Invoke();
 
-            grappleAbility?.SetEnabled(true); 
+            // Activer le grappling
+            grappleAbility?.SetEnabled(true);
+            Debug.Log("Capacité de grappling activée !");
+
+            // Activer l'escalade
+            climbAbility?.SetEnabled(true);
+            Debug.Log("Capacité d'escalade activée !");
 
             // Active le JetPack comme alternative
             EnableJetpackCapability();
-
         }
     }
 
@@ -115,6 +123,17 @@ public class PlayerAbilityManager : MonoBehaviour
         if (grappleAbility != null)
         {
             grappleAbility.HandleGrappleInput(isPressed);
+        }
+    }
+
+    /// <summary>
+    /// Transmet la commande de mouvement vertical au ClimbAbility
+    /// </summary>
+    public void HandleClimbInput(Vector2 moveInput)
+    {
+        if (CanClimb && climbAbility != null)
+        {
+            climbAbility.HandleClimbInput(moveInput);
         }
     }
 }
