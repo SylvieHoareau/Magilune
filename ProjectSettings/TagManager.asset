@@ -19,7 +19,7 @@ TagManager:
   - PassThrough
   - PlayerAttack
   - Triggers
-  - 
+  - Grappable
   - 
   - 
   - 
@@ -61,6 +61,9 @@ TagManager:
     locked: 0
   - name: Triggers
     uniqueID: 3927031037
+    locked: 0
+  - name: Grappable
+    uniqueID: 420140383
     locked: 0
   m_RenderingLayers:
   - Default

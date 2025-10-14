@@ -113,6 +113,32 @@ public class GrappleAbility : MonoBehaviour
         // Réactiver la gravité normale dans PlayerController
         Debug.Log("Grapple arrêté.");
     }
+
+    // Gère la suite après la détection d'une cible par Raycast
+    public void OnGrappleHit()
+    {
+        // Mise à jour de l'état
+        currentGrapplePosition = transform.position;
+        currentState = GrappleState.Flying; // On commence par l'état de vol du crochet
+
+        // Préparation visuelle
+        lr.enabled = true;
+        lr.positionCount = 2;
+
+        // Le SpringJoint est créé *seulement* dans AttachGrapple() après que le crochet ait atteint sa cible !
+    }
+
+    // Gère l'échec du Raycast
+    public void OnGrappleMiss()
+    {
+        // Nettoyage de l'état
+        currentState = GrappleState.Idle; 
+        lr.enabled = false;
+        
+        // Logique d'échec
+        // (TODO : Jouer un son d'échec ici)
+    }
+
     
     // Mise à jour du vol et de l'attachement
     private void Update()
@@ -180,7 +206,7 @@ public class GrappleAbility : MonoBehaviour
     {
         // Point de départ : le joueur
         lr.SetPosition(0, transform.position);
-        
+
         // Si on est accroché, le point final est la cible (grapplePoint)
         if (currentState == GrappleState.Grappling)
         {
@@ -189,9 +215,11 @@ public class GrappleAbility : MonoBehaviour
         // Si on est en vol, le point final est la position courante du crochet
         else if (currentState == GrappleState.Flying)
         {
-            lr.SetPosition(1, currentGrapplePosition); 
+            lr.SetPosition(1, currentGrapplePosition);
         }
     }
+    
+
 
     // --- Gestion de l'état externe (PlayerAbilityManager) ---
     public void SetEnabled(bool state)
