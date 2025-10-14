@@ -24,7 +24,7 @@ public class GrappleProjectile : MonoBehaviour
     public void Initialize(Vector2 targetDir, GrappleAbility playerAbility)
     {
         // On utilise la direction pour définir la vélocité et l'angle
-        GetComponent<Rigidbody2D>().velocity = targetDir * projectileSpeed;
+        GetComponent<Rigidbody2D>().linearVelocity = targetDir * projectileSpeed;
         
         // Optionnel : Faire pivoter le projectile pour pointer vers l'avant
         float angle = Mathf.Atan2(targetDir.y, targetDir.x) * Mathf.Rad2Deg;
@@ -76,7 +76,7 @@ public class GrappleProjectile : MonoBehaviour
             // Empêcher le projectile de continuer à bouger
             if (GetComponent<Rigidbody2D>() != null)
             {
-                GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+                GetComponent<Rigidbody2D>().linearVelocity = Vector2.zero;
             }
 
             // Détruire le *script* du projectile mais pas l'objet tout de suite.
