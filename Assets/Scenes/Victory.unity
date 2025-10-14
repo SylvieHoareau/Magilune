@@ -424,7 +424,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1175915587465214158, guid: b2d9d369272e4a34aabb98a5dc7b4cb5, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -41
+      value: -163
       objectReference: {fileID: 0}
     - target: {fileID: 1175915587465214158, guid: b2d9d369272e4a34aabb98a5dc7b4cb5, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -447,33 +447,9 @@ PrefabInstance:
       value: Button_Retry
       objectReference: {fileID: 0}
     - target: {fileID: 8880652353820042140, guid: b2d9d369272e4a34aabb98a5dc7b4cb5, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8880652353820042140, guid: b2d9d369272e4a34aabb98a5dc7b4cb5, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8880652353820042140, guid: b2d9d369272e4a34aabb98a5dc7b4cb5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 721890807}
-    - target: {fileID: 8880652353820042140, guid: b2d9d369272e4a34aabb98a5dc7b4cb5, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8880652353820042140, guid: b2d9d369272e4a34aabb98a5dc7b4cb5, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: LoadMainMenu
-      objectReference: {fileID: 0}
-    - target: {fileID: 8880652353820042140, guid: b2d9d369272e4a34aabb98a5dc7b4cb5, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: SceneLoader, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 8880652353820042140, guid: b2d9d369272e4a34aabb98a5dc7b4cb5, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -819,33 +795,9 @@ PrefabInstance:
     m_TransformParent: {fileID: 2010689875}
     m_Modifications:
     - target: {fileID: 2510822203419894994, guid: dfab523e4f380024891bc97a06764f20, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2510822203419894994, guid: dfab523e4f380024891bc97a06764f20, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2510822203419894994, guid: dfab523e4f380024891bc97a06764f20, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 721890807}
-    - target: {fileID: 2510822203419894994, guid: dfab523e4f380024891bc97a06764f20, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2510822203419894994, guid: dfab523e4f380024891bc97a06764f20, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: LoadMainMenu
-      objectReference: {fileID: 0}
-    - target: {fileID: 2510822203419894994, guid: dfab523e4f380024891bc97a06764f20, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: SceneLoader, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 2510822203419894994, guid: dfab523e4f380024891bc97a06764f20, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 8558945137076387900, guid: dfab523e4f380024891bc97a06764f20, type: 3}
       propertyPath: m_Name
       value: Button_MainMenu
@@ -912,7 +864,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8789445683050551737, guid: dfab523e4f380024891bc97a06764f20, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 222
+      value: 123
       objectReference: {fileID: 0}
     - target: {fileID: 8789445683050551737, guid: dfab523e4f380024891bc97a06764f20, type: 3}
       propertyPath: m_AnchoredPosition.y

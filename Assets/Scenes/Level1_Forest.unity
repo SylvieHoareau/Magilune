@@ -5932,6 +5932,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gunner
       objectReference: {fileID: 0}
+    - target: {fileID: 7892254854297016720, guid: 00702c091c87bfa458efe28a50c3bb80, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7892254854297016720, guid: 00702c091c87bfa458efe28a50c3bb80, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8650511687431488123, guid: 00702c091c87bfa458efe28a50c3bb80, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -7.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8650511687431488123, guid: 00702c091c87bfa458efe28a50c3bb80, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6157,11 +6173,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3328249694988872410, guid: e7125887b47cdd342bd21ba327d8e08b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.28
+      value: -4.23
       objectReference: {fileID: 0}
     - target: {fileID: 3328249694988872410, guid: e7125887b47cdd342bd21ba327d8e08b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5.15
+      value: -4.97
       objectReference: {fileID: 0}
     - target: {fileID: 3328249694988872410, guid: e7125887b47cdd342bd21ba327d8e08b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -6195,9 +6211,41 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3418476930800902227, guid: e7125887b47cdd342bd21ba327d8e08b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -8.92
+      objectReference: {fileID: 0}
+    - target: {fileID: 3418476930800902227, guid: e7125887b47cdd342bd21ba327d8e08b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6951735732169599714, guid: e7125887b47cdd342bd21ba327d8e08b, type: 3}
+      propertyPath: m_Size.x
+      value: 3.927761
+      objectReference: {fileID: 0}
+    - target: {fileID: 6951735732169599714, guid: e7125887b47cdd342bd21ba327d8e08b, type: 3}
+      propertyPath: m_Size.y
+      value: 5.209194
+      objectReference: {fileID: 0}
+    - target: {fileID: 6951735732169599714, guid: e7125887b47cdd342bd21ba327d8e08b, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.36959267
+      objectReference: {fileID: 0}
+    - target: {fileID: 6951735732169599714, guid: e7125887b47cdd342bd21ba327d8e08b, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.57518196
+      objectReference: {fileID: 0}
     - target: {fileID: 7083959522996003522, guid: e7125887b47cdd342bd21ba327d8e08b, type: 3}
       propertyPath: m_Name
       value: Swordsman
+      objectReference: {fileID: 0}
+    - target: {fileID: 8913978107226512422, guid: e7125887b47cdd342bd21ba327d8e08b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 9.89
+      objectReference: {fileID: 0}
+    - target: {fileID: 8913978107226512422, guid: e7125887b47cdd342bd21ba327d8e08b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.56
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
