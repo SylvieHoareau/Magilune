@@ -11,6 +11,7 @@ public class PlayerAbilityManager : MonoBehaviour
     [field: SerializeField] public bool CanJump { get; private set; } = true;
     [field: SerializeField] public bool CanUseJetpack { get; private set; } = true;
     [field: SerializeField] public bool CanClimb { get; private set; } = true;
+    [field: SerializeField] public bool CanGrapple { get; private set; } = true;
 
     [Header("Modules reliés")]
     [SerializeField] private JumpAbility jumpAbility;
@@ -35,6 +36,8 @@ public class PlayerAbilityManager : MonoBehaviour
                 Debug.LogWarning("PlayerAbilityManager : Référence JetPackAbility manquante.");
             }
         }
+
+        // Vérification du Grappling
         if (grappleAbility == null)
         {
             grappleAbility = GetComponent<GrappleAbility>();
@@ -43,6 +46,20 @@ public class PlayerAbilityManager : MonoBehaviour
                 Debug.LogWarning("PlayerAbilityManager : Référence JetPackAbility manquante.");
             }
         }
+
+        // Vérification du climbing
+        if (climbAbility == null)
+        {
+            climbAbility = GetComponent<ClimbAbility>();
+            if (climbAbility == null)
+            {
+                Debug.LogWarning("PlayerAbilityManager : Référence ClimbAbility manquante.");
+            }
+        }
+
+        // Assurer l'état initial des capacités (si non fait dans l'Inspector)
+        CanClimb = climbAbility != null; // Si le module est là, la capacité est là.
+        CanGrapple = grappleAbility != null; 
     }
 
     /// <summary>
@@ -136,4 +153,59 @@ public class PlayerAbilityManager : MonoBehaviour
             climbAbility.HandleClimbInput(moveInput);
         }
     }
+
+    /// <summary>
+    /// Définit l'état de la capacité de Saut. Utilisé pour le Debug.
+    /// </summary>
+    public void SetJumpCapability(bool state)
+    {
+        CanJump = state;
+        Debug.Log($"Capacité de Saut réglée à : {state}");
+        
+        // Si vous désactivez le saut, vous pourriez vouloir désactiver également l'implémentation
+        if (jumpAbility != null)
+        {
+            jumpAbility.SetEnabled(state);
+        }
+    }
+
+    /// <summary>
+    /// Définit l'état de la capacité de Jetpack. Utilisé pour le Debug.
+    /// </summary>
+    public void SetJetpackCapability(bool state)
+    {
+        CanUseJetpack = state;
+        Debug.Log($"Capacité de Jetpack réglée à : {state}");
+    }
+
+    /// <summary>
+    /// Définit l'état de la capacité de Grappling. Utilisé pour le Debug.
+    /// </summary>
+    public void SetGrappleCapability(bool state)
+    {
+        CanGrapple = state;
+        Debug.Log($"Capacité de Grappling réglée à : {state}");
+        
+        if (grappleAbility != null)
+        {
+            // La logique exacte dépend de votre module, mais généralement on désactive/active l'implémentation
+            grappleAbility.SetEnabled(state); 
+        }
+    }
+
+    /// <summary>
+    /// Définit l'état de la capacité de Climb (Escalade). Utilisé pour le Debug.
+    /// </summary>
+    public void SetClimbCapability(bool state)
+    {
+        CanClimb = state;
+        Debug.Log($"Capacité d'Escalade réglée à : {state}");
+
+        if (climbAbility != null)
+        {
+            // Similaire au Grappling, on contrôle l'état du module si implémenté
+            climbAbility.SetEnabled(state);
+        }
+    }
+
 }

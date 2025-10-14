@@ -194,7 +194,14 @@ public class GrappleAbility : MonoBehaviour
     }
 
     // --- Gestion de l'état externe (PlayerAbilityManager) ---
-    public void SetEnabled(bool state) => isGrappleEnabled = state;
+    public void SetEnabled(bool state)
+    {
+        // Mettez ici toute la logique nécessaire pour désactiver ou réactiver le module.
+        // Par exemple :
+        this.enabled = state; 
+        // ou
+        // isEnabled = state;
+    }
     public bool IsGrappling() => currentState == GrappleState.Grappling;
 
 }

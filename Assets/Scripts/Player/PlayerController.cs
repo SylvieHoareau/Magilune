@@ -412,4 +412,47 @@ public class PlayerController : MonoBehaviour, PlayerControls.IPlayerActions
         yield return new WaitForSeconds(disableTime);
         Physics2D.IgnoreLayerCollision(gameObject.layer, LayerMask.NameToLayer("PassThrough"), false);
     }
+
+    // ------------------------------------
+    // Gestion du Débogage (IPlayerActions)
+    // ------------------------------------
+
+    public void OnDebugJump(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            // Inverse l'état actuel de la capacité de saut
+            abilityManager.SetJumpCapability(!abilityManager.CanJump);
+        }
+    }
+
+    public void OnDebugJetpack(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            // Inverse l'état actuel de la capacité de Jetpack
+            abilityManager.SetJetpackCapability(!abilityManager.CanUseJetpack);
+        }
+    }
+
+    // TODO: Ajouter OnDebugClimb et OnDebugGrappling de la même manière
+    public void OnDebugClimb(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            Debug.Log("Gérer l'activation/désactivation de la capacité de Climb.");
+             // Inverse l'état actuel de la capacité de Jetpack
+            abilityManager.SetClimbCapability(!abilityManager.CanClimb);
+        }
+    }
+
+    public void OnDebugGrappling(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            Debug.Log("Gérer l'activation/désactivation de la capacité de Grappling.");
+            // Inverse l'état actuel de la capacité de Jetpack
+            abilityManager.SetGrappleCapability(!abilityManager.CanGrapple);
+        }    
+    }
 }

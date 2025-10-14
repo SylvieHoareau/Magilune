@@ -136,6 +136,42 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""DebugJump"",
+                    ""type"": ""Button"",
+                    ""id"": ""ab26642f-a639-4cc4-a694-ccdae81772ba"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""DebugJetpack"",
+                    ""type"": ""Button"",
+                    ""id"": ""937c366e-c0d7-4f2c-8cb9-80022f155a96"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""DebugClimb"",
+                    ""type"": ""Button"",
+                    ""id"": ""5a910861-e64a-4853-bdfa-4f6f4ec94098"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""DebugGrappling"",
+                    ""type"": ""Button"",
+                    ""id"": ""90aae12d-4e8f-463e-ae70-d77343c2388d"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -358,6 +394,50 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""action"": ""Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1a7e81e2-1e27-4742-acf2-44bec9c20038"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""DebugJump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5baf6999-bc70-4070-979b-84fff77ba5be"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""DebugJetpack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b2492896-59c9-461b-b0e2-73e640746470"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""DebugClimb"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b9d1ff6e-5801-4a56-b9ec-9d540ee00cae"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""DebugGrappling"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -399,6 +479,10 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_Player_Shoot = m_Player.FindAction("Shoot", throwIfNotFound: true);
         m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
+        m_Player_DebugJump = m_Player.FindAction("DebugJump", throwIfNotFound: true);
+        m_Player_DebugJetpack = m_Player.FindAction("DebugJetpack", throwIfNotFound: true);
+        m_Player_DebugClimb = m_Player.FindAction("DebugClimb", throwIfNotFound: true);
+        m_Player_DebugGrappling = m_Player.FindAction("DebugGrappling", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Newaction = m_UI.FindAction("New action", throwIfNotFound: true);
@@ -488,6 +572,10 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Shoot;
     private readonly InputAction m_Player_Look;
     private readonly InputAction m_Player_Interact;
+    private readonly InputAction m_Player_DebugJump;
+    private readonly InputAction m_Player_DebugJetpack;
+    private readonly InputAction m_Player_DebugClimb;
+    private readonly InputAction m_Player_DebugGrappling;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -519,6 +607,22 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Player/Interact".
         /// </summary>
         public InputAction @Interact => m_Wrapper.m_Player_Interact;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/DebugJump".
+        /// </summary>
+        public InputAction @DebugJump => m_Wrapper.m_Player_DebugJump;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/DebugJetpack".
+        /// </summary>
+        public InputAction @DebugJetpack => m_Wrapper.m_Player_DebugJetpack;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/DebugClimb".
+        /// </summary>
+        public InputAction @DebugClimb => m_Wrapper.m_Player_DebugClimb;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/DebugGrappling".
+        /// </summary>
+        public InputAction @DebugGrappling => m_Wrapper.m_Player_DebugGrappling;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -560,6 +664,18 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Interact.started += instance.OnInteract;
             @Interact.performed += instance.OnInteract;
             @Interact.canceled += instance.OnInteract;
+            @DebugJump.started += instance.OnDebugJump;
+            @DebugJump.performed += instance.OnDebugJump;
+            @DebugJump.canceled += instance.OnDebugJump;
+            @DebugJetpack.started += instance.OnDebugJetpack;
+            @DebugJetpack.performed += instance.OnDebugJetpack;
+            @DebugJetpack.canceled += instance.OnDebugJetpack;
+            @DebugClimb.started += instance.OnDebugClimb;
+            @DebugClimb.performed += instance.OnDebugClimb;
+            @DebugClimb.canceled += instance.OnDebugClimb;
+            @DebugGrappling.started += instance.OnDebugGrappling;
+            @DebugGrappling.performed += instance.OnDebugGrappling;
+            @DebugGrappling.canceled += instance.OnDebugGrappling;
         }
 
         /// <summary>
@@ -586,6 +702,18 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Interact.started -= instance.OnInteract;
             @Interact.performed -= instance.OnInteract;
             @Interact.canceled -= instance.OnInteract;
+            @DebugJump.started -= instance.OnDebugJump;
+            @DebugJump.performed -= instance.OnDebugJump;
+            @DebugJump.canceled -= instance.OnDebugJump;
+            @DebugJetpack.started -= instance.OnDebugJetpack;
+            @DebugJetpack.performed -= instance.OnDebugJetpack;
+            @DebugJetpack.canceled -= instance.OnDebugJetpack;
+            @DebugClimb.started -= instance.OnDebugClimb;
+            @DebugClimb.performed -= instance.OnDebugClimb;
+            @DebugClimb.canceled -= instance.OnDebugClimb;
+            @DebugGrappling.started -= instance.OnDebugGrappling;
+            @DebugGrappling.performed -= instance.OnDebugGrappling;
+            @DebugGrappling.canceled -= instance.OnDebugGrappling;
         }
 
         /// <summary>
@@ -757,6 +885,34 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnInteract(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "DebugJump" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnDebugJump(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "DebugJetpack" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnDebugJetpack(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "DebugClimb" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnDebugClimb(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "DebugGrappling" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnDebugGrappling(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "UI" which allows adding and removing callbacks.
