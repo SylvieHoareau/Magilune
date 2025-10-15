@@ -107,8 +107,7 @@ public class ClimbAbility : MonoBehaviour
         isClimbing = false;
         
         // Rétablir la gravité normale
-        // NOTE: La gravité normale est gérée par PlayerController.FixedUpdate
-        rb.gravityScale = 3f; // Assurez-vous que 3f est votre gravité de base
+        rb.gravityScale = 3f; 
         
         // Si l'on veut rester coller (pour un mur d'adhérence)
         if (stickToWall)

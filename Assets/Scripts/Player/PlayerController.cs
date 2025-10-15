@@ -417,12 +417,15 @@ public class PlayerController : MonoBehaviour, PlayerControls.IPlayerActions
     // Gestion du Débogage (IPlayerActions)
     // ------------------------------------
 
+    // Ces fonctions reçoivent les entrées de débogage et INVERSENT l'état de la capacité.
+
     public void OnDebugJump(InputAction.CallbackContext context)
     {
         if (context.performed)
         {
-            // Inverse l'état actuel de la capacité de saut
+            // On demande au Manager d'inverser l'état actuel de CanJump
             abilityManager.SetJumpCapability(!abilityManager.CanJump);
+
         }
     }
 
@@ -430,18 +433,16 @@ public class PlayerController : MonoBehaviour, PlayerControls.IPlayerActions
     {
         if (context.performed)
         {
-            // Inverse l'état actuel de la capacité de Jetpack
+            // On demande au Manager d'inverser l'état actuel de CanUseJetpack
             abilityManager.SetJetpackCapability(!abilityManager.CanUseJetpack);
         }
     }
 
-    // TODO: Ajouter OnDebugClimb et OnDebugGrappling de la même manière
     public void OnDebugClimb(InputAction.CallbackContext context)
     {
         if (context.performed)
         {
-            Debug.Log("Gérer l'activation/désactivation de la capacité de Climb.");
-             // Inverse l'état actuel de la capacité de Jetpack
+            // On demande au Manager d'inverser l'état actuel de CanClimb
             abilityManager.SetClimbCapability(!abilityManager.CanClimb);
         }
     }
@@ -450,8 +451,7 @@ public class PlayerController : MonoBehaviour, PlayerControls.IPlayerActions
     {
         if (context.performed)
         {
-            Debug.Log("Gérer l'activation/désactivation de la capacité de Grappling.");
-            // Inverse l'état actuel de la capacité de Jetpack
+            // On demande au Manager d'inverser l'état actuel de CanGrapple
             abilityManager.SetGrappleCapability(!abilityManager.CanGrapple);
         }    
     }

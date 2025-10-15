@@ -3,6 +3,7 @@ using UnityEngine;
 [RequireComponent(typeof(LineRenderer))]
 public class GrappleAbility : MonoBehaviour
 {
+    [SerializeField] private PlayerAbilityManager abilityManager; 
 
     // --- État Interne de la Liane ---
     private enum GrappleState { Idle, Flying, Grappling } // Nouveaux états
@@ -110,6 +111,9 @@ public class GrappleAbility : MonoBehaviour
             springJoint = null;
         }
 
+        // NOTIFICATION : La capacité de grappin est ACTIVE !
+        abilityManager.SetGrapplingState(true); 
+
         // Réactiver la gravité normale dans PlayerController
         Debug.Log("Grapple arrêté.");
     }
@@ -126,6 +130,8 @@ public class GrappleAbility : MonoBehaviour
         lr.positionCount = 2;
 
         // Le SpringJoint est créé *seulement* dans AttachGrapple() après que le crochet ait atteint sa cible !
+        // NOTIFICATION : La capacité de grappin est ACTIVE !
+        abilityManager.SetGrapplingState(true); 
     }
 
     // Gère l'échec du Raycast
@@ -218,17 +224,19 @@ public class GrappleAbility : MonoBehaviour
             lr.SetPosition(1, currentGrapplePosition);
         }
     }
-    
 
 
     // --- Gestion de l'état externe (PlayerAbilityManager) ---
     public void SetEnabled(bool state)
     {
-        // Mettez ici toute la logique nécessaire pour désactiver ou réactiver le module.
-        // Par exemple :
+        // C'est l'état général d'activité du module
         this.enabled = state; 
-        // ou
-        // isEnabled = state;
+        
+        // Si on désactive la capacité alors qu'elle est en cours d'utilisation, il faut la stopper !
+        if (!state && IsGrappling()) // IsGrappling() doit exister
+        {
+            StopGrapple(); // Fonction pour arrêter le grappin en cours
+        }
     }
     public bool IsGrappling() => currentState == GrappleState.Grappling;
 

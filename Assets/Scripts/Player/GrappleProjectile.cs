@@ -70,7 +70,7 @@ public class GrappleProjectile : MonoBehaviour
             // Signaler l'accroche au joueur (avec la position de l'ancre)
             if (playerGrappleAbility != null)
             {
-                playerGrappleAbility.OnGrappleHit(hitPoint);
+                playerGrappleAbility.OnGrappleHit();
             }
 
             // Empêcher le projectile de continuer à bouger
