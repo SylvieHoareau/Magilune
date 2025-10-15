@@ -230,10 +230,19 @@ public class PlayerAbilityManager : MonoBehaviour
             // Demander au module de grappin de s'activer/désactiver
             grappleAbility.SetEnabled(state);
         }
-        
+
         // Alerter l'HUD : "L'état du Grappin a changé!"
-        OnGrapplingActiveChanged?.Invoke(state); 
+        OnGrapplingActiveChanged?.Invoke(state);
         Debug.Log($"Capacité de Grappling réglée à : {state}");
+    }
+    
+    /// <summary>
+    /// Déclenché par GrappleAbility pour notifier le système que le joueur est activement en train de se grappiner (pour l'HUD).
+    /// </summary>
+    public void NotifyGrappleActionState(bool isActive)
+    {
+        // Utiliser l'événement existant pour l'HUD
+        OnGrapplingActiveChanged?.Invoke(isActive);
     }
 
     /// <summary>
