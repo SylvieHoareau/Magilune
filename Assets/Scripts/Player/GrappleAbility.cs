@@ -52,7 +52,7 @@ public class GrappleAbility : MonoBehaviour
 
     // --- LOGIQUE DE DEMARRAGE ---
     
-    private void StartGrapple()
+    public void StartGrapple()
     {
         // Déterminer où le joueur vise
         Vector2 mouseWorldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);

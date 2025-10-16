@@ -17,19 +17,14 @@ public class AbilityHUD : MonoBehaviour
     // Le gestionnaire d'événements du joueur
     [SerializeField] private PlayerAbilityManager abilityManager;
 
-    // Référence au module Jetpack pour accéder au ratio de carburant (NÉCESSAIRE)
-    private JetpackAbility jetpackAbility;
-
     private void Start()
     {
         // Récupérer la référence au JetpackAbility
-        if (abilityManager != null || jetpackAbility == null)
+        if (abilityManager != null)
         {
             Debug.LogError("AbilityHUD : Référence PlayerAbilityManager manquante. Assignez-la !");
             return;
         }
-        jetpackAbility = abilityManager.GetComponent<JetpackAbility>();
-
 
         // Abonnement à l'événement de perte de capacité (le moment de la transition)
         abilityManager.OnJumpCapabilityLost += OnJumpLost;

@@ -22,8 +22,8 @@ public class PlayerController : MonoBehaviour, PlayerControls.IPlayerActions
     [SerializeField] private PlayerAbilityManager abilityManager;
     [SerializeField] private JumpAbility jumpAbility;
     [SerializeField] private JetpackAbility jetpackAbility;
-    private GrappleAbility grappleAbility;
-    private ClimbAbility climbAbility; // <--- NOUVELLE RÉFÉRENCE
+    [SerializeField] private GrappleAbility grappleAbility;
+    [SerializeField] private ClimbAbility climbAbility; 
 
 
     [Header("Saut Amélioré")]
@@ -202,6 +202,8 @@ public class PlayerController : MonoBehaviour, PlayerControls.IPlayerActions
 
         if (context.performed)
         {
+            // On délègue l'exécution pure de l'action
+            grappleAbility.StartGrapple();
             abilityManager.HandleGrappleInput(true); // Commencer le grapple
         }
         else if (context.canceled)
