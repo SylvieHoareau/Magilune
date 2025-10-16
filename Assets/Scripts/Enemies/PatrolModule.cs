@@ -52,7 +52,10 @@ public class PatrolModule : MonoBehaviour
         {
             // Logique de sortie : arrêter le mouvement forcé
             // Si le module a un Rigidbody, l'arrêter ici
-            GetComponent<Rigidbody2D>().linearVelocity = Vector2.zero; 
+            if (rb != null)
+            {
+                rb.linearVelocity = Vector2.zero; // Utilisez la référence 'rb' (Rigidbody2D)
+            }        
         }
     }
 
@@ -89,7 +92,7 @@ public class PatrolModule : MonoBehaviour
             UpdatePatrolPoint();
         }
     }
-    
+
     /// <summary>
     /// Déplace l'ennemi vers le joueur si dans la portée de poursuite.
     /// Cette méthode est appelée depuis EnemyCore.
@@ -112,11 +115,30 @@ public class PatrolModule : MonoBehaviour
         );
 
         // Gérer l'orientation de l'ennemi (s'il doit faire face à la cible)
-        float direction = target.position.x - transform.position.x;
-        if (Mathf.Abs(direction) > 0.1f)
+        LookAtTarget(target);
+    }
+    
+    /// <summary>
+    /// Oriente l'ennemi pour qu'il fasse face à la cible (joueur ou point de patrouille).
+    /// </summary>
+    /// <param name="target">Le Transform de la cible à regarder.</param>
+    public void LookAtTarget(Transform target)
+    {
+        if (target == null) return;
+
+        // Calculer la direction horizontale
+        // On prend la différence en X entre la cible et l'ennemi.
+        float directionX = target.position.x - transform.position.x;
+
+        // Vérifier si la direction est significative (éviter les micro-changements inutiles)
+        if (Mathf.Abs(directionX) > 0.01f) // Utiliser une petite tolérance
         {
-            // Change l'échelle pour retourner le sprite : +1 si à droite, -1 si à gauche
-            transform.localScale = new Vector3(Mathf.Sign(direction), 1, 1);
+            // Appliquer l'orientation
+            // Mathf.Sign(directionX) retourne +1 si la cible est à droite, -1 si elle est à gauche.
+            // On modifie seulement l'échelle X du transform pour retourner le sprite.
+            Vector3 newScale = transform.localScale;
+            newScale.x = Mathf.Sign(directionX);
+            transform.localScale = newScale;
         }
     }
 
