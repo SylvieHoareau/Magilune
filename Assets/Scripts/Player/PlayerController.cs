@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour, PlayerControls.IPlayerActions
 {
     private Rigidbody2D rb;
     // Changement de PlayerActions à GameInput (ou le nouveau nom que vous avez choisi)
-    private PlayerControls _playerControls; // Utiliser @GameInput si vous avez coché "Generate C# Class"
+    private PlayerControls playerControls; // Utiliser @GameInput si vous avez coché "Generate C# Class"
     private Animator _animator;
 
     // Ajout d'une référence à l'Animator (pour l'attaque) et au Rigidbody (pour le mouvement)
@@ -59,11 +59,10 @@ public class PlayerController : MonoBehaviour, PlayerControls.IPlayerActions
         }
 
         // Création de l'instance avec le nouveau nom de classe
-        _playerControls = new PlayerControls();
-
+        playerControls = new PlayerControls();
 
         // Association des Callbacks à CETTE instance
-        _playerControls.Player.SetCallbacks(this);
+        playerControls.Player.SetCallbacks(this);
 
         // Initialisation des modules de capacité
         jumpAbility.Initialize(rb, _animator); 
@@ -111,12 +110,12 @@ public class PlayerController : MonoBehaviour, PlayerControls.IPlayerActions
 
     void OnEnable()
     {
-        _playerControls.Enable(); // Pro-tip: Activer dans OnEnable
+        playerControls.Player.Enable();    
     }
 
     void OnDisable()
     {
-        _playerControls.Disable(); // Pro-tip: Désactiver dans OnDisable pour la gestion de l'état
+        playerControls.Player.Disable();    
     }
 
     // ----------------------------------------
@@ -125,8 +124,8 @@ public class PlayerController : MonoBehaviour, PlayerControls.IPlayerActions
     // Gestion du Mouvement (Utilisé pour l'input Vector2)
     public void OnMove(InputAction.CallbackContext context)
     {
-
         moveInput = context.ReadValue<Vector2>();
+        Debug.Log("Move input reçu : " + moveInput);
         
         // Transmettre l'input au gestionnaire d'escalade
         abilityManager.HandleClimbInput(moveInput);
@@ -245,6 +244,17 @@ public class PlayerController : MonoBehaviour, PlayerControls.IPlayerActions
         if (rbBullet != null)
         {
             rbBullet.linearVelocity = transform.localScale.x * Vector2.right * bulletSpeed;
+        }
+    }
+
+    // Pour changer de caméra (playerFollow/Panoramic)
+    public void OnSwitchCamera(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            Debug.Log("Appui sur SwitchCamera détecté !");
+            // Ici, tu peux appeler ton CameraSwitcher :
+            FindFirstObjectByType<CameraSwitcher>()?.SendMessage("OnSwitchCamera");
         }
     }
 
