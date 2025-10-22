@@ -3194,9 +3194,17 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2578145361278484990, guid: 9be6ee7d6ac528149b68bd9b419c9b3d, type: 3}
+      propertyPath: climbAbility
+      value: 
+      objectReference: {fileID: 4987531621271108497}
+    - target: {fileID: 2578145361278484990, guid: 9be6ee7d6ac528149b68bd9b419c9b3d, type: 3}
       propertyPath: followCamera
       value: 
       objectReference: {fileID: 1826459859752308471}
+    - target: {fileID: 2578145361278484990, guid: 9be6ee7d6ac528149b68bd9b419c9b3d, type: 3}
+      propertyPath: grappleAbility
+      value: 
+      objectReference: {fileID: 4987531621271108498}
     - target: {fileID: 2865874653074061738, guid: 9be6ee7d6ac528149b68bd9b419c9b3d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -24.4
@@ -3241,6 +3249,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 6854616338624106726, guid: 9be6ee7d6ac528149b68bd9b419c9b3d, type: 3}
+      propertyPath: abilityManager
+      value: 
+      objectReference: {fileID: 4987531621271108495}
+    - target: {fileID: 8580765187050959828, guid: 9be6ee7d6ac528149b68bd9b419c9b3d, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8580765187050959828, guid: 9be6ee7d6ac528149b68bd9b419c9b3d, type: 3}
+      propertyPath: m_NotificationBehavior
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3284,6 +3304,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ed27c97d20138569b35b28cd8f903f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAbilityManager
+--- !u!114 &4987531621271108497 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1065233952492628702, guid: 9be6ee7d6ac528149b68bd9b419c9b3d, type: 3}
+  m_PrefabInstance: {fileID: 4987531621271108465}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c53ba319934abfe5ba41eab5680d18f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ClimbAbility
+--- !u!114 &4987531621271108498 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6854616338624106726, guid: 9be6ee7d6ac528149b68bd9b419c9b3d, type: 3}
+  m_PrefabInstance: {fileID: 4987531621271108465}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22d32fff457f5aa3da1cdda468bc50c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GrappleAbility
 --- !u!1001 &5029458720641285547
 PrefabInstance:
   m_ObjectHideFlags: 0
