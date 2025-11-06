@@ -576,8 +576,8 @@ MonoBehaviour:
   <CanUseJetpack>k__BackingField: 1
   <CanClimb>k__BackingField: 1
   <CanGrapple>k__BackingField: 1
-  jumpAbility: {fileID: 4987531621271108488}
-  jetpackAbility: {fileID: 4987531621271108487}
+  jumpAbility: {fileID: 0}
+  jetpackAbility: {fileID: 0}
   grappleAbility: {fileID: 0}
   climbAbility: {fileID: 0}
 --- !u!1 &592017765
@@ -976,6 +976,10 @@ PrefabInstance:
       propertyPath: animator
       value: 
       objectReference: {fileID: 1135669500}
+    - target: {fileID: 252145022586922787, guid: 00702c091c87bfa458efe28a50c3bb80, type: 3}
+      propertyPath: projectilePrefab
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 506819562508372547, guid: 00702c091c87bfa458efe28a50c3bb80, type: 3}
       propertyPath: m_LocalPosition.x
       value: 23.52
@@ -2714,7 +2718,7 @@ PrefabInstance:
     - target: {fileID: 7343810850727602695, guid: 2431c271c1896257bbc3892b0b28a032, type: 3}
       propertyPath: abilityManager
       value: 
-      objectReference: {fileID: 4987531621271108495}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3252,7 +3256,7 @@ PrefabInstance:
     - target: {fileID: 6854616338624106726, guid: 9be6ee7d6ac528149b68bd9b419c9b3d, type: 3}
       propertyPath: abilityManager
       value: 
-      objectReference: {fileID: 4987531621271108495}
+      objectReference: {fileID: 0}
     - target: {fileID: 8580765187050959828, guid: 9be6ee7d6ac528149b68bd9b419c9b3d, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -3264,52 +3268,37 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4038668021053607100, guid: 9be6ee7d6ac528149b68bd9b419c9b3d, type: 3}
+      insertIndex: 6
+      addedObject: {fileID: 4987531621271108499}
   m_SourcePrefab: {fileID: 100100000, guid: 9be6ee7d6ac528149b68bd9b419c9b3d, type: 3}
+--- !u!212 &4987531621271108466 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 9096283396808862978, guid: 9be6ee7d6ac528149b68bd9b419c9b3d, type: 3}
+  m_PrefabInstance: {fileID: 4987531621271108465}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &4987531621271108467 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 7087645283869701923, guid: 9be6ee7d6ac528149b68bd9b419c9b3d, type: 3}
+  m_PrefabInstance: {fileID: 4987531621271108465}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4987531621271108468 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4038668021053607100, guid: 9be6ee7d6ac528149b68bd9b419c9b3d, type: 3}
+  m_PrefabInstance: {fileID: 4987531621271108465}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4987531621271108472 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2865874653074061738, guid: 9be6ee7d6ac528149b68bd9b419c9b3d, type: 3}
   m_PrefabInstance: {fileID: 4987531621271108465}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &4987531621271108487 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4151619075145777495, guid: 9be6ee7d6ac528149b68bd9b419c9b3d, type: 3}
-  m_PrefabInstance: {fileID: 4987531621271108465}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5227c992bd6530d4b8edec7c10147b8f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &4987531621271108488 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8556593635391063389, guid: 9be6ee7d6ac528149b68bd9b419c9b3d, type: 3}
-  m_PrefabInstance: {fileID: 4987531621271108465}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3a672ec7f5476781a2483891523d2fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &4987531621271108495 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5874600255863617328, guid: 9be6ee7d6ac528149b68bd9b419c9b3d, type: 3}
-  m_PrefabInstance: {fileID: 4987531621271108465}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ed27c97d20138569b35b28cd8f903f9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerAbilityManager
 --- !u!114 &4987531621271108497 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1065233952492628702, guid: 9be6ee7d6ac528149b68bd9b419c9b3d, type: 3}
   m_PrefabInstance: {fileID: 4987531621271108465}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 4987531621271108468}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c53ba319934abfe5ba41eab5680d18f8, type: 3}
@@ -3320,12 +3309,29 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6854616338624106726, guid: 9be6ee7d6ac528149b68bd9b419c9b3d, type: 3}
   m_PrefabInstance: {fileID: 4987531621271108465}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 4987531621271108468}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 22d32fff457f5aa3da1cdda468bc50c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GrappleAbility
+--- !u!114 &4987531621271108499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4987531621271108468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c2b88b82c6b7d6408468f4043bff19e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
+  lastDirection: 0
+  direction: {x: 0, y: 0}
+  moveSpeed: 0
+  animator: {fileID: 4987531621271108467}
+  spriteRenderer: {fileID: 4987531621271108466}
 --- !u!1001 &5029458720641285547
 PrefabInstance:
   m_ObjectHideFlags: 0

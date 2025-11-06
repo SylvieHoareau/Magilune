@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
  
     private Rigidbody2D rb;
     private Animator animator;
-    private PlayerControls playerControls;
+    // private PlayerControls playerControls;
 
     [Header("Mouvement")]
     [SerializeField] private float speed = 10f;
@@ -55,8 +55,8 @@ public class PlayerController : MonoBehaviour
             Debug.LogError("Dependencies manquantes (Rigidbody2D ou Animator) sur PlayerController.");
         }
 
-        playerControls = new PlayerControls();
-        playerControls.Player.SetCallbacks(this);
+        // playerControls = new PlayerControls();
+        // playerControls.Player.SetCallbacks(this);
 
         if (abilityManager == null)
             Debug.LogWarning("AbilityManager manquant sur le PlayerController.");
@@ -65,8 +65,8 @@ public class PlayerController : MonoBehaviour
             jumpAbility.Initialize(rb, animator);
     }
 
-    private void OnEnable() => playerControls.Player.Enable();
-    private void OnDisable() => playerControls.Player.Disable();
+    // private void OnEnable() => playerControls.Player.Enable();
+    // private void OnDisable() => playerControls.Player.Disable();
 
     // Gestion du Mouvement (Utilisé pour l'input Vector2)
     public void OnMove(InputAction.CallbackContext context)
