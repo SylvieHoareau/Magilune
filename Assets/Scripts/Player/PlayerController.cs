@@ -5,12 +5,9 @@ using System.Collections;
 using Unity.VisualScripting; // pour afficher les coroutines
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour, PlayerControls.IPlayerActions
 {
-
-
     // Ajout d'une référence à l'Animator (pour l'attaque) et au Rigidbody (pour le mouvement)
- 
     private Rigidbody2D rb;
     private Animator animator;
     // private PlayerControls playerControls;
