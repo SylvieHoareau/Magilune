@@ -1,266 +1,119 @@
 using UnityEngine;
-using System;
-using System.Collections; // Nécessaire pour le Coroutine
 
 /// <summary>
-/// Gère les capacités actuelles du joueur et leur état (activé/désactivé).
-/// C'est le Cerveau Central qui contrôle quelles actions le joueur peut faire
+/// Gère et centralise les capacités du joueur : saut, jetpack, grappin, escalade.
+/// Sert d’interface entre le PlayerController et les scripts de capacités.
 /// </summary>
 public class PlayerAbilityManager : MonoBehaviour
 {
-    [Header("Abilities State (Ce que le joueur peut faire)")]
-    // État de la capacité de Saut. 'private set' empêche les autres scripts de le modifier directement.    
-    [field: SerializeField] public bool CanJump { get; private set; } = true;
-    // État de la capacité de Jetpack.
-    [field: SerializeField] public bool CanUseJetpack { get; private set; } = true;
-    // État de la capacité d'Escalade.
-    [field: SerializeField] public bool CanClimb { get; private set; } = true;
-    // État de la capacité de Grappin.
-    [field: SerializeField] public bool CanGrapple { get; private set; } = true;
-
-    [Header("Modules de Capacité (Les actions elles-mêmes)")]
-    // Références directes aux scripts qui implémentent les actions (saut, jetpack, etc.)
-    // Saut
+    [Header("Capacités du joueur")]
     [SerializeField] private JumpAbility jumpAbility;
-    // Jetpack
     [SerializeField] private JetpackAbility jetpackAbility;
-    // Grapple
     [SerializeField] private GrappleAbility grappleAbility;
-    // Climb
     [SerializeField] private ClimbAbility climbAbility;
 
-    
-    // Ces événements alertent l'HUD (ou d'autres systèmes) quand un état change.
-    // L'Action<bool> envoie 'true' si activée, 'false' si désactivée.
-    // Le booléen indique si la capacité est Active (true) ou Non (false)
-    public event Action<bool> OnGrapplingActiveChanged;
-    public event Action<bool> OnClimbingActiveChanged;
-    public event Action<bool> OnJetpackActiveChanged;
+    // --- États d'activation ---
+    public bool CanJump { get; private set; } = true;
+    public bool CanUseJetpack { get; private set; } = true;
+    public bool CanClimb { get; private set; } = true;
+    public bool CanGrapple { get; private set; } = true;
 
-    // Evénement spéial pour signaler la perte de capacité de Saut
-    public event Action OnJumpCapabilityLost;
-
-    
-    private void Start()
+    private void Awake()
     {
-        // Pour des tests rapides ou des triggers scénarisés
-        // LoseJumpCapability(); 
+        // Auto-récupération des références manquantes
+        if (jumpAbility == null)
+            jumpAbility = GetComponentInChildren<JumpAbility>();
+
         if (jetpackAbility == null)
-        {
-            jetpackAbility = GetComponent<JetpackAbility>();
-            if (jetpackAbility == null)
-            {
-                Debug.LogWarning("PlayerAbilityManager : Référence JetPackAbility manquante.");
-            }
-        }
+            jetpackAbility = GetComponentInChildren<JetpackAbility>();
 
-        // Vérification du Grappling
         if (grappleAbility == null)
-        {
-            grappleAbility = GetComponent<GrappleAbility>();
-            if (grappleAbility == null)
-            {
-                Debug.LogWarning("PlayerAbilityManager : Référence JetPackAbility manquante.");
-            }
-        }
+            grappleAbility = GetComponentInChildren<GrappleAbility>();
 
-        // Vérification du climbing
         if (climbAbility == null)
-        {
-            climbAbility = GetComponent<ClimbAbility>();
-            if (climbAbility == null)
-            {
-                Debug.LogWarning("PlayerAbilityManager : Référence ClimbAbility manquante.");
-            }
-        }
-
-        // Assurer l'état initial des capacités (si non fait dans l'Inspector)
-        CanClimb = climbAbility != null; // Si le module est là, la capacité est là.
-        CanGrapple = grappleAbility != null;
+            climbAbility = GetComponentInChildren<ClimbAbility>();
     }
 
+    // --- Gestion des entrées ---
+
     /// <summary>
-    /// Logique pour la perte de la capacité de saut (due au trauma à la jambe).
+    /// Gère le saut (press/tap)
     /// </summary>
-    public void LoseJumpCapability()
+    public void HandleJumpInput(bool jumpPressed)
     {
-        if (CanJump)
-        {
-            CanJump = false;
+        if (!CanJump || jumpAbility == null)
+            return;
 
-            // Désactiver la capacité dans JumpAbility
-            if (jumpAbility != null)
-            {
-                jumpAbility.SetEnabled(false);
-                // jumpAbility.IsEnabled = false;
-            }
-            Debug.Log("Capacité de Saut perdue : Trauma à la jambe !");
-
-            // Déclenche l'événement pour la caméra et le feedback visuel/sonore
-            OnJumpCapabilityLost?.Invoke();
-
-            // Activer le grappling
-            grappleAbility?.SetEnabled(true);
-            Debug.Log("Capacité de grappling activée !");
-
-            // Activer l'escalade
-            climbAbility?.SetEnabled(true);
-            Debug.Log("Capacité d'escalade activée !");
-
-            // Active le JetPack comme alternative
-            EnableJetpackCapability();
-        }
-    }
-
-    // Méthode pour un retour de capacité (si nécessaire)
-    public void RegainJumpCapability()
-    {
-        CanJump = true;
-        CanUseJetpack = false;
-        Debug.Log("Capacité de Saut retrouvée !");
+        if (jumpPressed)
+            jumpAbility.PerformJump();
     }
 
     /// <summary>
-    /// Active la capacité de JetPack.
-    /// </summary>
-    private void EnableJetpackCapability()
-    {
-        if (jetpackAbility != null)
-        {
-            CanUseJetpack = true;
-            // Activer le composant JetpackAbility s'il était désactivé au démarrage
-            jetpackAbility.enabled = true; 
-            Debug.Log("JetPack activé comme alternative au saut !");
-        }
-        else
-        {
-            Debug.LogWarning("PlayerAbilityManager : Impossible d'activer le JetPack, référence manquante.");
-        }
-    }
-
-    /// <summary>
-    /// Transmet la commande du joueur au JetPackAbility
+    /// Active ou désactive le jetpack selon si le joueur maintient la touche.
     /// </summary>
     public void HandleJetpackInput(bool isPressed)
     {
-        if (CanUseJetpack && jetpackAbility != null)
-        {
-            jetpackAbility.HandleJetPack(isPressed);
-        }
+        if (!CanUseJetpack || jetpackAbility == null)
+            return;
+
+        jetpackAbility.HandleJetPack(isPressed);
     }
 
     /// <summary>
-    /// Transmet la commande du joueur au GrappleAbility
+    /// Gère le grappin : démarrage et arrêt.
     /// </summary>
     public void HandleGrappleInput(bool isPressed)
     {
-        if (grappleAbility != null)
-        {
-            grappleAbility.HandleGrappleInput(isPressed);
-        }
+        if (!CanGrapple || grappleAbility == null)
+            return;
+
+        if (isPressed)
+            grappleAbility.StartGrapple();
+        else
+            grappleAbility.StopGrapple();
     }
 
     /// <summary>
-    /// Transmet la commande de mouvement vertical au ClimbAbility
+    /// Gère l'entrée de mouvement pour l'escalade.
     /// </summary>
     public void HandleClimbInput(Vector2 moveInput)
     {
-        if (CanClimb && climbAbility != null)
-        {
-            climbAbility.HandleClimbInput(moveInput);
-        }
+        if (!CanClimb || climbAbility == null)
+            return;
+
+        climbAbility.HandleClimbInput(moveInput);
     }
 
-    // --------------------------------------------------------------------------
-    // FONCTIONS DE CONTROLE (Appelées par le PlayerController ou le Debug)
-    // --------------------------------------------------------------------------
-
-    /// <summary>
-    /// Définit l'état de la capacité de Saut.
-    /// </summary>
-    /// <param name="state">Le nouvel état (true=actif, false=inactif).</param>
-    public void SetJumpCapability(bool state)
+    // --- Activation / désactivation des capacités (debug ou power-up) ---
+    public void SetJumpCapability(bool enabled)
     {
-        CanJump = state;
-        Debug.Log($"Capacité de Saut réglée à : {state}");
-
-        // Dire au module JumpAbility s'il peut fonctionner
-        if (jumpAbility != null)
-        {
-            jumpAbility.SetEnabled(state);
-        }
-
-        Debug.Log($"Capacité de Saut réglée à : {state}");
-        
-        // Si le saut est désactivé, on alerte pour la transition (ex: l'activation du Jetpack)
-        if (!state)
-        {
-            OnJumpCapabilityLost?.Invoke();
-        }
+        CanJump = enabled;
+        Debug.Log($"Saut {(enabled ? "activé" : "désactivé")}");
     }
 
-    /// <summary>
-    /// Définit l'état de la capacité de Jetpack. Utilisé pour le Debug.
-    /// </summary>
-    public void SetJetpackCapability(bool state)
+    public void SetJetpackCapability(bool enabled)
     {
-        CanUseJetpack = state;
-        Debug.Log($"Capacité de Jetpack réglée à : {state}");
-
-        // La logique ici est pour le débogage. Si le jetpack a un état Enable/Disable.
-        if (jetpackAbility != null)
-        {
-            // On peut ajouter une fonction SetEnabled() au JetpackAbility si nécessaire
-        }
-        
-        // Alerter l'HUD : "L'état du Jetpack a changé!"
-        OnJetpackActiveChanged?.Invoke(state); 
-        Debug.Log($"Capacité de Jetpack réglée à : {state}");
+        CanUseJetpack = enabled;
+        Debug.Log($"Jetpack {(enabled ? "activé" : "désactivé")}");
     }
 
-    /// <summary>
-    /// Définit l'état de la capacité de Grappling. Utilisé pour le Debug.
-    /// </summary>
-    public void SetGrappleCapability(bool state)
+    public void SetClimbCapability(bool enabled)
     {
-        CanGrapple = state;
-
-        if (grappleAbility != null)
-        {
-            // Demander au module de grappin de s'activer/désactiver
-            grappleAbility.SetEnabled(state);
-        }
-
-        // Alerter l'HUD : "L'état du Grappin a changé!"
-        OnGrapplingActiveChanged?.Invoke(state);
-        Debug.Log($"Capacité de Grappling réglée à : {state}");
+        CanClimb = enabled;
+        Debug.Log($"Escalade {(enabled ? "activée" : "désactivée")}");
     }
-    
-    /// <summary>
-    /// Déclenché par GrappleAbility pour notifier le système que le joueur est activement en train de se grappiner (pour l'HUD).
-    /// </summary>
-    public void NotifyGrappleActionState(bool isActive)
+
+    public void SetGrappleCapability(bool enabled)
     {
-        // Utiliser l'événement existant pour l'HUD
-        OnGrapplingActiveChanged?.Invoke(isActive);
+        CanGrapple = enabled;
+        Debug.Log($"Grappin {(enabled ? "activé" : "désactivé")}");
     }
 
-    /// <summary>
-    /// Définit l'état de la capacité de Climb (Escalade). Utilisé pour le Debug.
-    /// </summary>
-    public void SetClimbCapability(bool state)
+    // --- Vérifie si le joueur utilise actuellement une capacité ---
+    public bool IsUsingAnyAbility()
     {
-        CanClimb = state;
-
-        if (climbAbility != null)
-        {
-            // Demander au module d'escalade de s'activer/désactiver
-            climbAbility.SetEnabled(state);
-        }
-
-        // Alerter l'HUD : "L'état de l'Escalade a changé!"
-        OnClimbingActiveChanged?.Invoke(state); 
-        Debug.Log($"Capacité d'Escalade réglée à : {state}");
+        return (jetpackAbility != null && jetpackAbility.IsUsingJetpack)
+            || (grappleAbility != null && grappleAbility.IsGrappling())
+            || (climbAbility != null && climbAbility.IsClimbing());
     }
-
 }

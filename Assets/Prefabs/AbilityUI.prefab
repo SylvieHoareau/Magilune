@@ -221,7 +221,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3413773152469340693}
-  - component: {fileID: 1408666332367114757}
   m_Layer: 5
   m_Name: AbilityUI
   m_TagString: Untagged
@@ -252,22 +251,6 @@ RectTransform:
   m_AnchoredPosition: {x: 126.83301, y: 472}
   m_SizeDelta: {x: 353.6659, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1408666332367114757
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3902576435881455933}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e191bc146d56e8fb9c64271cd6aba1d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AbilityHUD
-  jumpIconContainer: {fileID: 8485209459782074971}
-  jetpackIconContainer: {fileID: 8485209459782074971}
-  jetpackFuelSlider: {fileID: 0}
-  abilityManager: {fileID: 0}
 --- !u!1 &5663304138951493309
 GameObject:
   m_ObjectHideFlags: 0

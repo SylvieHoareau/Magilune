@@ -15,23 +15,26 @@ public class AbilityHUD : MonoBehaviour
     [SerializeField] private GameObject jetpackIconContainer;
     
     // Le gestionnaire d'événements du joueur
-    [SerializeField] private PlayerAbilityManager abilityManager;
+    [SerializeField] private PlayerAbilityManager playerAbilityManager;
 
     private void Start()
     {
-        // Récupérer la référence au JetpackAbility
-        if (abilityManager != null)
+        if (playerAbilityManager == null)
         {
-            Debug.LogError("AbilityHUD : Référence PlayerAbilityManager manquante. Assignez-la !");
-            return;
+            playerAbilityManager = FindFirstObjectByType<PlayerAbilityManager>();
+            if (playerAbilityManager == null)
+            {
+                Debug.LogError("AbilityHUD : Référence PlayerAbilityManager manquante. Assignez-la !");
+                return;
+            }
         }
 
         // Abonnement à l'événement de perte de capacité (le moment de la transition)
-        abilityManager.OnJumpCapabilityLost += OnJumpLost;
+        playerAbilityManager.OnJumpCapabilityLost += OnJumpLost;
 
         // NOUVEAUX ABONNEMENTS pour les activations/désactivations (Grappin, Jetpack, Grimpe)
-        abilityManager.OnGrapplingActiveChanged += UpdateGrapplingIcon;
-        abilityManager.OnClimbingActiveChanged += UpdateClimbingIcon;
+        playerAbilityManager.OnGrapplingActiveChanged += UpdateGrapplingIcon;
+        playerAbilityManager.OnClimbingActiveChanged += UpdateClimbingIcon;
         // Si le Jetpack est aussi géré par état :
         // abilityManager.OnJetpackActiveChanged += UpdateJetpackIcon;
 
@@ -56,7 +59,7 @@ public class AbilityHUD : MonoBehaviour
         }
 
         // Initialisation de l'état au démarrage du jeu
-        UpdateHUD(abilityManager.CanJump, abilityManager.CanUseJetpack);
+        UpdateHUD(playerAbilityManager.CanJump, playerAbilityManager.CanUseJetpack);
         
     }
     
@@ -140,12 +143,12 @@ public class AbilityHUD : MonoBehaviour
     private void OnDestroy()
     {
         // DÉSABONNEMENT POUR ÉVITER LES FUITES DE MÉMOIRE !
-        if (abilityManager != null)
+        if (playerAbilityManager != null)
         {
-            abilityManager.OnJumpCapabilityLost -= OnJumpLost;
-            abilityManager.OnGrapplingActiveChanged -= UpdateGrapplingIcon;
-            abilityManager.OnClimbingActiveChanged -= UpdateClimbingIcon;
-            abilityManager.OnJetpackActiveChanged -= UpdateJetpackIcon;
+            playerAbilityManager.OnJumpCapabilityLost -= OnJumpLost;
+            playerAbilityManager.OnGrapplingActiveChanged -= UpdateGrapplingIcon;
+            playerAbilityManager.OnClimbingActiveChanged -= UpdateClimbingIcon;
+            playerAbilityManager.OnJetpackActiveChanged -= UpdateJetpackIcon;
         }
     }
 }

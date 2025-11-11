@@ -1,16 +1,19 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 using Unity.Cinemachine;
 using System.Collections;
-using Unity.VisualScripting; // pour afficher les coroutines
 
+/// <summary>
+/// Gère les mouvements, sauts, attaques et capacités du joueur.
+/// Ne dépend pas directement du Input System : les entrées passent par PlayerInputHandler.
+/// </summary>
 [RequireComponent(typeof(Rigidbody2D))]
-public class PlayerController : MonoBehaviour, PlayerControls.IPlayerActions
+[RequireComponent(typeof(PlayerInputHandler))]
+public class PlayerController : MonoBehaviour
 {
-    // Ajout d'une référence à l'Animator (pour l'attaque) et au Rigidbody (pour le mouvement)
+    // --- Références principales ---
     private Rigidbody2D rb;
     private Animator animator;
-    // private PlayerControls playerControls;
+    private PlayerInputHandler input;
 
     [Header("Mouvement")]
     [SerializeField] private float speed = 10f;
@@ -20,90 +23,116 @@ public class PlayerController : MonoBehaviour, PlayerControls.IPlayerActions
     [Header("Saut amélioré")]
     [SerializeField] private float fallMultiplier = 2.5f;
     [SerializeField] private float lowJumpMultiplier = 2f;
-    private bool isJumpHeld = false;
 
-    [Header("Références")]
+    [Header("Capacités")]
     [SerializeField] private PlayerAbilityManager abilityManager;
     [SerializeField] private JumpAbility jumpAbility;
     [SerializeField] private JetpackAbility jetpackAbility;
     [SerializeField] private GrappleAbility grappleAbility;
     [SerializeField] private ClimbAbility climbAbility;
 
-    // -- Référence à la virtual Camera pour le zoom/dézoom --
-    [Header("Cinemachine")]
+    [Header("Caméra Cinemachine")]
     [SerializeField] private CinemachineCamera followCamera;
     private const float BaseOrthoSize = 5f;
     private const float InjuryOrthoSize = 4.5f;
 
-    [Header("Tir")]
+    [Header("Tir / Attaque")]
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Transform firePoint;
     [SerializeField] private float bulletSpeed = 10f;
 
     private static readonly int AttackTrigger = Animator.StringToHash("AttackTrigger");
-    private Collider2D playerCollider;
+
+    // --- Cycle de vie Unity ---
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        input = GetComponent<PlayerInputHandler>();
 
-        if (rb == null || animator == null)
-        {
-            Debug.LogError("Dependencies manquantes (Rigidbody2D ou Animator) sur PlayerController.");
-        }
-
-        // playerControls = new PlayerControls();
-        // playerControls.Player.SetCallbacks(this);
-
-        if (abilityManager == null)
-            Debug.LogWarning("AbilityManager manquant sur le PlayerController.");
+        if (!rb) Debug.LogError("Rigidbody2D manquant sur PlayerController !");
+        if (!animator) Debug.LogError("Animator manquant sur PlayerController !");
+        if (!input) Debug.LogError("PlayerInputHandler manquant sur PlayerController !");
+        if (!abilityManager) Debug.LogWarning("AbilityManager non assigné au PlayerController.");
 
         if (jumpAbility != null)
             jumpAbility.Initialize(rb, animator);
     }
 
-    // private void OnEnable() => playerControls.Player.Enable();
-    // private void OnDisable() => playerControls.Player.Disable();
-
-    // Gestion du Mouvement (Utilisé pour l'input Vector2)
-    public void OnMove(InputAction.CallbackContext context)
+    private void Update()
     {
-        moveInput = context.ReadValue<Vector2>();
-        Debug.Log("Move input reçu : " + moveInput);
+        moveInput = input.MoveInput;
+
+        // --- Gestion des entrées ---
+        HandleInputActions();
+
+        // --- Animation / visuel ---
+        UpdateAnimation();
+    }
+
+    private void FixedUpdate()
+    {
+        MovePlayer();
+        UpdatePhysicsState();
+    }
+
+    // --- Gestion des entrées ---
+    private void HandleInputActions()
+    {
+        bool isJumpHeld = input.IsJumpHeld;
+
+        // Jump (tap)
+        if (input.JumpPressed)
+            abilityManager?.HandleJumpInput(true);
+
+        // Jetpack (maintenir)
+        abilityManager?.HandleJetpackInput(isJumpHeld);
+
+        // Grapple (tap)
+        if (input.GrapplePressed)
+            abilityManager?.HandleGrappleInput(true);
+
+        // Escalade (vectorielle)
         abilityManager?.HandleClimbInput(moveInput);
-    }
 
-    public void OnJump(InputAction.CallbackContext context)
-    {
-       isJumpHeld = context.ReadValue<float>() > 0;
+        // Attaque / tir
+        if (input.AttackPressed)
+            animator.SetTrigger(AttackTrigger);
 
-        if (context.performed && abilityManager != null && abilityManager.CanJump)
-            jumpAbility?.PerformJump();
-
-        // Gestion jetpack
-        bool pressed = context.ReadValue<float>() > 0;
-        abilityManager?.HandleJetpackInput(pressed);
-    }
-
-    public void OnAttack(InputAction.CallbackContext context)
-    {
-        if (context.performed)
-        {
-            animator.SetTrigger("AttackTrigger");
-        }
-    }
-
-    public void OnShoot(InputAction.CallbackContext context)
-    {
-        if (context.performed)
-        {
+        if (input.ShootPressed)
             Shoot();
-        }
+
+        if (input.InteractPressed)
+            Debug.Log("Interaction détectée (futur système).");
     }
 
+    // --- Déplacement horizontal ---
+    private void MovePlayer()
+    {
+        float targetVelocityX = moveInput.x * speed;
+        float smoothedX = Mathf.Lerp(rb.linearVelocity.x, targetVelocityX, acceleration * Time.fixedDeltaTime);
+        rb.linearVelocity = new Vector2(smoothedX, rb.linearVelocity.y);
+    }
+
+    // --- Animation ---
+    private void UpdateAnimation()
+    {
+        animator.SetFloat("MoveSpeed", Mathf.Abs(rb.linearVelocity.x));
+
+        // Flip du sprite selon la direction
+        if (moveInput.x != 0)
+            transform.localScale = new Vector3(Mathf.Sign(moveInput.x), 1f, 1f);
+
+        // États selon capacités
+        animator.SetBool("IsGrounded", jumpAbility && jumpAbility.IsGrounded());
+        animator.SetBool("IsFlying", jetpackAbility && jetpackAbility.IsUsingJetpack);
+    }
+
+    // --- Tir ---
     private void Shoot()
     {
         if (!bulletPrefab || !firePoint) return;
+
         var bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         if (bullet.TryGetComponent<Rigidbody2D>(out var rbBullet))
         {
@@ -111,123 +140,38 @@ public class PlayerController : MonoBehaviour, PlayerControls.IPlayerActions
         }
     }
 
-    public void OnGrapple(InputAction.CallbackContext context)
-    {
-        if (abilityManager == null) return;
-
-        if (context.performed)
-        {
-            grappleAbility?.StartGrapple();
-            abilityManager.HandleGrappleInput(true);
-        }
-        else if (context.canceled)
-        {
-            abilityManager.HandleGrappleInput(false);
-        }
-    }
-
-      public void OnInteract(InputAction.CallbackContext context)
-    {
-        if (context.performed)
-            Debug.Log("Interact input reçu — futur système de locomotion.");
-    }
-
-    public void OnLook(InputAction.CallbackContext context) { }
-
-    public void OnSwitchCamera(InputAction.CallbackContext context)
-    {
-        if (context.performed)
-        {
-            FindFirstObjectByType<CameraSwitcher>()?.SendMessage("OnSwitchCamera");
-        }
-    }
-
-    // --- Débogage ---
-    public void OnDebugJump(InputAction.CallbackContext context)
-    {
-        if (context.performed)
-            abilityManager?.SetJumpCapability(!abilityManager.CanJump);
-    }
-
-    public void OnDebugJetpack(InputAction.CallbackContext context)
-    {
-        if (context.performed)
-            abilityManager?.SetJetpackCapability(!abilityManager.CanUseJetpack);
-    }
-
-    public void OnDebugClimb(InputAction.CallbackContext context)
-    {
-        if (context.performed)
-            abilityManager?.SetClimbCapability(!abilityManager.CanClimb);
-    }
-
-    public void OnDebugGrappling(InputAction.CallbackContext context)
-    {
-        if (context.performed)
-            abilityManager?.SetGrappleCapability(!abilityManager.CanGrapple);
-    }
-
-    // --- Boucles principales ---
-    private void Update()
-    {
-        animator.SetFloat("MoveSpeed", Mathf.Abs(rb.linearVelocity.x));
-
-        // Flip du sprite
-        if (moveInput.x != 0)
-            transform.localScale = new Vector3(Mathf.Sign(moveInput.x), 1f, 1f);
-
-        animator.SetBool("IsGrounded", jumpAbility != null && jumpAbility.IsGrounded());
-        animator.SetBool("IsFlying", jetpackAbility != null && jetpackAbility.IsUsingJetpack);
-    }
-
-    private void FixedUpdate()
-    {
-        UpdatePhysicsState();
-        float targetVelocityX = moveInput.x * speed;
-        float smoothedX = Mathf.Lerp(rb.linearVelocity.x, targetVelocityX, acceleration * Time.fixedDeltaTime);
-        rb.linearVelocity = new Vector2(smoothedX, rb.linearVelocity.y);
-    }
-
+    // --- Gestion de la physique (gravité et états spéciaux) ---
     private void UpdatePhysicsState()
     {
-        if (abilityManager == null) return;
+        if (!abilityManager || !jumpAbility) return;
 
+        // Saut amélioré
         if (!jumpAbility.IsGrounded())
         {
             if (rb.linearVelocity.y < 0)
                 rb.linearVelocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier - 1) * Time.fixedDeltaTime;
-            else if (rb.linearVelocity.y > 0 && !isJumpHeld)
+            else if (rb.linearVelocity.y > 0 && !input.IsJumpHeld)
                 rb.linearVelocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.fixedDeltaTime;
         }
 
-        if (climbAbility != null && climbAbility.IsClimbing())
-        {
+        // Gravité selon état
+        if (climbAbility && climbAbility.IsClimbing())
             rb.gravityScale = 0;
-            return;
-        }
-
-        if (grappleAbility != null && grappleAbility.IsGrappling())
-        {
+        else if (grappleAbility && grappleAbility.IsGrappling())
             rb.gravityScale = 0.5f;
-            return;
-        }
-
-        if (jetpackAbility != null && jetpackAbility.IsUsingJetpack)
-        {
+        else if (jetpackAbility && jetpackAbility.IsUsingJetpack)
             rb.gravityScale = 0;
-            return;
-        }
-
-        rb.gravityScale = 3f; // valeur par défaut
+        else
+            rb.gravityScale = 3f;
     }
 
-    // Exemple de zoom cinématique
+    // --- Zoom caméra (effet visuel) ---
     private void HandleJumpLossFeedback()
     {
         if (followCamera != null)
             StartCoroutine(SmoothZoom(InjuryOrthoSize, 0.5f));
     }
-    
+
     private IEnumerator SmoothZoom(float targetSize, float duration)
     {
         float start = followCamera.Lens.OrthographicSize;
@@ -240,5 +184,4 @@ public class PlayerController : MonoBehaviour, PlayerControls.IPlayerActions
         }
         followCamera.Lens.OrthographicSize = targetSize;
     }
-
 }
