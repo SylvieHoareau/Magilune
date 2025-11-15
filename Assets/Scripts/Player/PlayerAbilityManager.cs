@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 /// <summary>
@@ -12,11 +13,28 @@ public class PlayerAbilityManager : MonoBehaviour
     [SerializeField] private GrappleAbility grappleAbility;
     [SerializeField] private ClimbAbility climbAbility;
 
+    // --- Evenements envoyés au HUD ---
+    public event Action OnJumpCapabilityLost;
+    public event Action<bool> OnGrapplingActiveChanged;
+    public event Action<bool> OnClimbingActiveChanged;
+    public event Action<bool> OnJetpackActiveChanged;
+
+    // --- Etats internes ---
+    private bool _canJump = true;
+    private bool _canUseJetpack = true;
+    private bool _canClimb = true;
+    private bool _canGrapple = true;
+
+    public bool CanJump => _canJump;
+    public bool CanUseJetpack => _canUseJetpack;
+    public bool CanClimb => _canClimb;
+    public bool CanGrapple => _canGrapple;
+
     // --- États d'activation ---
-    public bool CanJump { get; private set; } = true;
-    public bool CanUseJetpack { get; private set; } = true;
-    public bool CanClimb { get; private set; } = true;
-    public bool CanGrapple { get; private set; } = true;
+    // public bool CanJump { get; private set; } = true;
+    // public bool CanUseJetpack { get; private set; } = true;
+    // public bool CanClimb { get; private set; } = true;
+    // public bool CanGrapple { get; private set; } = true;
 
     private void Awake()
     {
@@ -41,7 +59,7 @@ public class PlayerAbilityManager : MonoBehaviour
     /// </summary>
     public void HandleJumpInput(bool jumpPressed)
     {
-        if (!CanJump || jumpAbility == null)
+        if (!_canJump || jumpAbility == null)
             return;
 
         if (jumpPressed)
@@ -56,7 +74,12 @@ public class PlayerAbilityManager : MonoBehaviour
         if (!CanUseJetpack || jetpackAbility == null)
             return;
 
+        bool wasUsing = jetpackAbility.IsUsingJetpack;
+
         jetpackAbility.HandleJetPack(isPressed);
+
+        // Déclenche l'événement uniquement si l'état change
+
     }
 
     /// <summary>
@@ -64,13 +87,18 @@ public class PlayerAbilityManager : MonoBehaviour
     /// </summary>
     public void HandleGrappleInput(bool isPressed)
     {
-        if (!CanGrapple || grappleAbility == null)
+        if (!_canGrapple || grappleAbility == null)
             return;
+
+        bool wasActive = grappleAbility.IsGrappling();
 
         if (isPressed)
             grappleAbility.StartGrapple();
         else
             grappleAbility.StopGrapple();
+
+        if (grappleAbility.IsGrappling() != wasActive)
+            OnGrapplingActiveChanged?.Invoke(grappleAbility.IsGrappling());
     }
 
     /// <summary>
@@ -78,34 +106,75 @@ public class PlayerAbilityManager : MonoBehaviour
     /// </summary>
     public void HandleClimbInput(Vector2 moveInput)
     {
-        if (!CanClimb || climbAbility == null)
+        if (!_canClimb || climbAbility == null)
             return;
 
+        bool wasClimbing = climbAbility.IsClimbing();
+
         climbAbility.HandleClimbInput(moveInput);
+
+        if (climbAbility.IsClimbing() != wasClimbing)
+            OnClimbingActiveChanged?.Invoke(climbAbility.IsClimbing());
+
+    }
+
+    /// <summary>
+    /// Peret d'informer manuellement le HUD ou d'autres systèmes
+    /// que l'état du grappin a changé (par exemple après une action spéciale)
+    /// </summary>
+    /// <param name="enabled"></param>
+    public void NotifyGrappleActionState(bool isActive)
+    {
+        OnGrapplingActiveChanged?.Invoke(isActive);
+    }
+
+    /// <summary>
+    /// Désactive la capacité de saut et notifie le HUD
+    /// Utilisé lorsqu'un événement de gameplay retire le saut au joueur
+    /// </summary>
+    /// <param name="enabled"></param>
+    public void LoseJumpCapability()
+    {
+        if (!_canJump) return;
+
+        _canJump = false;
+
+        if (jumpAbility != null)
+            jumpAbility.SetEnabled(false);
+
+        // Notifier l'interface : bascule du saut vers jetpack
+        OnJumpCapabilityLost?.Invoke();
+
+        Debug.Log("Capacité de saut PERDUE !");
     }
 
     // --- Activation / désactivation des capacités (debug ou power-up) ---
     public void SetJumpCapability(bool enabled)
     {
-        CanJump = enabled;
+        bool wasEnabled = _canJump;
+        _canJump = enabled;
+
+        if (wasEnabled && !enabled)
+            OnJumpCapabilityLost?.Invoke();
+
         Debug.Log($"Saut {(enabled ? "activé" : "désactivé")}");
     }
 
     public void SetJetpackCapability(bool enabled)
     {
-        CanUseJetpack = enabled;
+        _canUseJetpack = enabled;
         Debug.Log($"Jetpack {(enabled ? "activé" : "désactivé")}");
     }
 
     public void SetClimbCapability(bool enabled)
     {
-        CanClimb = enabled;
+        _canClimb = enabled;
         Debug.Log($"Escalade {(enabled ? "activée" : "désactivée")}");
     }
 
     public void SetGrappleCapability(bool enabled)
     {
-        CanGrapple = enabled;
+        _canGrapple = enabled;
         Debug.Log($"Grappin {(enabled ? "activé" : "désactivé")}");
     }
 

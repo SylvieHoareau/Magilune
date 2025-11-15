@@ -69,6 +69,22 @@ public class JetpackAbility : MonoBehaviour
             jetPackAudio.Play();
     }
 
+    ///<summary>
+    /// Fonction intermédiaire appelée par le PlayerAbilityManager
+    /// Démarre ou arrête le jetpack selon l'entrée joueur
+    /// </summary>
+    public void HandleJetPack(bool isPressed)
+    {
+        if (isPressed)
+        {
+            StartJetpack();
+        }
+        else
+        {
+            StopJetpack();
+        }
+    }
+
     /// <summary>
     /// Arrête le jetpack (appelé par PlayerAbilityManager).
     /// </summary>

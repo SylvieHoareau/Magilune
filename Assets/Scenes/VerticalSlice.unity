@@ -764,10 +764,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ed27c97d20138569b35b28cd8f903f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAbilityManager
-  <CanJump>k__BackingField: 1
-  <CanUseJetpack>k__BackingField: 1
-  <CanClimb>k__BackingField: 1
-  <CanGrapple>k__BackingField: 1
   jumpAbility: {fileID: 4987531621271108515}
   jetpackAbility: {fileID: 4987531621271108514}
   grappleAbility: {fileID: 4987531621271108512}
@@ -3924,7 +3920,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8580765187050959828, guid: 9be6ee7d6ac528149b68bd9b419c9b3d, type: 3}
       propertyPath: m_NotificationBehavior
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4128,6 +4124,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::JetpackAbility
   jetPackForce: 7
   fuelMax: 1
+  fuelConsumptionRate: 1
+  fuelRechargeRate: 0.5
   jetpackParticles: {fileID: 959016551}
   jetpackSmoke: {fileID: 45917302}
   jetPackAudio: {fileID: 1069520333}
@@ -4187,6 +4185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bec393b5adeb2efab623021a8651797, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInputHandler
+  logInputs: 1
 --- !u!1001 &5029458720641285547
 PrefabInstance:
   m_ObjectHideFlags: 0
