@@ -5518,7 +5518,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3a672ec7f5476781a2483891523d2fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::JumpAbility
-  jumpForce: 8
+  jumpForce: 20
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
