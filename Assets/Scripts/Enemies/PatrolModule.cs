@@ -24,7 +24,7 @@ public class PatrolModule : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
+        animator = GetComponentInParent<Animator>();    
     }
 
     private void Start()
@@ -83,7 +83,8 @@ public class PatrolModule : MonoBehaviour
     {
         if (!isActive) return; // Ne rien faire si inactif
         
-        animator.SetBool("IsMoving", true);
+        if (animator != null)
+            animator.SetBool("IsMoving", true);
 
         transform.position = Vector2.MoveTowards(transform.position, points[currentPointNumber].position, moveSpeed * Time.deltaTime);
 

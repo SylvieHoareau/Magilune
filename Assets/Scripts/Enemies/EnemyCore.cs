@@ -121,12 +121,22 @@ public class EnemyCore : MonoBehaviour
 
     private void HandleAttackState(float dist)
     {
+          // Protection contre joueur détruit
+        if (!player)
+        {
+            TransitionTo(EnemyState.Patrol);
+            return;
+        }
+
         // On quitte l'état Attack si le joueur sort de la portée d'attaque maximale.
         float maxAttackRange = 0f;
-        if (meleeAttackModule != null) maxAttackRange = Mathf.Max(maxAttackRange, meleeAttackModule.AttackRange);
+
+        if (meleeAttackModule != null) 
+            maxAttackRange = Mathf.Max(maxAttackRange, meleeAttackModule.AttackRange);
         
         // On utilise la DÉTECTION comme portée de tir maximale.
-        if (rangedAttackModule != null) maxAttackRange = Mathf.Max(maxAttackRange, detectionRange); // Fallback: DetectionRange
+        if (rangedAttackModule != null) 
+            maxAttackRange = Mathf.Max(maxAttackRange, detectionRange); // Fallback: DetectionRange
         
         if (dist > maxAttackRange)
         {
@@ -139,21 +149,27 @@ public class EnemyCore : MonoBehaviour
         {
             patrolModule.LookAtTarget(player);
         }
-        
-        // --- LOGIQUE DE TIR CORRIGÉE ---
-        
-        // Calculer la direction de visée vers le joueur (pour le Gunner)
-        Vector2 fireDirection = (player.position - rangedAttackModule.firePoint.position).normalized; 
-        
-        // Tenter d'attaquer
+
+        // --- Attaque corps à corps
         if (meleeAttackModule != null && dist <= meleeAttackModule.AttackRange)
         {
             // Le Melee Attack Module n'a pas besoin de direction, il attaque frontalement
             meleeAttackModule.TryAttack();
+            return;
         }
-        else if (rangedAttackModule != null) // Pas de mêlée, ou hors de portée mêlée
+        
+        // --- LOGIQUE DE TIR CORRIGÉE ---
+        
+        // Calculer la direction de visée vers le joueur (pour le Gunner)
+        // Vector2 fireDirection = (player.position - rangedAttackModule.firePoint.position).normalized; 
+        
+        // Tenter d'attaquer
+       
+         if (rangedAttackModule != null && rangedAttackModule.firePoint != null)
         {
-            // Tenter de tirer avec la direction calculée (le changement majeur !)
+            Vector2 fireDirection = 
+                (player.position - rangedAttackModule.firePoint.position).normalized;
+
             rangedAttackModule.TryShoot(fireDirection);
         }
     }
@@ -239,6 +255,11 @@ public class EnemyCore : MonoBehaviour
 
     public void ResumeState()
     {
+        if (player == null || player.Equals(null))
+        {
+            TransitionTo(EnemyState.Patrol);
+            return;
+        }
         // Après avoir été blessé, on ne reprend pas l'état Hurt/Die.
         // On revient à la poursuite si le joueur est toujours là, sinon à la patrouille.
         float dist = Vector2.Distance(transform.position, player.position);
